@@ -16,3 +16,9 @@ RegistroStock::~RegistroStock()
 {
     delete uiRegistroStock;
 }
+
+void RegistroStock::on_pushButton_5_clicked()
+{
+ this->~RegistroStock();
+}
+

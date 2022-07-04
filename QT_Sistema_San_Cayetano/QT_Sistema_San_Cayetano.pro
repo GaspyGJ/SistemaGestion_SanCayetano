@@ -9,15 +9,27 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    cliente.cpp \
+    gestorclientes.cpp \
+    gestorproductos.cpp \
+    gestorventas.cpp \
     main.cpp \
     mainwindow.cpp \
+    producto.cpp \
     registroclientes.cpp \
-    registrostock.cpp
+    registrostock.cpp \
+    venta.cpp
 
 HEADERS += \
+    cliente.h \
+    gestorclientes.h \
+    gestorproductos.h \
+    gestorventas.h \
     mainwindow.h \
+    producto.h \
     registroclientes.h \
-    registrostock.h
+    registrostock.h \
+    venta.h
 
 FORMS += \
     mainwindow.ui \

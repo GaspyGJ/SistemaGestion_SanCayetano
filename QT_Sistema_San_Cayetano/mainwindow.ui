@@ -406,12 +406,12 @@ margin-bottom: 5px;</string>
       </column>
       <column>
        <property name="text">
-        <string>Peso</string>
+        <string>Precio Unidad</string>
        </property>
       </column>
       <column>
        <property name="text">
-        <string>Precio Total</string>
+        <string> </string>
        </property>
       </column>
       <item row="0" column="0">
@@ -453,7 +453,7 @@ margin-bottom: 5px;</string>
          <item>
           <widget class="QLabel" name="label_4">
            <property name="text">
-            <string>FECHA :</string>
+            <string>Ultima Modificaion :</string>
            </property>
           </widget>
          </item>

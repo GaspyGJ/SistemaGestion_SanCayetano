@@ -15,6 +15,9 @@ public:
     explicit RegistroStock(QWidget *parent = nullptr);
     ~RegistroStock();
 
+private slots:
+    void on_pushButton_5_clicked();
+
 private:
     Ui::RegistroStock * uiRegistroStock;
 };
