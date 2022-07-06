@@ -10,6 +10,8 @@ Venta::Venta(unsigned int IDcliente,unsigned int IDproducto,short cantidad){
 
 }
 
+Venta::~Venta(){}
+
 unsigned int Venta::getIDCliente(){
     return this->IDcliente;
 }

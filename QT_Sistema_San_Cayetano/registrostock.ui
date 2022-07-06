@@ -72,6 +72,13 @@
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_3">
          <item>
+          <widget class="QPushButton" name="pushButton_6">
+           <property name="text">
+            <string>Nuevo Producto</string>
+           </property>
+          </widget>
+         </item>
+         <item>
           <widget class="QPushButton" name="pushButton_3">
            <property name="text">
             <string>Generar PDF Stock</string>

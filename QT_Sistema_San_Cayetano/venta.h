@@ -23,6 +23,7 @@ public:
 
 private:
 
+
     unsigned int IDcliente;
     unsigned int IDproducto;
     short cantidad;

@@ -13,6 +13,19 @@ MainWindow::MainWindow(QWidget *parent)
     uiVentanaPrincipal->tablaVentas->setEditTriggers(QAbstractItemView::NoEditTriggers);
 }
 
+MainWindow::MainWindow(Administrador *administrador,QWidget *parent)
+    : QMainWindow(parent)
+    , uiVentanaPrincipal(new Ui::MainWindow)
+{
+    uiVentanaPrincipal->setupUi(this);
+    /*Para que las Columans de las tablas sea dinamica*/
+    uiVentanaPrincipal->tablaVentas->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    uiVentanaPrincipal->tablaVentas->setEditTriggers(QAbstractItemView::NoEditTriggers);
+
+    this->administrador= administrador;
+}
+
+
 MainWindow::~MainWindow()
 {
     delete uiVentanaPrincipal;

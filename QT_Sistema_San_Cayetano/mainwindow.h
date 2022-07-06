@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "administrador.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -13,6 +14,8 @@ class MainWindow : public QMainWindow
 
 public:
     MainWindow(QWidget *parent = nullptr);
+
+    MainWindow(Administrador *administrador,QWidget *parent = nullptr);
     ~MainWindow();
 
 private slots:
@@ -22,5 +25,7 @@ private slots:
 
 private:
     Ui::MainWindow *uiVentanaPrincipal;
+
+    Administrador *administrador;
 };
 #endif // MAINWINDOW_H
