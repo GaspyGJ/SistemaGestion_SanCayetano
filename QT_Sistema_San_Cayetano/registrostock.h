@@ -2,6 +2,7 @@
 #define REGISTROSTOCK_H
 
 #include <QMainWindow>
+#include "administrador.h"
 
 namespace Ui {
 class RegistroStock;
@@ -12,7 +13,7 @@ class RegistroStock : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit RegistroStock(QWidget *parent = nullptr);
+    explicit RegistroStock(Administrador *administrador,QWidget *parent = nullptr);
     ~RegistroStock();
 
 private slots:
@@ -20,6 +21,8 @@ private slots:
 
 private:
     Ui::RegistroStock * uiRegistroStock;
+
+     Administrador *administrador;
 };
 
 #endif // REGISTROSTOCK_H

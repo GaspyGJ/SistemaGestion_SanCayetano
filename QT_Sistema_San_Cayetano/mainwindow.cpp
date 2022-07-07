@@ -34,7 +34,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButton_3_clicked()
 {
-    RegistroClientes* VentanaCliente = new RegistroClientes();
+    RegistroClientes* VentanaCliente = new RegistroClientes(this->administrador,this);
 
    VentanaCliente->show();
 
@@ -43,7 +43,7 @@ void MainWindow::on_pushButton_3_clicked()
 
 void MainWindow::on_pushButton_2_clicked()
 {
-    RegistroStock* VentanaStock = new RegistroStock();
+    RegistroStock* VentanaStock = new RegistroStock(this->administrador,this);
 
     VentanaStock->show();
 }

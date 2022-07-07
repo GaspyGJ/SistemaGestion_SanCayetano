@@ -1,7 +1,7 @@
 #include "registrostock.h"
 #include "ui_registrostock.h"
 
-RegistroStock::RegistroStock(QWidget *parent) :
+RegistroStock::RegistroStock(Administrador *administrador,QWidget *parent) :
     QMainWindow(parent),
     uiRegistroStock( new Ui::RegistroStock)
 {
@@ -10,6 +10,8 @@ RegistroStock::RegistroStock(QWidget *parent) :
     /*Para que las Columans de las tablas sea dinamica*/
     uiRegistroStock->tablaStock->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
     uiRegistroStock->tablaStock->setEditTriggers(QAbstractItemView::NoEditTriggers);
+
+    this->administrador=administrador;
 }
 
 RegistroStock::~RegistroStock()

@@ -2,6 +2,7 @@
 #define REGISTROCLIENTES_H
 
 #include <QMainWindow>
+#include "administrador.h"
 
 namespace Ui {
 class RegistroClientes;
@@ -12,7 +13,7 @@ class RegistroClientes : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit RegistroClientes(QWidget *parent = nullptr);
+    explicit RegistroClientes(Administrador *administrador,QWidget *parent = nullptr);
     ~RegistroClientes();
 
 private slots:
@@ -20,6 +21,8 @@ private slots:
 
 private:
     Ui::RegistroClientes *uiRegistroClientes;
+
+    Administrador *administrador;
 };
 
 #endif // REGISTROCLIENTES_H

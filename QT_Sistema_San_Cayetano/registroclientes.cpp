@@ -1,7 +1,7 @@
 #include "registroclientes.h"
 #include "ui_registroclientes.h"
 
-RegistroClientes::RegistroClientes(QWidget *parent) :
+RegistroClientes::RegistroClientes(Administrador *administrador,QWidget *parent):
     QMainWindow(parent),
     uiRegistroClientes(new Ui::RegistroClientes)
 {
@@ -10,6 +10,9 @@ RegistroClientes::RegistroClientes(QWidget *parent) :
     /*Para que las Columans de las tablas sea dinamica*/
     uiRegistroClientes->tablaClientes->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
     uiRegistroClientes->tablaClientes->setEditTriggers(QAbstractItemView::NoEditTriggers);
+
+    this->administrador = administrador;
+
 }
 
 RegistroClientes::~RegistroClientes()
