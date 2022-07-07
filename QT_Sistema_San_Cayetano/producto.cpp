@@ -5,6 +5,7 @@ Producto::Producto(unsigned int ID,QString nombre,short peso,double precio){
     this->setPeso(peso);
     this->setPrecio(precio);
     this->setID(ID);
+    this->setCantidad(0);
 }
 
 Producto::~Producto(){
@@ -27,9 +28,14 @@ QString Producto::getFechaUltimaIncorporacion(){
     return this->nombre;
 }
 
+int Producto::getCantidad(){
+    return this->cantidad;
+}
+
 unsigned int Producto::getID(){
     return this->ID;
 }
+
 
 
 
@@ -44,6 +50,9 @@ void Producto::setPeso(short peso){
 }
 void Producto::setPrecio(double precio){
     this->precio=precio;
+}
+void Producto::setCantidad(int cantidad){
+    this->cantidad=cantidad;
 }
 void Producto::setFechaUltimaIncorporacion(QDate fecha){
      this->FechaUltimaIncorporacion=fecha;

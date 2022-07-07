@@ -23,6 +23,30 @@ short GestorProductos::buscarProducto(unsigned int ID){
     return -1;
 }
 
+Producto* GestorProductos::getProducto(unsigned int ID){
+
+    int pos = this->buscarProducto(ID);
+    if(pos!=-1){
+        return this->vecProductos[pos];
+    }
+
+    return NULL;
+}
+
+
+QVector<unsigned int> GestorProductos::getAll_ID_Productos(){
+
+    QVector <unsigned int> vID;
+
+    for(int i=0; i<this->vecProductos.length(); i++ ){
+
+        vID.push_back(this->vecProductos[i]->getID());
+    }
+
+    return  vID;
+}
+
+
 void GestorProductos::modificarNombre(unsigned int ID, QString nombre){
 
     short posProducto = this->buscarProducto(ID);
@@ -100,5 +124,26 @@ void GestorProductos::modificarFechaUltimaIncorporacion(unsigned int ID,QDate fe
         qDebug("El ID del cliente no se encontro en el registro de clientes");
          // TIRAR UN ERROR
     }
+
+}
+
+
+void GestorProductos::eliminarProducto(unsigned int ID){
+
+    int posProducto = this->buscarProducto(ID);
+
+    if(posProducto!=-1){
+
+       //Elimina el producto del vector
+        this->vecProductos.erase(this->vecProductos.begin() + posProducto);
+
+        //Elimino el Objeto especifico
+        Producto *p = this->getProducto(ID);
+        p->~Producto();
+    }
+    else{
+        qDebug("No existe el Producto");
+    }
+
 
 }
