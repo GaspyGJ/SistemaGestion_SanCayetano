@@ -16,6 +16,7 @@ SOURCES += \
     gestorventas.cpp \
     main.cpp \
     mainwindow.cpp \
+    nuevoproducto.cpp \
     producto.cpp \
     registroclientes.cpp \
     registrostock.cpp \
@@ -28,6 +29,7 @@ HEADERS += \
     gestorproductos.h \
     gestorventas.h \
     mainwindow.h \
+    nuevoproducto.h \
     producto.h \
     registroclientes.h \
     registrostock.h \
@@ -35,6 +37,7 @@ HEADERS += \
 
 FORMS += \
     mainwindow.ui \
+    nuevoproducto.ui \
     registroclientes.ui \
     registrostock.ui
 
