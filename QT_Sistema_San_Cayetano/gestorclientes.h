@@ -22,7 +22,13 @@ public:
 
     void eliminarCliente(unsigned int ID);
 
+
+     Cliente* getCliente(unsigned int ID); //devuelve un puntero al cliente
+
+     QVector<unsigned int> getAll_ID_Clientes(); //retorna todos los Ids de los clientes
+
 private:
+
     QVector<Cliente *> vecClientes;
 
     unsigned int ultimoID;

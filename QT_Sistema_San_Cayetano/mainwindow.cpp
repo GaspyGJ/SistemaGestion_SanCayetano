@@ -48,3 +48,4 @@ void MainWindow::on_pushButton_2_clicked()
     VentanaStock->show();
 }
 
+

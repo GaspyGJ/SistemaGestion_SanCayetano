@@ -10,6 +10,11 @@ void GestorProductos::agregarProducto(QString nombre,short peso,double precio){
 
 
 }
+
+unsigned int  GestorProductos::getLastID(){
+    return this->ultimoID;
+}
+
 //LA FUNCION DE BUSCAR SE PODRIA GENERALIZAR, YA Q ES IGUAL A LA FUNCION EN CLIENTE
 short GestorProductos::buscarProducto(unsigned int ID){
 

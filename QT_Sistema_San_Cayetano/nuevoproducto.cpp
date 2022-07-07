@@ -36,6 +36,8 @@ void NuevoProducto::on_btn_Aceptar_clicked(){
         qDebug()<<"Peso = "<<ui->input_Peso->text()<<Qt::endl;
         qDebug()<<"Precio = "<<ui->input_Precio->text()<<Qt::endl;
 
+        emit ProductoCreadoCorrectamente();
+
         this->~NuevoProducto();
 
     }

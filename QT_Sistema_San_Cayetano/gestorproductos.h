@@ -26,10 +26,11 @@ public:
 
     void modificarFechaUltimaIncorporacion(unsigned int ID,QDate fecha);
 
-
     void eliminarProducto(unsigned int ID);
 
     QVector<unsigned int> getAll_ID_Productos(); //retorna todos los Ids de los productos
+
+    unsigned int getLastID();
 
 private:
 

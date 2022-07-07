@@ -21,10 +21,23 @@ private slots:
 
     void on_btn_NuevoProducto_clicked();
 
+    void add_Last_Producto_To_Tabla();
+
+    //HACER
+    void actualizarTabla();// Rellenar la tabla al abrir la ventana o al modificar/eliminar algun producto.
+
 private:
-    Ui::RegistroStock * uiRegistroStock;
+    Ui::RegistroStock *uiRegistroStock;
 
      Administrador *administrador;
+
+
+
+     int ultimaColumnaConDatos;
+
+     enum Columna{
+         NOMBRE , CANTIDAD , FECHA_INCORPORACION , PROVEEDORES
+     };
 };
 
 #endif // REGISTROSTOCK_H

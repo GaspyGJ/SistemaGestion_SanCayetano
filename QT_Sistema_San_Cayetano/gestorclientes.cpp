@@ -26,6 +26,26 @@ short GestorClientes::buscarCliente(unsigned int ID){
     return -1;
 }
 
+Cliente* GestorClientes::getCliente(unsigned int ID){
+    int pos = this->buscarCliente(ID);
+    if(pos!=-1){
+        return this->vecClientes[pos];
+    }
+
+    return NULL;
+}
+
+QVector<unsigned int> GestorClientes::getAll_ID_Clientes(){
+    QVector <unsigned int> vID;
+
+    for(int i=0; i<this->vecClientes.length(); i++ ){
+
+        vID.push_back(this->vecClientes[i]->getID());
+    }
+
+    return  vID;
+}
+
 void GestorClientes::modificarNombre(unsigned int ID, QString nombre){
 
     short posCliente = this->buscarCliente(ID);
@@ -81,11 +101,12 @@ void GestorClientes::eliminarCliente(unsigned int ID){
 
      if ( posCliente != -1){
 
-           //QVector<Cliente>::iterator  iterador = vecClientes.begin();
+           //lo elimino del vector
+         this->vecClientes.erase(this->vecClientes.begin()+posCliente);
 
-          // iterador+=posCliente;
-            //Elimina un elemento del vector
-         //  this->vecClientes.erase(iterador);
+         //Elimino el Objeto especifico
+         Cliente *c = this->getCliente(ID);
+         c->~Cliente();
      }
      else{
          qDebug("El ID del cliente no se encontro en el registro de clientes");
