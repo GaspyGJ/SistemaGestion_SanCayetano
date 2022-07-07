@@ -2,17 +2,21 @@
 
 GestorProductos::GestorProductos(){ }
 
-void GestorProductos::agregarProducto(Producto producto){
+void GestorProductos::agregarProducto(QString nombre,short peso,double precio){
     //tendria q crearse aca el Producto creo
-    this->vecProductos.push_back(producto);
-}
 
+    this->ultimoID+=1;
+    Producto *p = new Producto(this->ultimoID,nombre,peso,precio);
+    this->vecProductos.push_back(p);
+
+
+}
 //LA FUNCION DE BUSCAR SE PODRIA GENERALIZAR, YA Q ES IGUAL A LA FUNCION EN CLIENTE
 short GestorProductos::buscarProducto(unsigned int ID){
 
     for(int i=0; i<this->vecProductos.length(); i++ ){
 
-        if(this->vecProductos[i].getID()==ID){
+        if(this->vecProductos[i]->getID()==ID){
             return i;
         }
     }
@@ -26,7 +30,7 @@ void GestorProductos::modificarNombre(unsigned int ID, QString nombre){
 
     if ( posProducto != -1){
 
-        this->vecProductos[posProducto].setNombre(nombre);
+        this->vecProductos[posProducto]->setNombre(nombre);
 
     }
     else{
@@ -42,7 +46,7 @@ void GestorProductos::modificarProveedor(unsigned int ID,QString proveedor){
 
     if ( posProducto != -1){
 
-        this->vecProductos[posProducto].setNombre(proveedor);
+        this->vecProductos[posProducto]->setNombre(proveedor);
 
     }
     else{
@@ -58,7 +62,7 @@ void GestorProductos::modificarPeso(unsigned int ID,short peso){
 
     if ( posProducto != -1){
 
-        this->vecProductos[posProducto].setPeso(peso);
+        this->vecProductos[posProducto]->setPeso(peso);
 
     }
     else{
@@ -74,7 +78,7 @@ void GestorProductos::modificarPrecio(unsigned int ID,double precio){
 
     if ( posProducto != -1){
 
-        this->vecProductos[posProducto].setPrecio(precio);
+        this->vecProductos[posProducto]->setPrecio(precio);
 
     }
     else{
@@ -90,7 +94,7 @@ void GestorProductos::modificarFechaUltimaIncorporacion(unsigned int ID,QDate fe
 
     if ( posProducto != -1){
 
-        this->vecProductos[posProducto].setFechaUltimaIncorporacion(fecha);
+        this->vecProductos[posProducto]->setFechaUltimaIncorporacion(fecha);
 
     }
     else{

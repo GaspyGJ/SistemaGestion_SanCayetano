@@ -9,7 +9,7 @@ public:
     GestorProductos();
 
 
-    void agregarProducto(Producto producto);
+    void agregarProducto(QString nombre,short peso,double precio);
 
     short buscarProducto(unsigned int ID); // devuelve la posicion de vecProductos donde esta el de ID, si no esta retorna -1
 
@@ -25,7 +25,9 @@ public:
 
 private:
 
-    QVector <Producto> vecProductos;
+    QVector <Producto *> vecProductos;
+
+    unsigned int ultimoID;
 };
 
 #endif // GESTORPRODUCTOS_H

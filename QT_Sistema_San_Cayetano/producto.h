@@ -8,7 +8,7 @@ class Producto
 {
 public:
 
-    Producto(QString nombre,QString proveedor);
+    Producto(unsigned int ID,QString nombre,short peso,double precio);
     ~Producto();
 
     QString getNombre();

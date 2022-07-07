@@ -4,9 +4,13 @@
 GestorClientes::GestorClientes(){ }
 
 
-void GestorClientes::agregarCliente(Cliente cliente){
-    //tendria q crearse aca el Cliente creo
-    this->vecClientes.push_back(cliente);
+void GestorClientes::agregarCliente(QString nombre,QString telefono, QString direccion){
+
+    this->ultimoID+=1;
+
+    Cliente *c= new Cliente(this->ultimoID,nombre,telefono,direccion);
+
+    this->vecClientes.push_back(c);
 
 }
 
@@ -14,7 +18,7 @@ short GestorClientes::buscarCliente(unsigned int ID){
 
     for(int i=0; i<this->vecClientes.length(); i++ ){
 
-        if(this->vecClientes[i].getID()==ID){
+        if(this->vecClientes[i]->getID()==ID){
             return i;
         }
     }
@@ -28,7 +32,7 @@ void GestorClientes::modificarNombre(unsigned int ID, QString nombre){
 
     if ( posCliente != -1){
 
-        this->vecClientes[posCliente].setNombre(nombre);
+        this->vecClientes[posCliente]->setNombre(nombre);
 
     }
     else{
@@ -44,7 +48,7 @@ void GestorClientes::modificarTelefono(unsigned int ID, QString telefono){
 
     if ( posCliente != -1){
 
-        this->vecClientes[posCliente].setTelefono(telefono);
+        this->vecClientes[posCliente]->setTelefono(telefono);
 
     }
     else{
@@ -61,7 +65,7 @@ void GestorClientes::modificarDireccion(unsigned int ID, QString direccion){
 
     if ( posCliente != -1){
 
-        this->vecClientes[posCliente].setDireccion(direccion);
+        this->vecClientes[posCliente]->setDireccion(direccion);
 
     }
     else{

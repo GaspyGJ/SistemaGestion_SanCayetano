@@ -1,8 +1,10 @@
 #include "producto.h"
 
-Producto::Producto(QString nombre,QString proveedor){
-    setNombre(nombre);
-    setProveedor(proveedor);
+Producto::Producto(unsigned int ID,QString nombre,short peso,double precio){
+    this->setNombre(nombre);
+    this->setPeso(peso);
+    this->setPrecio(precio);
+    this->setID(ID);
 }
 
 Producto::~Producto(){

@@ -10,7 +10,7 @@ class GestorClientes
 public:
     GestorClientes();
 
-    void agregarCliente(Cliente cliente);
+    void agregarCliente(QString nombre,QString telefono, QString direccion);
 
     short buscarCliente(unsigned int ID); // devuelve la posicion de vecClientes donde esta el de ID, si no esta retorna -1
 
@@ -23,7 +23,9 @@ public:
     void eliminarCliente(unsigned int ID);
 
 private:
-    QVector<Cliente> vecClientes;
+    QVector<Cliente *> vecClientes;
+
+    unsigned int ultimoID;
 
 };
 
