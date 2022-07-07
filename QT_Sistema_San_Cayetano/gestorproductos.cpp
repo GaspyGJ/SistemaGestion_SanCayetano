@@ -3,7 +3,6 @@
 GestorProductos::GestorProductos(){ }
 
 void GestorProductos::agregarProducto(QString nombre,short peso,double precio){
-    //tendria q crearse aca el Producto creo
 
     this->ultimoID+=1;
     Producto *p = new Producto(this->ultimoID,nombre,peso,precio);
