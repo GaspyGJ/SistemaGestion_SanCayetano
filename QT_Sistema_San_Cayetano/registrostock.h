@@ -19,6 +19,8 @@ public:
 private slots:
     void on_pushButton_5_clicked();
 
+    void on_btn_NuevoProducto_clicked();
+
 private:
     Ui::RegistroStock * uiRegistroStock;
 

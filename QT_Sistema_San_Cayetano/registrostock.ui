@@ -72,7 +72,7 @@
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_3">
          <item>
-          <widget class="QPushButton" name="pushButton_6">
+          <widget class="QPushButton" name="btn_NuevoProducto">
            <property name="text">
             <string>Nuevo Producto</string>
            </property>

@@ -16,6 +16,11 @@ public:
     explicit NuevoProducto(Administrador *administrador,QWidget *parent = nullptr);
     ~NuevoProducto();
 
+private slots:
+    void on_btn_cancelar_clicked();
+
+    void on_btn_Aceptar_clicked();
+
 private:
     Ui::NuevoProducto *ui;
     Administrador *administrador;
