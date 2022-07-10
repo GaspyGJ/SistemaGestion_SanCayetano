@@ -37,7 +37,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QComboBox" name="comboBox"/>
+          <widget class="QComboBox" name="select_Producto"/>
          </item>
          <item>
           <widget class="QLabel" name="label_2">
@@ -47,10 +47,10 @@
           </widget>
          </item>
          <item>
-          <widget class="QLineEdit" name="lineEdit"/>
+          <widget class="QLineEdit" name="input_Cantidad"/>
          </item>
          <item>
-          <widget class="QPushButton" name="pushButton">
+          <widget class="QPushButton" name="btn_ActualizarStock">
            <property name="text">
             <string>Actualizar Stock</string>
            </property>
@@ -127,11 +127,6 @@
         <string>Fecha Ultima Incorporacion</string>
        </property>
       </column>
-      <column>
-       <property name="text">
-        <string>Proveedores</string>
-       </property>
-      </column>
      </widget>
     </item>
    </layout>
@@ -149,9 +144,9 @@
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <tabstops>
-  <tabstop>comboBox</tabstop>
-  <tabstop>lineEdit</tabstop>
-  <tabstop>pushButton</tabstop>
+  <tabstop>select_Producto</tabstop>
+  <tabstop>input_Cantidad</tabstop>
+  <tabstop>btn_ActualizarStock</tabstop>
   <tabstop>pushButton_3</tabstop>
   <tabstop>pushButton_4</tabstop>
   <tabstop>pushButton_5</tabstop>

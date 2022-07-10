@@ -17,14 +17,24 @@ public:
     ~RegistroStock();
 
 private slots:
-    void on_pushButton_5_clicked();
 
-    void on_btn_NuevoProducto_clicked();
+    //Funciones con los Widgets
+     void on_pushButton_5_clicked();
 
-    void add_Last_Producto_To_Tabla();
+     void on_btn_NuevoProducto_clicked();
+
+
+
+    //
+
+    void UpdateComboProduct(); // toma el ultimo producto agregado y lo aniade al combo
+
+    void UpdateTableProduct();
 
     //HACER
-    void actualizarTabla();// Rellenar la tabla al abrir la ventana o al modificar/eliminar algun producto.
+    //void actualizarTabla();// Rellenar la tabla al abrir la ventana o al modificar/eliminar algun producto.
+
+    void on_btn_ActualizarStock_clicked();
 
 private:
     Ui::RegistroStock *uiRegistroStock;
