@@ -1,10 +1,10 @@
 #include "producto.h"
 
-Producto::Producto(unsigned int ID,QString nombre,short peso,double precio){
-    this->setNombre(nombre);
-    this->setPeso(peso);
-    this->setPrecio(precio);
+Producto::Producto(unsigned int ID,QString nombre,/*short peso,*/double precio){
     this->setID(ID);
+    this->setNombre(nombre);
+    //this->setPeso(peso);
+    this->setPrecio(precio);
     this->setCantidad(0);
 }
 
@@ -18,9 +18,9 @@ QString Producto::getNombre(){
 QString Producto::getProveedor(){
     return this->nombre;
 }
-short Producto::getPeso(){
+/*short Producto::getPeso(){
     return this->peso;
-}
+}*/
 double Producto::getPrecio(){
     return this->precio;
 }
@@ -45,9 +45,9 @@ void Producto::setNombre(QString nombre){
 void Producto::setProveedor(QString proveedor){
     this->proveedor=proveedor;
 }
-void Producto::setPeso(short peso){
+/*void Producto::setPeso(short peso){
     this->peso=peso;
-}
+}*/
 void Producto::setPrecio(double precio){
     this->precio=precio;
 }

@@ -8,12 +8,12 @@ class Producto
 {
 public:
 
-    Producto(unsigned int ID,QString nombre,short peso,double precio);
+    Producto(unsigned int ID,QString nombre,double precio);
     ~Producto();
 
     QString getNombre();
     QString getProveedor();
-    short getPeso();
+  //  short getPeso();
     double getPrecio();
     QString getFechaUltimaIncorporacion();
     unsigned int getID();
@@ -21,7 +21,7 @@ public:
 
     void setNombre(QString nombre);
     void setProveedor(QString proveedor);
-    void setPeso(short peso);
+  //  void setPeso(short peso);
     void setPrecio(double precio);
     void setFechaUltimaIncorporacion(QDate fecha);
     void setID(unsigned int ID);
@@ -33,7 +33,7 @@ private:
     unsigned int ID;
     QString nombre;
     QString proveedor;
-    short peso;
+   // short peso;
     double precio;
     int cantidad;
     QDate FechaUltimaIncorporacion;

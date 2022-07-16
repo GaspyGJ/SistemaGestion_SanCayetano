@@ -21,32 +21,23 @@ private slots:
     //Funciones con los Widgets
      void on_pushButton_5_clicked();
 
-     void on_btn_NuevoProducto_clicked();
-
-
-
     //
 
-    void UpdateComboProduct(); // toma el ultimo producto agregado y lo aniade al combo
-
-    void UpdateTableProduct();
-
-    //HACER
-    //void actualizarTabla();// Rellenar la tabla al abrir la ventana o al modificar/eliminar algun producto.
+    void rellenarTableProduct();
 
     void on_btn_ActualizarStock_clicked();
 
+    void on_btn_ActualizarPrecio_clicked();
+
 private:
-    Ui::RegistroStock *uiRegistroStock;
+     Ui::RegistroStock *uiRegistroStock;
 
      Administrador *administrador;
-
-
 
      int ultimaColumnaConDatos;
 
      enum Columna{
-         NOMBRE , CANTIDAD , FECHA_INCORPORACION , PROVEEDORES
+         NOMBRE ,PRECIO,CANTIDAD , FECHA_INCORPORACION
      };
 };
 

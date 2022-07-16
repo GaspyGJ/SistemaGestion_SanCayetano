@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 7.0.2, 2022-07-08T16:56:54. -->
+<!-- Written by QtCreator 7.0.2, 2022-07-16T02:08:15. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
-  <value type="QByteArray">{a59644bd-4234-486e-9c1e-5fb31a54fc1b}</value>
+  <value type="QByteArray">{04c76910-deda-4a45-ac1d-bfe0ce6c8ebd}</value>
  </data>
  <data>
   <variable>ProjectExplorer.Project.ActiveTarget</variable>
@@ -79,7 +79,7 @@
     <value type="bool" key="ClangTools.AnalyzeOpenFiles">true</value>
     <value type="bool" key="ClangTools.BuildBeforeAnalysis">true</value>
     <value type="QString" key="ClangTools.DiagnosticConfig">Builtin.DefaultTidyAndClazy</value>
-    <value type="int" key="ClangTools.ParallelJobs">6</value>
+    <value type="int" key="ClangTools.ParallelJobs">4</value>
     <valuelist type="QVariantList" key="ClangTools.SelectedDirs"/>
     <valuelist type="QVariantList" key="ClangTools.SelectedFiles"/>
     <valuelist type="QVariantList" key="ClangTools.SuppressedDiagnostics"/>
@@ -91,16 +91,16 @@
   <variable>ProjectExplorer.Project.Target.0</variable>
   <valuemap type="QVariantMap">
    <value type="QString" key="DeviceType">Desktop</value>
-   <value type="QString" key="ProjectExplorer.ProjectConfiguration.DefaultDisplayName">Desktop Qt 6.4.0 MinGW 64-bit</value>
-   <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">Desktop Qt 6.4.0 MinGW 64-bit</value>
-   <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">qt.qt6.dev.win64_mingw_kit</value>
+   <value type="QString" key="ProjectExplorer.ProjectConfiguration.DefaultDisplayName">Desktop Qt 6.3.0 MinGW 64-bit</value>
+   <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">Desktop Qt 6.3.0 MinGW 64-bit</value>
+   <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">qt.qt6.630.win64_mingw_kit</value>
    <value type="qlonglong" key="ProjectExplorer.Target.ActiveBuildConfiguration">0</value>
    <value type="qlonglong" key="ProjectExplorer.Target.ActiveDeployConfiguration">0</value>
    <value type="qlonglong" key="ProjectExplorer.Target.ActiveRunConfiguration">0</value>
    <valuemap type="QVariantMap" key="ProjectExplorer.Target.BuildConfiguration.0">
     <value type="int" key="EnableQmlDebugging">0</value>
-    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">C:\Users\CompuGaspy\Desktop\Proyectos\PracticandoC++\San_Cayetano_Sistema\build-QT_Sistema_San_Cayetano-Desktop_Qt_6_4_0_MinGW_64_bit-Debug</value>
-    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory.shadowDir">C:/Users/CompuGaspy/Desktop/Proyectos/PracticandoC++/San_Cayetano_Sistema/build-QT_Sistema_San_Cayetano-Desktop_Qt_6_4_0_MinGW_64_bit-Debug</value>
+    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">C:\Users\Gaspy\OneDrive\Desktop\Proyectos\Proyectos-Finales\SistemaGestion_SanCayetano\build-QT_Sistema_San_Cayetano-Desktop_Qt_6_3_0_MinGW_64_bit-Debug</value>
+    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory.shadowDir">C:/Users/Gaspy/OneDrive/Desktop/Proyectos/Proyectos-Finales/SistemaGestion_SanCayetano/build-QT_Sistema_San_Cayetano-Desktop_Qt_6_3_0_MinGW_64_bit-Debug</value>
     <valuemap type="QVariantMap" key="ProjectExplorer.BuildConfiguration.BuildStepList.0">
      <valuemap type="QVariantMap" key="ProjectExplorer.BuildStepList.Step.0">
       <value type="bool" key="ProjectExplorer.BuildStep.Enabled">true</value>
@@ -138,8 +138,8 @@
     <value type="int" key="Qt4ProjectManager.Qt4BuildConfiguration.BuildConfiguration">2</value>
    </valuemap>
    <valuemap type="QVariantMap" key="ProjectExplorer.Target.BuildConfiguration.1">
-    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">C:\Users\CompuGaspy\Desktop\Proyectos\PracticandoC++\San_Cayetano_Sistema\build-QT_Sistema_San_Cayetano-Desktop_Qt_6_4_0_MinGW_64_bit-Release</value>
-    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory.shadowDir">C:/Users/CompuGaspy/Desktop/Proyectos/PracticandoC++/San_Cayetano_Sistema/build-QT_Sistema_San_Cayetano-Desktop_Qt_6_4_0_MinGW_64_bit-Release</value>
+    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">C:\Users\Gaspy\OneDrive\Desktop\Proyectos\Proyectos-Finales\SistemaGestion_SanCayetano\build-QT_Sistema_San_Cayetano-Desktop_Qt_6_3_0_MinGW_64_bit-Release</value>
+    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory.shadowDir">C:/Users/Gaspy/OneDrive/Desktop/Proyectos/Proyectos-Finales/SistemaGestion_SanCayetano/build-QT_Sistema_San_Cayetano-Desktop_Qt_6_3_0_MinGW_64_bit-Release</value>
     <valuemap type="QVariantMap" key="ProjectExplorer.BuildConfiguration.BuildStepList.0">
      <valuemap type="QVariantMap" key="ProjectExplorer.BuildStepList.Step.0">
       <value type="bool" key="ProjectExplorer.BuildStep.Enabled">true</value>
@@ -179,8 +179,8 @@
    </valuemap>
    <valuemap type="QVariantMap" key="ProjectExplorer.Target.BuildConfiguration.2">
     <value type="int" key="EnableQmlDebugging">0</value>
-    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">C:\Users\CompuGaspy\Desktop\Proyectos\PracticandoC++\San_Cayetano_Sistema\build-QT_Sistema_San_Cayetano-Desktop_Qt_6_4_0_MinGW_64_bit-Profile</value>
-    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory.shadowDir">C:/Users/CompuGaspy/Desktop/Proyectos/PracticandoC++/San_Cayetano_Sistema/build-QT_Sistema_San_Cayetano-Desktop_Qt_6_4_0_MinGW_64_bit-Profile</value>
+    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">C:\Users\Gaspy\OneDrive\Desktop\Proyectos\Proyectos-Finales\SistemaGestion_SanCayetano\build-QT_Sistema_San_Cayetano-Desktop_Qt_6_3_0_MinGW_64_bit-Profile</value>
+    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory.shadowDir">C:/Users/Gaspy/OneDrive/Desktop/Proyectos/Proyectos-Finales/SistemaGestion_SanCayetano/build-QT_Sistema_San_Cayetano-Desktop_Qt_6_3_0_MinGW_64_bit-Profile</value>
     <valuemap type="QVariantMap" key="ProjectExplorer.BuildConfiguration.BuildStepList.0">
      <valuemap type="QVariantMap" key="ProjectExplorer.BuildStepList.Step.0">
       <value type="bool" key="ProjectExplorer.BuildStep.Enabled">true</value>
@@ -240,15 +240,14 @@
     <valuelist type="QVariantList" key="CustomOutputParsers"/>
     <value type="int" key="PE.EnvironmentAspect.Base">2</value>
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">QT_Sistema_San_Cayetano2</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:C:/Users/CompuGaspy/Desktop/Proyectos/PracticandoC++/SistemaGestion_SanCayetano/QT_Sistema_San_Cayetano/QT_Sistema_San_Cayetano.pro</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/CompuGaspy/Desktop/Proyectos/PracticandoC++/SistemaGestion_SanCayetano/QT_Sistema_San_Cayetano/QT_Sistema_San_Cayetano.pro</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:C:/Users/Gaspy/OneDrive/Desktop/Proyectos/Proyectos-Finales/SistemaGestion_SanCayetano/QT_Sistema_San_Cayetano/QT_Sistema_San_Cayetano.pro</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/Gaspy/OneDrive/Desktop/Proyectos/Proyectos-Finales/SistemaGestion_SanCayetano/QT_Sistema_San_Cayetano/QT_Sistema_San_Cayetano.pro</value>
     <value type="bool" key="RunConfiguration.UseCppDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
     <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
     <value type="bool" key="RunConfiguration.UseQmlDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
-    <value type="QString" key="RunConfiguration.WorkingDirectory.default">C:/Users/CompuGaspy/Desktop/Proyectos/PracticandoC++/San_Cayetano_Sistema/build-QT_Sistema_San_Cayetano-Desktop_Qt_6_4_0_MinGW_64_bit-Debug</value>
+    <value type="QString" key="RunConfiguration.WorkingDirectory.default">C:/Users/Gaspy/OneDrive/Desktop/Proyectos/Proyectos-Finales/SistemaGestion_SanCayetano/build-QT_Sistema_San_Cayetano-Desktop_Qt_6_3_0_MinGW_64_bit-Debug</value>
    </valuemap>
    <value type="qlonglong" key="ProjectExplorer.Target.RunConfigurationCount">1</value>
   </valuemap>

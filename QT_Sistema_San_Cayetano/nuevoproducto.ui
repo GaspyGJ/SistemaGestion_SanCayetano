@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>238</width>
-    <height>179</height>
+    <width>211</width>
+    <height>148</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -28,23 +28,13 @@
        <widget class="QLineEdit" name="input_Nombre"/>
       </item>
       <item row="1" column="0">
-       <widget class="QLabel" name="label_2">
-        <property name="text">
-         <string>Peso :</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="1">
-       <widget class="QLineEdit" name="input_Peso"/>
-      </item>
-      <item row="2" column="0">
        <widget class="QLabel" name="label_3">
         <property name="text">
          <string>Precio :</string>
         </property>
        </widget>
       </item>
-      <item row="2" column="1">
+      <item row="1" column="1">
        <widget class="QLineEdit" name="input_Precio"/>
       </item>
      </layout>
@@ -74,8 +64,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>238</width>
-     <height>21</height>
+     <width>211</width>
+     <height>17</height>
     </rect>
    </property>
   </widget>

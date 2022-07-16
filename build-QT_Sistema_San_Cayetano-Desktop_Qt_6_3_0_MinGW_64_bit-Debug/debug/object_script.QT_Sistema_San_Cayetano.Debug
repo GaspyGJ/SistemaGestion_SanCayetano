@@ -1,0 +1,16 @@
+debug/administrador.o
+debug/cliente.o
+debug/gestorclientes.o
+debug/gestorproductos.o
+debug/gestorventas.o
+debug/main.o
+debug/mainwindow.o
+debug/nuevoproducto.o
+debug/producto.o
+debug/registroclientes.o
+debug/registrostock.o
+debug/venta.o
+debug/moc_mainwindow.o
+debug/moc_nuevoproducto.o
+debug/moc_registroclientes.o
+debug/moc_registrostock.o

@@ -1,11 +1,40 @@
 #include "gestorproductos.h"
 
-GestorProductos::GestorProductos(){ }
+GestorProductos::GestorProductos(){
 
-void GestorProductos::agregarProducto(QString nombre,short peso,double precio){
+    this->ultimoID=-1;
+
+    // @@ con Base de Datos
+    // se crea el gestor y debe sacar de la bbdd los datos para iniciar
+    //el listado de productos con sus precios
+
+    //Ahora lo hago sin base de datos para poder probar
+    agregarProducto("Bolsa Hielo Rolito 4 [kg]", 1);
+    agregarProducto("Bolsa Hielo Rolito 10 [kg]", 2);
+    agregarProducto("Bolsa Hielo Rolito 14 [kg]", 3);
+    agregarProducto("Bolsa Hielo Molido 10 [kg]", 4);
+
+    agregarProducto("Agua desmineralizada 1 [L]", 1);
+    agregarProducto("Agua desmineralizada 5 [L]", 2);
+    agregarProducto("Agua desmineralizada Pack 8 unidades 1 [L]", 4);
+    agregarProducto("Agua desmineralizada Pack 6 unidades 5 [L]", 3);
+
+
+    agregarProducto("Liquido Refrigerante 1 [L]", 1);
+    agregarProducto("Liquido Refrigerante 5 [L]", 2);
+    agregarProducto("Liquido Refrigerante Pack 8 unidades 1 [L]", 3);
+    agregarProducto("Liquido Refrigerante Pack 6 unidades 5 [L]", 4);
+
+    agregarProducto("Agua Desmineralizada Granel 1 [L]", 1);
+    agregarProducto("Liquido Refrigerante Granel 1 [L]", 2);
+    // fin de la agregacion al vector de productos.
+
+}
+
+void GestorProductos::agregarProducto(QString nombre,double precio){
 
     this->ultimoID+=1;
-    Producto *p = new Producto(this->ultimoID,nombre,peso,precio);
+    Producto *p = new Producto(this->ultimoID,nombre,precio);
     this->vecProductos.push_back(p);
 
 
@@ -84,7 +113,7 @@ void GestorProductos::modificarProveedor(unsigned int ID,QString proveedor){
 
 }
 
-void GestorProductos::modificarPeso(unsigned int ID,short peso){
+/*void GestorProductos::modificarPeso(unsigned int ID,short peso){
 
     short posProducto = this->buscarProducto(ID);
 
@@ -98,7 +127,7 @@ void GestorProductos::modificarPeso(unsigned int ID,short peso){
          // TIRAR UN ERROR
     }
 
-}
+}*/
 
 void GestorProductos::modificarPrecio(unsigned int ID,double precio){
 

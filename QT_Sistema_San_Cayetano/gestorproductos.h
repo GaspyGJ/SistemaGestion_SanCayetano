@@ -10,7 +10,7 @@ public:
     GestorProductos();
 
 
-    void agregarProducto(QString nombre,short peso,double precio);
+    void agregarProducto(QString nombre,double precio);
 
     short buscarProducto(unsigned int ID); // devuelve la posicion de vecProductos donde esta el de ID, si no esta retorna -1
 
@@ -20,7 +20,7 @@ public:
 
     void modificarProveedor(unsigned int ID,QString proveedor);
 
-    void modificarPeso(unsigned int ID,short peso);
+   // void modificarPeso(unsigned int ID,short peso);
 
     void modificarPrecio(unsigned int ID,double precio);
 
