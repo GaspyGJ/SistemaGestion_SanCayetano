@@ -1,11 +1,8 @@
 /* @@ Creo q la mayoria de las verificaciones de los inppues ya esta hecha
  * faltaria por ejemplo : cuando en cantidad se ingresa 0000... --> solo se coloque 0 y no 0000...
-
-Faltaria agregar BBDD y sacar la informacion de ahi.. tambien actualizarla.
-ahora solo trabajo localmente y sin guardar los valores que cambio.
-
-el stock no esta desde el principio --> abria q agregarla
-tampoco esta fecha de actualizacion
+ * LA VALIDACION DE CANTIDAD (ENTERA) --> ACEPTA , (COMAS)  VERIFICAR ESO , PARA QUE NO LAS ACEPTE
+ *
+ * EL ID DEL PRODUCTO DEBERIA ESTAR EN LA TABLA , Y SACAR LOS NUMEROS DE LA FILA DE LA TABLA
 */
 
 #include "registrostock.h"
@@ -22,22 +19,20 @@ RegistroStock::RegistroStock(Administrador *administrador,QWidget *parent) :
 
     this->administrador=administrador; // le asigno el administrador
 
+    //##Inicializacion Validaciones Sobre los Inputs
 
-   //##Inicializacion Validaciones Sobre los Inputs
+    //validator(minimo,maximo,decimales,padre de la validacion)
+    QDoubleValidator *validatorDOUBLE = new QDoubleValidator(0.00,5000.00,2,this);
+    validatorDOUBLE->setNotation(QDoubleValidator::StandardNotation); // esto porq daba problemas con las notaciones con comas
 
-                //validator(minimo,maximo,decimales,padre de la validacion)
-    QDoubleValidator *validator = new QDoubleValidator(0.00,5000.00,2,this);
-    validator->setNotation(QDoubleValidator::StandardNotation); // esto porq daba problemas con las notaciones con comas
+    QIntValidator *validatorINT = new QIntValidator(0,5000,this);
 
-    uiRegistroStock->input_Cantidad->setValidator( validator );
+    uiRegistroStock->input_Precio->setValidator( validatorDOUBLE );
 
-    uiRegistroStock->input_Precio->setValidator( validator );
+    uiRegistroStock->input_Cantidad->setValidator( validatorINT );
 
 
     //## Fin de la inicializacion Validaciones Sobre los Inputs
-
-
-
 
 
     //### Inicializacion sobre la tabla
@@ -79,11 +74,10 @@ void RegistroStock::rellenarTableProduct(){//agarra todos los productos del gest
 
         QString nombreProducto =  p->getNombre();
         QString precioProducto = QString::number(p->getPrecio()) +" $";
+        QString cantidadProducto = QString::number( p->getCantidad() );
+        QString fechaProducto = p->getFechaUltimaIncorporacion();
 
-        QDate *d = new QDate();
-        //ESTA FECHA NO TENDRIA Q SER HOY EN ESTE METODO, tendria q ser otra de la BBDD
-        QString fechaProducto = d->currentDate().toString();
-
+        qDebug()<<"La fecha del producto es"<<fechaProducto;
         nroFila+=1;
 
         uiRegistroStock->table_Stock->insertRow(nroFila );
@@ -95,16 +89,16 @@ void RegistroStock::rellenarTableProduct(){//agarra todos los productos del gest
         uiRegistroStock->table_Stock->setItem(nroFila ,
                                               PRECIO,
                                               new QTableWidgetItem(precioProducto));
-
-        uiRegistroStock->table_Stock->setItem(this->ultimaColumnaConDatos,
+        uiRegistroStock->table_Stock->setItem(nroFila ,
+                                              CANTIDAD,
+                                              new QTableWidgetItem(cantidadProducto));
+        uiRegistroStock->table_Stock->setItem(nroFila,
                                               FECHA_INCORPORACION,
                                               new QTableWidgetItem(fechaProducto));
-        delete d;
 
     }
 
 }
-
 
 void RegistroStock::on_btn_ActualizarStock_clicked(){
 
@@ -126,17 +120,26 @@ void RegistroStock::on_btn_ActualizarStock_clicked(){
 
             if (vConfirmacion == QMessageBox::Yes){
 
+                                                                            //+1 Porq las filas empiezan en 0 y el id en 1
+                this->administrador->getGestorProductos()->modificarCantidad(filaSeleccionada+1,nuevaCantidad);
+
                 uiRegistroStock->table_Stock->setItem(filaSeleccionada ,
                                                       CANTIDAD,
                                                       new QTableWidgetItem(nuevaCantidad));
+
+                QDate *fecha = new QDate();
+                uiRegistroStock->table_Stock->setItem(filaSeleccionada ,
+                                                      FECHA_INCORPORACION,
+                                                      new QTableWidgetItem( fecha->currentDate().toString("dd-MM-yyyy") ));
+                delete fecha;
 
                 //por si se habia puesto rojo antes
                 uiRegistroStock->label_Cantidad->setStyleSheet("#label_Cantidad{color: rgb(0, 0, 0);}");
             }
         }
         else{
-            QMessageBox::warning( this,"Error al actualizar Stock", "Coloque un valor en la casilla de 'Cantidad' ");
             uiRegistroStock->label_Cantidad->setStyleSheet("#label_Cantidad{color: rgb(255, 0, 0);}");
+            QMessageBox::warning( this,"Error al actualizar Stock", "Coloque un valor en la casilla de 'Cantidad' ");
         }
 
 
@@ -156,7 +159,6 @@ void RegistroStock::on_btn_ActualizarPrecio_clicked(){
     QString precioAnterior = uiRegistroStock->table_Stock->model()->index(filaSeleccionada,PRECIO).data().toString();
     QString nombreProducto = uiRegistroStock->table_Stock->model()->index(filaSeleccionada,NOMBRE).data().toString();
 
-
     if(filaSeleccionada !=-1){
 
         QString nuevoPrecio = uiRegistroStock->input_Precio->text().replace(',','.');
@@ -169,6 +171,8 @@ void RegistroStock::on_btn_ActualizarPrecio_clicked(){
                                                                                QMessageBox::Cancel|QMessageBox::Yes);
 
             if (vConfirmacion == QMessageBox::Yes){
+                                                                //+1 Porq las filas empiezan en 0 y el id en 1
+                this->administrador->getGestorProductos()->modificarPrecio(filaSeleccionada+1,nuevoPrecio);
 
                 uiRegistroStock->table_Stock->setItem(filaSeleccionada ,
                                                       PRECIO,
@@ -180,10 +184,11 @@ void RegistroStock::on_btn_ActualizarPrecio_clicked(){
             }
         }
         else{
-            QMessageBox::warning( this,"Error al actualizar Precio  ", "Coloque un valor en la casilla de 'Precio' ");
-            uiRegistroStock->label_Precio->setStyleSheet("#label_Precio{color: rgb(255, 0, 0);}");
-        }
 
+            uiRegistroStock->label_Precio->setStyleSheet("#label_Precio{color: rgb(255, 0, 0);}");
+            QMessageBox::warning( this,"Error al actualizar Precio  ", "Coloque un valor en la casilla de 'Precio' ");
+
+        }
 
         uiRegistroStock->input_Precio->setText("");
     }

@@ -3,11 +3,13 @@
 
 
 #include "cliente.h"
+#include "basededatos.h"
 #include <QVector>
 
 class GestorClientes
 {
 public:
+
     GestorClientes();
 
     void agregarCliente(QString nombre,QString telefono, QString direccion);
@@ -23,15 +25,17 @@ public:
     void eliminarCliente(unsigned int ID);
 
 
-     Cliente* getCliente(unsigned int ID); //devuelve un puntero al cliente
+    Cliente* getCliente(unsigned int ID); //devuelve un puntero al cliente
 
-     QVector<unsigned int> getAll_ID_Clientes(); //retorna todos los Ids de los clientes
+    QVector<unsigned int> getAll_ID_Clientes(); //retorna todos los Ids de los clientes
 
 private:
 
     QVector<Cliente *> vecClientes;
 
     unsigned int ultimoID;
+
+    BaseDeDatos *bd;
 
 };
 

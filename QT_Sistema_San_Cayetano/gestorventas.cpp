@@ -40,7 +40,7 @@ void GestorVentas::eliminarVenta_Today(unsigned int ID){
 
     if(posVenta!=-1){
 
-       //Elimina el producto del vector
+        //Elimina el producto del vector
         this->vecVentasToday.erase(this->vecVentasToday.begin()+posVenta);
 
         //Elimino el Objeto especifico

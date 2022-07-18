@@ -28,6 +28,7 @@ MainWindow::MainWindow(Administrador *administrador,QWidget *parent)
 
 MainWindow::~MainWindow()
 {
+    delete this->administrador;
     delete uiVentanaPrincipal;
 }
 
@@ -36,7 +37,7 @@ void MainWindow::on_pushButton_3_clicked()
 {
     RegistroClientes* VentanaCliente = new RegistroClientes(this->administrador,this);
 
-   VentanaCliente->show();
+    VentanaCliente->show();
 
 }
 

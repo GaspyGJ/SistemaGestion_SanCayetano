@@ -217,6 +217,7 @@ public:
         pushButton_2 = new QPushButton(groupBox_2);
         pushButton_2->setObjectName("pushButton_2");
         pushButton_2->setCheckable(false);
+        pushButton_2->setAutoDefault(true);
 
         verticalLayout_2->addWidget(pushButton_2);
 
@@ -596,6 +597,9 @@ public:
 
         retranslateUi(MainWindow);
 
+        pushButton_2->setDefault(true);
+
+
         QMetaObject::connectSlotsByName(MainWindow);
     } // setupUi
 
@@ -620,62 +624,60 @@ public:
         QTableWidgetItem *___qtablewidgetitem1 = tablaVentas->horizontalHeaderItem(1);
         ___qtablewidgetitem1->setText(QCoreApplication::translate("MainWindow", "Producto", nullptr));
         QTableWidgetItem *___qtablewidgetitem2 = tablaVentas->horizontalHeaderItem(2);
-        ___qtablewidgetitem2->setText(QCoreApplication::translate("MainWindow", "Peso", nullptr));
-        QTableWidgetItem *___qtablewidgetitem3 = tablaVentas->horizontalHeaderItem(3);
-        ___qtablewidgetitem3->setText(QCoreApplication::translate("MainWindow", "Precio Total", nullptr));
-        QTableWidgetItem *___qtablewidgetitem4 = tablaVentas->verticalHeaderItem(0);
-        ___qtablewidgetitem4->setText(QCoreApplication::translate("MainWindow", "1", nullptr));
-        QTableWidgetItem *___qtablewidgetitem5 = tablaVentas->verticalHeaderItem(1);
-        ___qtablewidgetitem5->setText(QCoreApplication::translate("MainWindow", "2", nullptr));
-        QTableWidgetItem *___qtablewidgetitem6 = tablaVentas->verticalHeaderItem(2);
-        ___qtablewidgetitem6->setText(QCoreApplication::translate("MainWindow", "3", nullptr));
-        QTableWidgetItem *___qtablewidgetitem7 = tablaVentas->verticalHeaderItem(3);
-        ___qtablewidgetitem7->setText(QCoreApplication::translate("MainWindow", "4", nullptr));
-        QTableWidgetItem *___qtablewidgetitem8 = tablaVentas->verticalHeaderItem(4);
-        ___qtablewidgetitem8->setText(QCoreApplication::translate("MainWindow", "5", nullptr));
-        QTableWidgetItem *___qtablewidgetitem9 = tablaVentas->verticalHeaderItem(5);
-        ___qtablewidgetitem9->setText(QCoreApplication::translate("MainWindow", "6", nullptr));
-        QTableWidgetItem *___qtablewidgetitem10 = tablaVentas->verticalHeaderItem(6);
-        ___qtablewidgetitem10->setText(QCoreApplication::translate("MainWindow", "7", nullptr));
-        QTableWidgetItem *___qtablewidgetitem11 = tablaVentas->verticalHeaderItem(7);
-        ___qtablewidgetitem11->setText(QCoreApplication::translate("MainWindow", "8", nullptr));
-        QTableWidgetItem *___qtablewidgetitem12 = tablaVentas->verticalHeaderItem(8);
-        ___qtablewidgetitem12->setText(QCoreApplication::translate("MainWindow", "9", nullptr));
-        QTableWidgetItem *___qtablewidgetitem13 = tablaVentas->verticalHeaderItem(9);
-        ___qtablewidgetitem13->setText(QCoreApplication::translate("MainWindow", "10", nullptr));
-        QTableWidgetItem *___qtablewidgetitem14 = tablaVentas->verticalHeaderItem(10);
-        ___qtablewidgetitem14->setText(QCoreApplication::translate("MainWindow", "11", nullptr));
-        QTableWidgetItem *___qtablewidgetitem15 = tablaVentas->verticalHeaderItem(11);
-        ___qtablewidgetitem15->setText(QCoreApplication::translate("MainWindow", "12", nullptr));
-        QTableWidgetItem *___qtablewidgetitem16 = tablaVentas->verticalHeaderItem(12);
-        ___qtablewidgetitem16->setText(QCoreApplication::translate("MainWindow", "13", nullptr));
-        QTableWidgetItem *___qtablewidgetitem17 = tablaVentas->verticalHeaderItem(13);
-        ___qtablewidgetitem17->setText(QCoreApplication::translate("MainWindow", "14", nullptr));
-        QTableWidgetItem *___qtablewidgetitem18 = tablaVentas->verticalHeaderItem(14);
-        ___qtablewidgetitem18->setText(QCoreApplication::translate("MainWindow", "15", nullptr));
-        QTableWidgetItem *___qtablewidgetitem19 = tablaVentas->verticalHeaderItem(15);
-        ___qtablewidgetitem19->setText(QCoreApplication::translate("MainWindow", "16", nullptr));
-        QTableWidgetItem *___qtablewidgetitem20 = tablaVentas->verticalHeaderItem(16);
-        ___qtablewidgetitem20->setText(QCoreApplication::translate("MainWindow", "17", nullptr));
-        QTableWidgetItem *___qtablewidgetitem21 = tablaVentas->verticalHeaderItem(17);
-        ___qtablewidgetitem21->setText(QCoreApplication::translate("MainWindow", "18", nullptr));
-        QTableWidgetItem *___qtablewidgetitem22 = tablaVentas->verticalHeaderItem(18);
-        ___qtablewidgetitem22->setText(QCoreApplication::translate("MainWindow", "19", nullptr));
+        ___qtablewidgetitem2->setText(QCoreApplication::translate("MainWindow", "Precio Unidad", nullptr));
+        QTableWidgetItem *___qtablewidgetitem3 = tablaVentas->verticalHeaderItem(0);
+        ___qtablewidgetitem3->setText(QCoreApplication::translate("MainWindow", "1", nullptr));
+        QTableWidgetItem *___qtablewidgetitem4 = tablaVentas->verticalHeaderItem(1);
+        ___qtablewidgetitem4->setText(QCoreApplication::translate("MainWindow", "2", nullptr));
+        QTableWidgetItem *___qtablewidgetitem5 = tablaVentas->verticalHeaderItem(2);
+        ___qtablewidgetitem5->setText(QCoreApplication::translate("MainWindow", "3", nullptr));
+        QTableWidgetItem *___qtablewidgetitem6 = tablaVentas->verticalHeaderItem(3);
+        ___qtablewidgetitem6->setText(QCoreApplication::translate("MainWindow", "4", nullptr));
+        QTableWidgetItem *___qtablewidgetitem7 = tablaVentas->verticalHeaderItem(4);
+        ___qtablewidgetitem7->setText(QCoreApplication::translate("MainWindow", "5", nullptr));
+        QTableWidgetItem *___qtablewidgetitem8 = tablaVentas->verticalHeaderItem(5);
+        ___qtablewidgetitem8->setText(QCoreApplication::translate("MainWindow", "6", nullptr));
+        QTableWidgetItem *___qtablewidgetitem9 = tablaVentas->verticalHeaderItem(6);
+        ___qtablewidgetitem9->setText(QCoreApplication::translate("MainWindow", "7", nullptr));
+        QTableWidgetItem *___qtablewidgetitem10 = tablaVentas->verticalHeaderItem(7);
+        ___qtablewidgetitem10->setText(QCoreApplication::translate("MainWindow", "8", nullptr));
+        QTableWidgetItem *___qtablewidgetitem11 = tablaVentas->verticalHeaderItem(8);
+        ___qtablewidgetitem11->setText(QCoreApplication::translate("MainWindow", "9", nullptr));
+        QTableWidgetItem *___qtablewidgetitem12 = tablaVentas->verticalHeaderItem(9);
+        ___qtablewidgetitem12->setText(QCoreApplication::translate("MainWindow", "10", nullptr));
+        QTableWidgetItem *___qtablewidgetitem13 = tablaVentas->verticalHeaderItem(10);
+        ___qtablewidgetitem13->setText(QCoreApplication::translate("MainWindow", "11", nullptr));
+        QTableWidgetItem *___qtablewidgetitem14 = tablaVentas->verticalHeaderItem(11);
+        ___qtablewidgetitem14->setText(QCoreApplication::translate("MainWindow", "12", nullptr));
+        QTableWidgetItem *___qtablewidgetitem15 = tablaVentas->verticalHeaderItem(12);
+        ___qtablewidgetitem15->setText(QCoreApplication::translate("MainWindow", "13", nullptr));
+        QTableWidgetItem *___qtablewidgetitem16 = tablaVentas->verticalHeaderItem(13);
+        ___qtablewidgetitem16->setText(QCoreApplication::translate("MainWindow", "14", nullptr));
+        QTableWidgetItem *___qtablewidgetitem17 = tablaVentas->verticalHeaderItem(14);
+        ___qtablewidgetitem17->setText(QCoreApplication::translate("MainWindow", "15", nullptr));
+        QTableWidgetItem *___qtablewidgetitem18 = tablaVentas->verticalHeaderItem(15);
+        ___qtablewidgetitem18->setText(QCoreApplication::translate("MainWindow", "16", nullptr));
+        QTableWidgetItem *___qtablewidgetitem19 = tablaVentas->verticalHeaderItem(16);
+        ___qtablewidgetitem19->setText(QCoreApplication::translate("MainWindow", "17", nullptr));
+        QTableWidgetItem *___qtablewidgetitem20 = tablaVentas->verticalHeaderItem(17);
+        ___qtablewidgetitem20->setText(QCoreApplication::translate("MainWindow", "18", nullptr));
+        QTableWidgetItem *___qtablewidgetitem21 = tablaVentas->verticalHeaderItem(18);
+        ___qtablewidgetitem21->setText(QCoreApplication::translate("MainWindow", "19", nullptr));
 
         const bool __sortingEnabled = tablaVentas->isSortingEnabled();
         tablaVentas->setSortingEnabled(false);
-        QTableWidgetItem *___qtablewidgetitem23 = tablaVentas->item(0, 0);
-        ___qtablewidgetitem23->setText(QCoreApplication::translate("MainWindow", "Gaspy Jullier Pepito", nullptr));
-        QTableWidgetItem *___qtablewidgetitem24 = tablaVentas->item(0, 1);
-        ___qtablewidgetitem24->setText(QCoreApplication::translate("MainWindow", "CARNE DE PIJA", nullptr));
-        QTableWidgetItem *___qtablewidgetitem25 = tablaVentas->item(0, 2);
-        ___qtablewidgetitem25->setText(QCoreApplication::translate("MainWindow", "83", nullptr));
-        QTableWidgetItem *___qtablewidgetitem26 = tablaVentas->item(0, 3);
-        ___qtablewidgetitem26->setText(QCoreApplication::translate("MainWindow", "0$", nullptr));
+        QTableWidgetItem *___qtablewidgetitem22 = tablaVentas->item(0, 0);
+        ___qtablewidgetitem22->setText(QCoreApplication::translate("MainWindow", "Gaspy Jullier Pepito", nullptr));
+        QTableWidgetItem *___qtablewidgetitem23 = tablaVentas->item(0, 1);
+        ___qtablewidgetitem23->setText(QCoreApplication::translate("MainWindow", "CARNE DE PIJA", nullptr));
+        QTableWidgetItem *___qtablewidgetitem24 = tablaVentas->item(0, 2);
+        ___qtablewidgetitem24->setText(QCoreApplication::translate("MainWindow", "83", nullptr));
+        QTableWidgetItem *___qtablewidgetitem25 = tablaVentas->item(0, 3);
+        ___qtablewidgetitem25->setText(QCoreApplication::translate("MainWindow", "0$", nullptr));
         tablaVentas->setSortingEnabled(__sortingEnabled);
 
         groupBox_3->setTitle(QCoreApplication::translate("MainWindow", "Precio Productos", nullptr));
-        label_4->setText(QCoreApplication::translate("MainWindow", "FECHA :", nullptr));
+        label_4->setText(QCoreApplication::translate("MainWindow", "Ultima Modificaion :", nullptr));
         label_5->setText(QCoreApplication::translate("MainWindow", "DD/MM/AA", nullptr));
         label_6->setText(QCoreApplication::translate("MainWindow", "Bolsa Hielo Rolito  4kg -->", nullptr));
         label_20->setText(QCoreApplication::translate("MainWindow", "XXX", nullptr));

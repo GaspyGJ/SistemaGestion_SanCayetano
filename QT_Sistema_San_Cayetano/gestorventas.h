@@ -2,10 +2,12 @@
 #define GESTORVENTAS_H
 
 #include "venta.h"
+#include "basededatos.h"
 
 class GestorVentas
 {
 public:
+
     GestorVentas();
 
     void agregarVentaToday(unsigned int IDcliente,unsigned int IDproducto,short cantidad);
@@ -22,11 +24,13 @@ public:
 
 private:
 
-      QVector <Venta *> vecVentas; // registro de todas las ventas
+    QVector <Venta *> vecVentas; // registro de todas las ventas
 
-      QVector <Venta *> vecVentasToday; // registro de las ventas de HOY
+    QVector <Venta *> vecVentasToday; // registro de las ventas de HOY
 
-      unsigned int ultimoID;
+    unsigned int ultimoID;
+
+    BaseDeDatos *bd;
 };
 
 #endif // GESTORVENTAS_H

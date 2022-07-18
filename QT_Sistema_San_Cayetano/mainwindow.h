@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "administrador.h"
+#include "basededatos.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }

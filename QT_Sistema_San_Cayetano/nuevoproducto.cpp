@@ -27,8 +27,8 @@ void NuevoProducto::on_btn_Aceptar_clicked(){
 
 
         //creo el producto mediante el gestor que lo crea y guarda en su lista de productos.
-        this->administrador->getGestorProductos()->agregarProducto(ui->input_Nombre->text(),
-                                                                   ui->input_Precio->text().toDouble());
+       // this->administrador->getGestorProductos()->agregarProducto(ui->input_Nombre->text(),
+        //                                                           ui->input_Precio->text().toDouble(),1,(new QDate)->currentDate().toString());
 
 
         qDebug()<<"Se creo el Producto :\n Nombre = "<<ui->input_Nombre->text()<<Qt::endl;

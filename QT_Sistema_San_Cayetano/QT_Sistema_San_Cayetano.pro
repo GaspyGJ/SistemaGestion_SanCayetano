@@ -1,4 +1,4 @@
-QT       += core gui
+QT       += core gui sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -10,13 +10,13 @@ CONFIG += c++17
 
 SOURCES += \
     administrador.cpp \
+    basededatos.cpp \
     cliente.cpp \
     gestorclientes.cpp \
     gestorproductos.cpp \
     gestorventas.cpp \
     main.cpp \
     mainwindow.cpp \
-    nuevoproducto.cpp \
     producto.cpp \
     registroclientes.cpp \
     registrostock.cpp \
@@ -24,12 +24,12 @@ SOURCES += \
 
 HEADERS += \
     administrador.h \
+    basededatos.h \
     cliente.h \
     gestorclientes.h \
     gestorproductos.h \
     gestorventas.h \
     mainwindow.h \
-    nuevoproducto.h \
     producto.h \
     registroclientes.h \
     registrostock.h \
@@ -37,7 +37,6 @@ HEADERS += \
 
 FORMS += \
     mainwindow.ui \
-    nuevoproducto.ui \
     registroclientes.ui \
     registrostock.ui
 

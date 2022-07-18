@@ -25,7 +25,7 @@ double Producto::getPrecio(){
     return this->precio;
 }
 QString Producto::getFechaUltimaIncorporacion(){
-    return this->nombre;
+    return this->fechaUltimaIncorporacion;
 }
 
 int Producto::getCantidad(){
@@ -54,9 +54,9 @@ void Producto::setPrecio(double precio){
 void Producto::setCantidad(int cantidad){
     this->cantidad=cantidad;
 }
-void Producto::setFechaUltimaIncorporacion(QDate fecha){
-     this->FechaUltimaIncorporacion=fecha;
+void Producto::setFechaUltimaIncorporacion(QString fecha){
+    this->fechaUltimaIncorporacion=fecha;
 }
 void Producto::setID(unsigned int id){
-       this->ID=id;
+    this->ID=id;
 }

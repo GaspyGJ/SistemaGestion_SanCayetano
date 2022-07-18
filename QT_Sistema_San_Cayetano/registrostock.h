@@ -19,7 +19,7 @@ public:
 private slots:
 
     //Funciones con los Widgets
-     void on_pushButton_5_clicked();
+    void on_pushButton_5_clicked();
 
     //
 
@@ -30,15 +30,15 @@ private slots:
     void on_btn_ActualizarPrecio_clicked();
 
 private:
-     Ui::RegistroStock *uiRegistroStock;
+    Ui::RegistroStock *uiRegistroStock;
 
-     Administrador *administrador;
+    Administrador *administrador;
 
-     int ultimaColumnaConDatos;
+    int ultimaColumnaConDatos;
 
-     enum Columna{
-         NOMBRE ,PRECIO,CANTIDAD , FECHA_INCORPORACION
-     };
+    enum Columna{
+        NOMBRE ,PRECIO,CANTIDAD , FECHA_INCORPORACION
+    };
 };
 
 #endif // REGISTROSTOCK_H

@@ -1,7 +1,8 @@
 #include "gestorclientes.h"
 #include <QVector>
 
-GestorClientes::GestorClientes(){ }
+
+GestorClientes::GestorClientes(){}
 
 
 void GestorClientes::agregarCliente(QString nombre,QString telefono, QString direccion){
@@ -57,7 +58,7 @@ void GestorClientes::modificarNombre(unsigned int ID, QString nombre){
     }
     else{
         qDebug("El ID del cliente no se encontro en el registro de clientes");
-         // TIRAR UN ERROR
+        // TIRAR UN ERROR
     }
 
 
@@ -73,7 +74,7 @@ void GestorClientes::modificarTelefono(unsigned int ID, QString telefono){
     }
     else{
         qDebug("El ID del cliente no se encontro en el registro de clientes");
-         // TIRAR UN ERROR
+        // TIRAR UN ERROR
     }
 
 
@@ -90,26 +91,26 @@ void GestorClientes::modificarDireccion(unsigned int ID, QString direccion){
     }
     else{
         qDebug("El ID del cliente no se encontro en el registro de clientes");
-         // TIRAR UN ERROR
+        // TIRAR UN ERROR
     }
 
 }
 
 void GestorClientes::eliminarCliente(unsigned int ID){
 
-     short posCliente = this->buscarCliente(ID);
+    short posCliente = this->buscarCliente(ID);
 
-     if ( posCliente != -1){
+    if ( posCliente != -1){
 
-           //lo elimino del vector
-         this->vecClientes.erase(this->vecClientes.begin()+posCliente);
+        //lo elimino del vector
+        this->vecClientes.erase(this->vecClientes.begin()+posCliente);
 
-         //Elimino el Objeto especifico
-         Cliente *c = this->getCliente(ID);
-         c->~Cliente();
-     }
-     else{
-         qDebug("El ID del cliente no se encontro en el registro de clientes");
-          // TIRAR UN ERROR
-     }
+        //Elimino el Objeto especifico
+        Cliente *c = this->getCliente(ID);
+        c->~Cliente();
+    }
+    else{
+        qDebug("El ID del cliente no se encontro en el registro de clientes");
+        // TIRAR UN ERROR
+    }
 }

@@ -33,13 +33,13 @@ void Venta::setIDCliente(unsigned int IDcliente){
     this->IDcliente=IDcliente;
 }
 void Venta::setIDProducto(unsigned int IDproducto){
-     this->IDproducto=IDproducto;
+    this->IDproducto=IDproducto;
 }
 void Venta::setCantidad(short cantidad){
-     this->cantidad=cantidad;
+    this->cantidad=cantidad;
 }
 void Venta::setPrecioTotal(double precioTotal){
-     this->precioTotal=precioTotal;
+    this->precioTotal=precioTotal;
 }
 
 void Venta::setID(unsigned int ID){

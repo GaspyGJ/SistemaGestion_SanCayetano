@@ -1,5 +1,7 @@
 #include "administrador.h"
 
+#include <QMessageBox>
+
 Administrador::Administrador()
 {
 
@@ -11,7 +13,16 @@ Administrador::Administrador()
 
 }
 
+Administrador::~Administrador()
+{
+    delete this->gestorClientes;
 
+    delete this->gestorProductos;
+
+    delete this->gestorVentas;
+
+    delete this;
+}
 
 GestorClientes *Administrador::getGestorClientes(){
 
@@ -27,4 +38,6 @@ GestorVentas *Administrador::getGestorVentas(){
 
     return this->gestorVentas;
 }
+
+
 

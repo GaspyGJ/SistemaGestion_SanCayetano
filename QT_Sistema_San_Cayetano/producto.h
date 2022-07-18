@@ -13,7 +13,7 @@ public:
 
     QString getNombre();
     QString getProveedor();
-  //  short getPeso();
+    //  short getPeso();
     double getPrecio();
     QString getFechaUltimaIncorporacion();
     unsigned int getID();
@@ -21,9 +21,9 @@ public:
 
     void setNombre(QString nombre);
     void setProveedor(QString proveedor);
-  //  void setPeso(short peso);
+    //  void setPeso(short peso);
     void setPrecio(double precio);
-    void setFechaUltimaIncorporacion(QDate fecha);
+    void setFechaUltimaIncorporacion(QString fecha);
     void setID(unsigned int ID);
     void setCantidad(int cantidad);
 
@@ -33,10 +33,10 @@ private:
     unsigned int ID;
     QString nombre;
     QString proveedor;
-   // short peso;
+    // short peso;
     double precio;
     int cantidad;
-    QDate FechaUltimaIncorporacion;
+    QString fechaUltimaIncorporacion;
 
 };
 
