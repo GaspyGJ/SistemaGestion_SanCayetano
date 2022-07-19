@@ -14,19 +14,38 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    MainWindow(QWidget *parent = nullptr);
-
     MainWindow(Administrador *administrador,QWidget *parent = nullptr);
+
     ~MainWindow();
 
-private slots:
-    void on_pushButton_3_clicked();
 
-    void on_pushButton_2_clicked();
+private slots:
+
+    void inicializarTabla();
+
+    void inicializarPrecios();
+
+    void inicializarComboBoxes();
+
+    void setValidaciones();
+
+    void on_btn_RegistroStock_clicked();
+
+    void on_btn_RegistroClientes_clicked();
+
 
 private:
+
     Ui::MainWindow *uiVentanaPrincipal;
 
     Administrador *administrador;
+
+    unsigned ultimaFilaConDatos;
+
+    enum Columna{
+       NOMBRE,PRODUCTO,CANTIDAD,PRECIO_UNIDAD
+    };
+
+
 };
 #endif // MAINWINDOW_H

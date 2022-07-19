@@ -20,7 +20,6 @@
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
-#include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QTableWidget>
 #include <QtWidgets/QVBoxLayout>
@@ -33,22 +32,19 @@ class Ui_RegistroStock
 public:
     QWidget *centralwidget;
     QHBoxLayout *horizontalLayout;
-    QVBoxLayout *verticalLayout;
-    QGroupBox *groupBox;
-    QVBoxLayout *verticalLayout_5;
     QVBoxLayout *verticalLayout_2;
+    QGroupBox *groupBox;
+    QVBoxLayout *verticalLayout_3;
     QFormLayout *formLayout;
     QLabel *label_Precio;
     QLineEdit *input_Precio;
     QPushButton *btn_ActualizarPrecio;
-    QSpacerItem *verticalSpacer;
-    QVBoxLayout *verticalLayout_4;
     QFormLayout *formLayout_2;
     QLabel *label_Cantidad;
     QLineEdit *input_Cantidad;
     QPushButton *btn_ActualizarStock;
     QGroupBox *groupBox_2;
-    QVBoxLayout *verticalLayout_3;
+    QVBoxLayout *verticalLayout;
     QPushButton *btn_GenerarPDF_Stock;
     QPushButton *btn_imprimirStock;
     QPushButton *pushButton_5;
@@ -60,20 +56,18 @@ public:
     {
         if (RegistroStock->objectName().isEmpty())
             RegistroStock->setObjectName("RegistroStock");
-        RegistroStock->resize(940, 410);
+        RegistroStock->resize(1000, 465);
         centralwidget = new QWidget(RegistroStock);
         centralwidget->setObjectName("centralwidget");
         horizontalLayout = new QHBoxLayout(centralwidget);
         horizontalLayout->setObjectName("horizontalLayout");
-        verticalLayout = new QVBoxLayout();
-        verticalLayout->setObjectName("verticalLayout");
+        verticalLayout_2 = new QVBoxLayout();
+        verticalLayout_2->setObjectName("verticalLayout_2");
         groupBox = new QGroupBox(centralwidget);
         groupBox->setObjectName("groupBox");
         groupBox->setMaximumSize(QSize(190, 16777215));
-        verticalLayout_5 = new QVBoxLayout(groupBox);
-        verticalLayout_5->setObjectName("verticalLayout_5");
-        verticalLayout_2 = new QVBoxLayout();
-        verticalLayout_2->setObjectName("verticalLayout_2");
+        verticalLayout_3 = new QVBoxLayout(groupBox);
+        verticalLayout_3->setObjectName("verticalLayout_3");
         formLayout = new QFormLayout();
         formLayout->setObjectName("formLayout");
         label_Precio = new QLabel(groupBox);
@@ -84,25 +78,17 @@ public:
         input_Precio = new QLineEdit(groupBox);
         input_Precio->setObjectName("input_Precio");
 
-        formLayout->setWidget(0, QFormLayout::FieldRole, input_Precio);
-
-
-        verticalLayout_2->addLayout(formLayout);
+        formLayout->setWidget(1, QFormLayout::SpanningRole, input_Precio);
 
         btn_ActualizarPrecio = new QPushButton(groupBox);
         btn_ActualizarPrecio->setObjectName("btn_ActualizarPrecio");
+        btn_ActualizarPrecio->setAutoDefault(true);
 
-        verticalLayout_2->addWidget(btn_ActualizarPrecio);
+        formLayout->setWidget(2, QFormLayout::SpanningRole, btn_ActualizarPrecio);
 
 
-        verticalLayout_5->addLayout(verticalLayout_2);
+        verticalLayout_3->addLayout(formLayout);
 
-        verticalSpacer = new QSpacerItem(10, 15, QSizePolicy::Minimum, QSizePolicy::Fixed);
-
-        verticalLayout_5->addItem(verticalSpacer);
-
-        verticalLayout_4 = new QVBoxLayout();
-        verticalLayout_4->setObjectName("verticalLayout_4");
         formLayout_2 = new QFormLayout();
         formLayout_2->setObjectName("formLayout_2");
         label_Cantidad = new QLabel(groupBox);
@@ -113,52 +99,53 @@ public:
         input_Cantidad = new QLineEdit(groupBox);
         input_Cantidad->setObjectName("input_Cantidad");
 
-        formLayout_2->setWidget(0, QFormLayout::FieldRole, input_Cantidad);
-
-
-        verticalLayout_4->addLayout(formLayout_2);
+        formLayout_2->setWidget(1, QFormLayout::SpanningRole, input_Cantidad);
 
         btn_ActualizarStock = new QPushButton(groupBox);
         btn_ActualizarStock->setObjectName("btn_ActualizarStock");
+        btn_ActualizarStock->setAutoDefault(true);
 
-        verticalLayout_4->addWidget(btn_ActualizarStock);
-
-
-        verticalLayout_5->addLayout(verticalLayout_4);
+        formLayout_2->setWidget(2, QFormLayout::SpanningRole, btn_ActualizarStock);
 
 
-        verticalLayout->addWidget(groupBox);
+        verticalLayout_3->addLayout(formLayout_2);
+
+
+        verticalLayout_2->addWidget(groupBox);
 
         groupBox_2 = new QGroupBox(centralwidget);
         groupBox_2->setObjectName("groupBox_2");
         groupBox_2->setMaximumSize(QSize(190, 16777215));
-        verticalLayout_3 = new QVBoxLayout(groupBox_2);
-        verticalLayout_3->setObjectName("verticalLayout_3");
+        verticalLayout = new QVBoxLayout(groupBox_2);
+        verticalLayout->setObjectName("verticalLayout");
         btn_GenerarPDF_Stock = new QPushButton(groupBox_2);
         btn_GenerarPDF_Stock->setObjectName("btn_GenerarPDF_Stock");
+        btn_GenerarPDF_Stock->setAutoDefault(true);
 
-        verticalLayout_3->addWidget(btn_GenerarPDF_Stock);
+        verticalLayout->addWidget(btn_GenerarPDF_Stock);
 
         btn_imprimirStock = new QPushButton(groupBox_2);
         btn_imprimirStock->setObjectName("btn_imprimirStock");
+        btn_imprimirStock->setAutoDefault(true);
 
-        verticalLayout_3->addWidget(btn_imprimirStock);
+        verticalLayout->addWidget(btn_imprimirStock);
 
 
-        verticalLayout->addWidget(groupBox_2);
+        verticalLayout_2->addWidget(groupBox_2);
 
         pushButton_5 = new QPushButton(centralwidget);
         pushButton_5->setObjectName("pushButton_5");
         pushButton_5->setMaximumSize(QSize(190, 16777215));
+        pushButton_5->setAutoDefault(true);
 
-        verticalLayout->addWidget(pushButton_5);
+        verticalLayout_2->addWidget(pushButton_5);
 
 
-        horizontalLayout->addLayout(verticalLayout);
+        horizontalLayout->addLayout(verticalLayout_2);
 
         table_Stock = new QTableWidget(centralwidget);
-        if (table_Stock->columnCount() < 4)
-            table_Stock->setColumnCount(4);
+        if (table_Stock->columnCount() < 5)
+            table_Stock->setColumnCount(5);
         QTableWidgetItem *__qtablewidgetitem = new QTableWidgetItem();
         table_Stock->setHorizontalHeaderItem(0, __qtablewidgetitem);
         QTableWidgetItem *__qtablewidgetitem1 = new QTableWidgetItem();
@@ -167,24 +154,34 @@ public:
         table_Stock->setHorizontalHeaderItem(2, __qtablewidgetitem2);
         QTableWidgetItem *__qtablewidgetitem3 = new QTableWidgetItem();
         table_Stock->setHorizontalHeaderItem(3, __qtablewidgetitem3);
+        QTableWidgetItem *__qtablewidgetitem4 = new QTableWidgetItem();
+        table_Stock->setHorizontalHeaderItem(4, __qtablewidgetitem4);
         table_Stock->setObjectName("table_Stock");
+        table_Stock->setTextElideMode(Qt::ElideMiddle);
 
         horizontalLayout->addWidget(table_Stock);
 
         RegistroStock->setCentralWidget(centralwidget);
         menubar = new QMenuBar(RegistroStock);
         menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 940, 17));
+        menubar->setGeometry(QRect(0, 0, 1000, 21));
         RegistroStock->setMenuBar(menubar);
         statusbar = new QStatusBar(RegistroStock);
         statusbar->setObjectName("statusbar");
         RegistroStock->setStatusBar(statusbar);
-        QWidget::setTabOrder(btn_ActualizarStock, btn_GenerarPDF_Stock);
+        QWidget::setTabOrder(input_Precio, btn_ActualizarPrecio);
+        QWidget::setTabOrder(btn_ActualizarPrecio, btn_GenerarPDF_Stock);
         QWidget::setTabOrder(btn_GenerarPDF_Stock, btn_imprimirStock);
-        QWidget::setTabOrder(btn_imprimirStock, pushButton_5);
-        QWidget::setTabOrder(pushButton_5, table_Stock);
+        QWidget::setTabOrder(btn_imprimirStock, table_Stock);
 
         retranslateUi(RegistroStock);
+
+        btn_ActualizarPrecio->setDefault(false);
+        btn_ActualizarStock->setDefault(false);
+        btn_GenerarPDF_Stock->setDefault(false);
+        btn_imprimirStock->setDefault(false);
+        pushButton_5->setDefault(false);
+
 
         QMetaObject::connectSlotsByName(RegistroStock);
     } // setupUi
@@ -202,13 +199,15 @@ public:
         btn_imprimirStock->setText(QCoreApplication::translate("RegistroStock", "Imprimir Stock", nullptr));
         pushButton_5->setText(QCoreApplication::translate("RegistroStock", "Volver", nullptr));
         QTableWidgetItem *___qtablewidgetitem = table_Stock->horizontalHeaderItem(0);
-        ___qtablewidgetitem->setText(QCoreApplication::translate("RegistroStock", "Producto", nullptr));
+        ___qtablewidgetitem->setText(QCoreApplication::translate("RegistroStock", "Id", nullptr));
         QTableWidgetItem *___qtablewidgetitem1 = table_Stock->horizontalHeaderItem(1);
-        ___qtablewidgetitem1->setText(QCoreApplication::translate("RegistroStock", "Ultimo Precio Registrado", nullptr));
+        ___qtablewidgetitem1->setText(QCoreApplication::translate("RegistroStock", "Producto", nullptr));
         QTableWidgetItem *___qtablewidgetitem2 = table_Stock->horizontalHeaderItem(2);
-        ___qtablewidgetitem2->setText(QCoreApplication::translate("RegistroStock", "En Stock", nullptr));
+        ___qtablewidgetitem2->setText(QCoreApplication::translate("RegistroStock", "Precio", nullptr));
         QTableWidgetItem *___qtablewidgetitem3 = table_Stock->horizontalHeaderItem(3);
-        ___qtablewidgetitem3->setText(QCoreApplication::translate("RegistroStock", "Fecha Ultima Incorporacion", nullptr));
+        ___qtablewidgetitem3->setText(QCoreApplication::translate("RegistroStock", "En Stock", nullptr));
+        QTableWidgetItem *___qtablewidgetitem4 = table_Stock->horizontalHeaderItem(4);
+        ___qtablewidgetitem4->setText(QCoreApplication::translate("RegistroStock", "Fecha Ultima Incorporacion", nullptr));
     } // retranslateUi
 
 };

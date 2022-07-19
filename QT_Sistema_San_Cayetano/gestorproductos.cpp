@@ -1,5 +1,5 @@
 //@@ FALTA QUE LA BASE DE DATOS SE "Desconecte" CREO
-// @@ EN LA BASE DE DATOS BROWSER SE REGISTRA EL MODIFICAR PRECIO ???
+
 #include "gestorproductos.h"
 
 #include "basededatos.h"
@@ -10,6 +10,16 @@ GestorProductos::GestorProductos(){
     this->db= new BaseDeDatos();
 
     this->inicializarConBaseDeDatos();
+}
+
+GestorProductos::~GestorProductos(){
+
+    delete this->db;
+
+    for(int i=0; i<this->vecProductos.length(); i++ ){
+       delete this->vecProductos[i];
+    }
+
 }
 
 void GestorProductos::inicializarConBaseDeDatos(){
@@ -210,72 +220,3 @@ void GestorProductos::modificarCantidad(unsigned int ID,QString cantidad){
     }
 
 }
-
-/*void GestorProductos::eliminarProducto(unsigned int ID){
-
-    int posProducto = this->buscarProducto(ID);
-
-    if(posProducto!=-1){
-
-        //Elimina el producto del vector
-        this->vecProductos.erase(this->vecProductos.begin() + posProducto);
-
-        //Elimino el Objeto especifico
-        Producto *p = this->getProducto(ID);
-        p->~Producto();
-    }
-    else{
-        qDebug("No existe el Producto");
-    }
-
-
-}*/
-
-
-/*void GestorProductos::modificarNombre(unsigned int ID, QString nombre){
-
-    short posProducto = this->buscarProducto(ID);
-
-    if ( posProducto != -1){
-
-        this->vecProductos[posProducto]->setNombre(nombre);
-
-    }
-    else{
-        qDebug("El ID del cliente no se encontro en el registro de clientes");
-        // TIRAR UN ERROR
-    }
-
-}*/
-
-/*void GestorProductos::modificarPeso(unsigned int ID,short peso){
-
-    short posProducto = this->buscarProducto(ID);
-
-    if ( posProducto != -1){
-
-        this->vecProductos[posProducto]->setPeso(peso);
-
-    }
-    else{
-        qDebug("El ID del cliente no se encontro en el registro de clientes");
-         // TIRAR UN ERROR
-    }
-
-}*/
-
-/*void GestorProductos::modificarProveedor(unsigned int ID,QString proveedor){
-
-    short posProducto = this->buscarProducto(ID);
-
-    if ( posProducto != -1){
-
-        this->vecProductos[posProducto]->setNombre(proveedor);
-
-    }
-    else{
-        qDebug("El ID del cliente no se encontro en el registro de clientes");
-         // TIRAR UN ERROR
-    }
-
-}*/

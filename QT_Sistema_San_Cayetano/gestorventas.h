@@ -10,6 +10,8 @@ public:
 
     GestorVentas();
 
+    ~GestorVentas();
+
     void agregarVentaToday(unsigned int IDcliente,unsigned int IDproducto,short cantidad);
 
     short buscarVentaToday(unsigned int ID); // devuelve la posicion de vecVentas donde esta el de ID, si no esta retorna -1
@@ -30,7 +32,7 @@ private:
 
     unsigned int ultimoID;
 
-    BaseDeDatos *bd;
+    BaseDeDatos *db;
 };
 
 #endif // GESTORVENTAS_H

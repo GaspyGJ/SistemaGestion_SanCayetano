@@ -5,11 +5,11 @@
 Administrador::Administrador()
 {
 
-    this->gestorClientes = new GestorClientes();
+   this->gestorClientes = new GestorClientes();
 
-    this->gestorProductos  = new GestorProductos();
+   this->gestorProductos  = new GestorProductos();
 
-    this->gestorVentas  = new GestorVentas();
+   this->gestorVentas  = new GestorVentas();
 
 }
 
@@ -20,8 +20,6 @@ Administrador::~Administrador()
     delete this->gestorProductos;
 
     delete this->gestorVentas;
-
-    delete this;
 }
 
 GestorClientes *Administrador::getGestorClientes(){
@@ -30,8 +28,7 @@ GestorClientes *Administrador::getGestorClientes(){
 }
 
 GestorProductos *Administrador::getGestorProductos(){
-
-    return this->gestorProductos;
+      return this->gestorProductos;
 }
 
 GestorVentas *Administrador::getGestorVentas(){

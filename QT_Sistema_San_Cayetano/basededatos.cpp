@@ -21,7 +21,6 @@ short BaseDeDatos::Conectar(){
 
     }
 
-
     return retorno;
 }
 

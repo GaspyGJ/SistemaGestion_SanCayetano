@@ -16,6 +16,10 @@ public:
     explicit RegistroClientes(Administrador *administrador,QWidget *parent = nullptr);
     ~RegistroClientes();
 
+    void inicializarTabla();
+
+    void rellenarTableProduct();
+
 private slots:
     void on_pushButton_4_clicked();
 

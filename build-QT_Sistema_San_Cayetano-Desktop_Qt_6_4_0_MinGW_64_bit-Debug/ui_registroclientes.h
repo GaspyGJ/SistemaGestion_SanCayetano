@@ -11,6 +11,7 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QFormLayout>
 #include <QtWidgets/QGroupBox>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
@@ -19,7 +20,6 @@
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
-#include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QTableWidget>
 #include <QtWidgets/QVBoxLayout>
@@ -32,21 +32,26 @@ class Ui_RegistroClientes
 public:
     QWidget *centralwidget;
     QHBoxLayout *horizontalLayout_2;
-    QVBoxLayout *verticalLayout_3;
+    QVBoxLayout *verticalLayout_5;
     QGroupBox *groupBox;
     QVBoxLayout *verticalLayout;
+    QFormLayout *formLayout_3;
     QLabel *label;
-    QLineEdit *lineEdit;
     QLabel *label_2;
     QLineEdit *lineEdit_2;
-    QLabel *label_3;
-    QLineEdit *lineEdit_3;
-    QSpacerItem *verticalSpacer_2;
+    QLineEdit *lineEdit;
     QPushButton *pushButton;
+    QGroupBox *groupBox_3;
+    QVBoxLayout *verticalLayout_3;
+    QFormLayout *formLayout;
+    QLabel *label_3;
+    QLabel *label_4;
+    QPushButton *pushButton_2;
+    QLineEdit *lineEdit_3;
+    QLineEdit *lineEdit_4;
+    QPushButton *pushButton_3;
     QGroupBox *groupBox_2;
     QVBoxLayout *verticalLayout_2;
-    QPushButton *pushButton_2;
-    QPushButton *pushButton_3;
     QPushButton *pushButton_7;
     QPushButton *pushButton_8;
     QPushButton *pushButton_4;
@@ -62,96 +67,125 @@ public:
     {
         if (RegistroClientes->objectName().isEmpty())
             RegistroClientes->setObjectName("RegistroClientes");
-        RegistroClientes->resize(799, 568);
+        RegistroClientes->resize(755, 584);
         centralwidget = new QWidget(RegistroClientes);
         centralwidget->setObjectName("centralwidget");
         horizontalLayout_2 = new QHBoxLayout(centralwidget);
         horizontalLayout_2->setObjectName("horizontalLayout_2");
-        verticalLayout_3 = new QVBoxLayout();
-        verticalLayout_3->setObjectName("verticalLayout_3");
+        verticalLayout_5 = new QVBoxLayout();
+        verticalLayout_5->setObjectName("verticalLayout_5");
         groupBox = new QGroupBox(centralwidget);
         groupBox->setObjectName("groupBox");
         groupBox->setMaximumSize(QSize(190, 16777215));
         verticalLayout = new QVBoxLayout(groupBox);
         verticalLayout->setObjectName("verticalLayout");
+        formLayout_3 = new QFormLayout();
+        formLayout_3->setObjectName("formLayout_3");
         label = new QLabel(groupBox);
         label->setObjectName("label");
 
-        verticalLayout->addWidget(label);
-
-        lineEdit = new QLineEdit(groupBox);
-        lineEdit->setObjectName("lineEdit");
-
-        verticalLayout->addWidget(lineEdit);
+        formLayout_3->setWidget(0, QFormLayout::LabelRole, label);
 
         label_2 = new QLabel(groupBox);
         label_2->setObjectName("label_2");
+        label_2->setMargin(0);
 
-        verticalLayout->addWidget(label_2);
+        formLayout_3->setWidget(2, QFormLayout::LabelRole, label_2);
 
         lineEdit_2 = new QLineEdit(groupBox);
         lineEdit_2->setObjectName("lineEdit_2");
 
-        verticalLayout->addWidget(lineEdit_2);
+        formLayout_3->setWidget(3, QFormLayout::SpanningRole, lineEdit_2);
 
-        label_3 = new QLabel(groupBox);
-        label_3->setObjectName("label_3");
+        lineEdit = new QLineEdit(groupBox);
+        lineEdit->setObjectName("lineEdit");
 
-        verticalLayout->addWidget(label_3);
+        formLayout_3->setWidget(1, QFormLayout::SpanningRole, lineEdit);
 
-        lineEdit_3 = new QLineEdit(groupBox);
-        lineEdit_3->setObjectName("lineEdit_3");
 
-        verticalLayout->addWidget(lineEdit_3);
-
-        verticalSpacer_2 = new QSpacerItem(0, 10, QSizePolicy::Minimum, QSizePolicy::Maximum);
-
-        verticalLayout->addItem(verticalSpacer_2);
+        verticalLayout->addLayout(formLayout_3);
 
         pushButton = new QPushButton(groupBox);
         pushButton->setObjectName("pushButton");
+        pushButton->setAutoDefault(true);
 
         verticalLayout->addWidget(pushButton);
 
 
-        verticalLayout_3->addWidget(groupBox);
+        verticalLayout_5->addWidget(groupBox);
+
+        groupBox_3 = new QGroupBox(centralwidget);
+        groupBox_3->setObjectName("groupBox_3");
+        groupBox_3->setMaximumSize(QSize(190, 16777215));
+        verticalLayout_3 = new QVBoxLayout(groupBox_3);
+        verticalLayout_3->setObjectName("verticalLayout_3");
+        formLayout = new QFormLayout();
+        formLayout->setObjectName("formLayout");
+        label_3 = new QLabel(groupBox_3);
+        label_3->setObjectName("label_3");
+
+        formLayout->setWidget(4, QFormLayout::LabelRole, label_3);
+
+        label_4 = new QLabel(groupBox_3);
+        label_4->setObjectName("label_4");
+
+        formLayout->setWidget(1, QFormLayout::LabelRole, label_4);
+
+        pushButton_2 = new QPushButton(groupBox_3);
+        pushButton_2->setObjectName("pushButton_2");
+
+        formLayout->setWidget(3, QFormLayout::SpanningRole, pushButton_2);
+
+        lineEdit_3 = new QLineEdit(groupBox_3);
+        lineEdit_3->setObjectName("lineEdit_3");
+
+        formLayout->setWidget(5, QFormLayout::SpanningRole, lineEdit_3);
+
+        lineEdit_4 = new QLineEdit(groupBox_3);
+        lineEdit_4->setObjectName("lineEdit_4");
+
+        formLayout->setWidget(2, QFormLayout::SpanningRole, lineEdit_4);
+
+        pushButton_3 = new QPushButton(groupBox_3);
+        pushButton_3->setObjectName("pushButton_3");
+
+        formLayout->setWidget(6, QFormLayout::LabelRole, pushButton_3);
+
+
+        verticalLayout_3->addLayout(formLayout);
+
+
+        verticalLayout_5->addWidget(groupBox_3);
 
         groupBox_2 = new QGroupBox(centralwidget);
         groupBox_2->setObjectName("groupBox_2");
         groupBox_2->setMaximumSize(QSize(190, 16777215));
         verticalLayout_2 = new QVBoxLayout(groupBox_2);
         verticalLayout_2->setObjectName("verticalLayout_2");
-        pushButton_2 = new QPushButton(groupBox_2);
-        pushButton_2->setObjectName("pushButton_2");
-
-        verticalLayout_2->addWidget(pushButton_2);
-
-        pushButton_3 = new QPushButton(groupBox_2);
-        pushButton_3->setObjectName("pushButton_3");
-
-        verticalLayout_2->addWidget(pushButton_3);
-
         pushButton_7 = new QPushButton(groupBox_2);
         pushButton_7->setObjectName("pushButton_7");
+        pushButton_7->setAutoDefault(true);
 
         verticalLayout_2->addWidget(pushButton_7);
 
         pushButton_8 = new QPushButton(groupBox_2);
         pushButton_8->setObjectName("pushButton_8");
+        pushButton_8->setAutoDefault(true);
 
         verticalLayout_2->addWidget(pushButton_8);
 
 
-        verticalLayout_3->addWidget(groupBox_2);
+        verticalLayout_5->addWidget(groupBox_2);
 
         pushButton_4 = new QPushButton(centralwidget);
         pushButton_4->setObjectName("pushButton_4");
         pushButton_4->setMaximumSize(QSize(190, 16777215));
+        pushButton_4->setAutoDefault(true);
 
-        verticalLayout_3->addWidget(pushButton_4);
+        verticalLayout_5->addWidget(pushButton_4);
 
 
-        horizontalLayout_2->addLayout(verticalLayout_3);
+        horizontalLayout_2->addLayout(verticalLayout_5);
 
         verticalLayout_4 = new QVBoxLayout();
         verticalLayout_4->setObjectName("verticalLayout_4");
@@ -232,7 +266,7 @@ public:
         RegistroClientes->setCentralWidget(centralwidget);
         menubar = new QMenuBar(RegistroClientes);
         menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 799, 21));
+        menubar->setGeometry(QRect(0, 0, 755, 21));
         RegistroClientes->setMenuBar(menubar);
         statusbar = new QStatusBar(RegistroClientes);
         statusbar->setObjectName("statusbar");
@@ -249,11 +283,13 @@ public:
         groupBox->setTitle(QCoreApplication::translate("RegistroClientes", "Agregar Cliente", nullptr));
         label->setText(QCoreApplication::translate("RegistroClientes", "Nombre Cliente :", nullptr));
         label_2->setText(QCoreApplication::translate("RegistroClientes", "Telefono : ", nullptr));
-        label_3->setText(QCoreApplication::translate("RegistroClientes", "Direccion :", nullptr));
         pushButton->setText(QCoreApplication::translate("RegistroClientes", "Agregar Cliente", nullptr));
+        groupBox_3->setTitle(QCoreApplication::translate("RegistroClientes", "Modificar Cliente", nullptr));
+        label_3->setText(QCoreApplication::translate("RegistroClientes", "Direccion :", nullptr));
+        label_4->setText(QCoreApplication::translate("RegistroClientes", "Telefono : ", nullptr));
+        pushButton_2->setText(QCoreApplication::translate("RegistroClientes", "Actualizar Telefono", nullptr));
+        pushButton_3->setText(QCoreApplication::translate("RegistroClientes", "Actualizar Direccion", nullptr));
         groupBox_2->setTitle(QCoreApplication::translate("RegistroClientes", "Gestionar Cliente", nullptr));
-        pushButton_2->setText(QCoreApplication::translate("RegistroClientes", "Modificar Cliente", nullptr));
-        pushButton_3->setText(QCoreApplication::translate("RegistroClientes", "Eliminar Cliente", nullptr));
         pushButton_7->setText(QCoreApplication::translate("RegistroClientes", "Generar PDF Clientes", nullptr));
         pushButton_8->setText(QCoreApplication::translate("RegistroClientes", "Imprimir PDF Clientes", nullptr));
         pushButton_4->setText(QCoreApplication::translate("RegistroClientes", "Volver", nullptr));

@@ -2,7 +2,10 @@
 
 #include "venta.h"
 
-GestorVentas::GestorVentas(){ }
+GestorVentas::GestorVentas(){
+    this->db= new BaseDeDatos();
+    //this->inicializarConBaseDeDatos();
+}
 
 void GestorVentas::agregarVentaToday(unsigned int IDcliente,unsigned int IDproducto,short cantidad){
 
@@ -10,6 +13,10 @@ void GestorVentas::agregarVentaToday(unsigned int IDcliente,unsigned int IDprodu
     Venta *v = new Venta(this->ultimoID,IDcliente,IDproducto,cantidad);
     this->vecVentasToday.push_back(v);
 
+}
+
+GestorVentas::~GestorVentas(){
+    delete this->db;
 }
 
 

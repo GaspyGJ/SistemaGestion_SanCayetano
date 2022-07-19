@@ -38,75 +38,72 @@ public:
     QGroupBox *groupBox;
     QVBoxLayout *verticalLayout;
     QLabel *label;
-    QComboBox *comboBox;
+    QComboBox *comboBox_Clientes;
     QLabel *label_2;
-    QComboBox *comboBox_2;
+    QComboBox *comboBox_Producos;
     QLabel *label_3;
-    QLineEdit *lineEdit_3;
+    QLineEdit *input_Cantidad;
     QSpacerItem *verticalSpacer;
-    QPushButton *pushButton_9;
+    QPushButton *btn_AgregarVenta;
     QGroupBox *groupBox_2;
     QVBoxLayout *verticalLayout_2;
-    QPushButton *pushButton_7;
-    QPushButton *pushButton_8;
+    QPushButton *btn_EditarVentaDeTabla;
+    QPushButton *btn_EliminarVentaDeTabla;
     QFrame *line_4;
-    QPushButton *pushButton_6;
-    QPushButton *pushButton_5;
-    QPushButton *pushButton_2;
-    QPushButton *pushButton_3;
-    QPushButton *pushButton_4;
+    QPushButton *btn_ImprimirTablaVentas;
+    QPushButton *btn_GenerarPDF_TablaVentas;
+    QPushButton *btn_RegistroStock;
+    QPushButton *btn_RegistroClientes;
+    QPushButton *btn_Salir;
     QTableWidget *tablaVentas;
     QGroupBox *groupBox_3;
     QVBoxLayout *verticalLayout_4;
     QHBoxLayout *horizontalLayout;
     QLabel *label_4;
-    QLabel *label_5;
+    QLabel *label_fechaDeHoy;
     QFrame *line_2;
     QHBoxLayout *horizontalLayout_2;
     QLabel *label_6;
-    QLabel *label_20;
+    QLabel *label_Precio_BolsaHieloRolito4KG;
     QHBoxLayout *horizontalLayout_3;
     QLabel *label_7;
-    QLabel *label_21;
+    QLabel *label_Precio_BolsaHieloRolito10KG;
     QHBoxLayout *horizontalLayout_4;
     QLabel *label_8;
-    QLabel *label_22;
+    QLabel *label_Precio_BolsaHieloRolito14KG;
     QHBoxLayout *horizontalLayout_5;
     QLabel *label_9;
-    QLabel *label_23;
+    QLabel *label_Precio_BolsaHieloMolido14KG;
     QFrame *line_5;
     QHBoxLayout *horizontalLayout_6;
     QLabel *label_10;
-    QLabel *label_24;
+    QLabel *label_Precio_AguaDestilada1L;
     QHBoxLayout *horizontalLayout_7;
     QLabel *label_11;
-    QLabel *label_25;
+    QLabel *label_Precio_AguaDestilada5L;
     QHBoxLayout *horizontalLayout_8;
     QLabel *label_12;
-    QLabel *label_26;
+    QLabel *label_Precio_Pack6AguaDestilada;
     QHBoxLayout *horizontalLayout_9;
     QLabel *label_13;
-    QLabel *label_27;
+    QLabel *label_Precio_Pack8AguaDestilada;
     QFrame *line_3;
     QHBoxLayout *horizontalLayout_10;
     QLabel *label_14;
-    QLabel *label_28;
+    QLabel *label_Precio_LiquidoRefrigerante1L;
     QHBoxLayout *horizontalLayout_11;
     QLabel *label_15;
-    QLabel *label_29;
-    QHBoxLayout *horizontalLayout_12;
-    QLabel *label_17;
-    QLabel *label_30;
+    QLabel *label_Precio_LiquidoRefrigerante5L;
     QHBoxLayout *horizontalLayout_13;
     QLabel *label_16;
-    QLabel *label_31;
+    QLabel *label_Precio_Pack6LiquidoRefrigerante;
     QFrame *line_6;
     QHBoxLayout *horizontalLayout_14;
     QLabel *label_18;
-    QLabel *label_32;
+    QLabel *label_Precio_AguaDestiladaGranel1L;
     QHBoxLayout *horizontalLayout_15;
     QLabel *label_19;
-    QLabel *label_33;
+    QLabel *label_Precio_LiquidoRefrigeranteGranel1L;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -115,7 +112,7 @@ public:
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName("MainWindow");
         MainWindow->setEnabled(true);
-        MainWindow->resize(895, 682);
+        MainWindow->resize(942, 606);
         MainWindow->setMinimumSize(QSize(0, 0));
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
@@ -135,44 +132,45 @@ public:
 
         verticalLayout->addWidget(label);
 
-        comboBox = new QComboBox(groupBox);
-        comboBox->setObjectName("comboBox");
+        comboBox_Clientes = new QComboBox(groupBox);
+        comboBox_Clientes->setObjectName("comboBox_Clientes");
 
-        verticalLayout->addWidget(comboBox);
+        verticalLayout->addWidget(comboBox_Clientes);
 
         label_2 = new QLabel(groupBox);
         label_2->setObjectName("label_2");
 
         verticalLayout->addWidget(label_2);
 
-        comboBox_2 = new QComboBox(groupBox);
-        comboBox_2->setObjectName("comboBox_2");
+        comboBox_Producos = new QComboBox(groupBox);
+        comboBox_Producos->setObjectName("comboBox_Producos");
 
-        verticalLayout->addWidget(comboBox_2);
+        verticalLayout->addWidget(comboBox_Producos);
 
         label_3 = new QLabel(groupBox);
         label_3->setObjectName("label_3");
 
         verticalLayout->addWidget(label_3);
 
-        lineEdit_3 = new QLineEdit(groupBox);
-        lineEdit_3->setObjectName("lineEdit_3");
+        input_Cantidad = new QLineEdit(groupBox);
+        input_Cantidad->setObjectName("input_Cantidad");
 
-        verticalLayout->addWidget(lineEdit_3);
+        verticalLayout->addWidget(input_Cantidad);
 
         verticalSpacer = new QSpacerItem(0, 20, QSizePolicy::Minimum, QSizePolicy::Maximum);
 
         verticalLayout->addItem(verticalSpacer);
 
-        pushButton_9 = new QPushButton(groupBox);
-        pushButton_9->setObjectName("pushButton_9");
-        pushButton_9->setStyleSheet(QString::fromUtf8("margin-top:10px;\n"
+        btn_AgregarVenta = new QPushButton(groupBox);
+        btn_AgregarVenta->setObjectName("btn_AgregarVenta");
+        btn_AgregarVenta->setStyleSheet(QString::fromUtf8("margin-top:10px;\n"
 "padding-top : 2px;\n"
 "padding-bottom : 5px;\n"
 "margin-bottom: 5px;"));
-        pushButton_9->setCheckable(false);
+        btn_AgregarVenta->setCheckable(false);
+        btn_AgregarVenta->setAutoDefault(true);
 
-        verticalLayout->addWidget(pushButton_9);
+        verticalLayout->addWidget(btn_AgregarVenta);
 
 
         verticalLayout_3->addWidget(groupBox);
@@ -183,17 +181,19 @@ public:
         groupBox_2->setMaximumSize(QSize(190, 16777215));
         verticalLayout_2 = new QVBoxLayout(groupBox_2);
         verticalLayout_2->setObjectName("verticalLayout_2");
-        pushButton_7 = new QPushButton(groupBox_2);
-        pushButton_7->setObjectName("pushButton_7");
-        pushButton_7->setCheckable(false);
+        btn_EditarVentaDeTabla = new QPushButton(groupBox_2);
+        btn_EditarVentaDeTabla->setObjectName("btn_EditarVentaDeTabla");
+        btn_EditarVentaDeTabla->setCheckable(false);
+        btn_EditarVentaDeTabla->setAutoDefault(true);
 
-        verticalLayout_2->addWidget(pushButton_7);
+        verticalLayout_2->addWidget(btn_EditarVentaDeTabla);
 
-        pushButton_8 = new QPushButton(groupBox_2);
-        pushButton_8->setObjectName("pushButton_8");
-        pushButton_8->setCheckable(false);
+        btn_EliminarVentaDeTabla = new QPushButton(groupBox_2);
+        btn_EliminarVentaDeTabla->setObjectName("btn_EliminarVentaDeTabla");
+        btn_EliminarVentaDeTabla->setCheckable(false);
+        btn_EliminarVentaDeTabla->setAutoDefault(true);
 
-        verticalLayout_2->addWidget(pushButton_8);
+        verticalLayout_2->addWidget(btn_EliminarVentaDeTabla);
 
         line_4 = new QFrame(groupBox_2);
         line_4->setObjectName("line_4");
@@ -202,48 +202,52 @@ public:
 
         verticalLayout_2->addWidget(line_4);
 
-        pushButton_6 = new QPushButton(groupBox_2);
-        pushButton_6->setObjectName("pushButton_6");
-        pushButton_6->setCheckable(false);
+        btn_ImprimirTablaVentas = new QPushButton(groupBox_2);
+        btn_ImprimirTablaVentas->setObjectName("btn_ImprimirTablaVentas");
+        btn_ImprimirTablaVentas->setCheckable(false);
+        btn_ImprimirTablaVentas->setAutoDefault(true);
 
-        verticalLayout_2->addWidget(pushButton_6);
+        verticalLayout_2->addWidget(btn_ImprimirTablaVentas);
 
-        pushButton_5 = new QPushButton(groupBox_2);
-        pushButton_5->setObjectName("pushButton_5");
-        pushButton_5->setCheckable(false);
+        btn_GenerarPDF_TablaVentas = new QPushButton(groupBox_2);
+        btn_GenerarPDF_TablaVentas->setObjectName("btn_GenerarPDF_TablaVentas");
+        btn_GenerarPDF_TablaVentas->setCheckable(false);
+        btn_GenerarPDF_TablaVentas->setAutoDefault(true);
 
-        verticalLayout_2->addWidget(pushButton_5);
+        verticalLayout_2->addWidget(btn_GenerarPDF_TablaVentas);
 
-        pushButton_2 = new QPushButton(groupBox_2);
-        pushButton_2->setObjectName("pushButton_2");
-        pushButton_2->setCheckable(false);
-        pushButton_2->setAutoDefault(true);
+        btn_RegistroStock = new QPushButton(groupBox_2);
+        btn_RegistroStock->setObjectName("btn_RegistroStock");
+        btn_RegistroStock->setCheckable(false);
+        btn_RegistroStock->setAutoDefault(true);
 
-        verticalLayout_2->addWidget(pushButton_2);
+        verticalLayout_2->addWidget(btn_RegistroStock);
 
-        pushButton_3 = new QPushButton(groupBox_2);
-        pushButton_3->setObjectName("pushButton_3");
-        pushButton_3->setCheckable(false);
+        btn_RegistroClientes = new QPushButton(groupBox_2);
+        btn_RegistroClientes->setObjectName("btn_RegistroClientes");
+        btn_RegistroClientes->setCheckable(false);
+        btn_RegistroClientes->setAutoDefault(true);
 
-        verticalLayout_2->addWidget(pushButton_3);
+        verticalLayout_2->addWidget(btn_RegistroClientes);
 
 
         verticalLayout_3->addWidget(groupBox_2);
 
-        pushButton_4 = new QPushButton(centralwidget);
-        pushButton_4->setObjectName("pushButton_4");
-        pushButton_4->setMinimumSize(QSize(190, 0));
-        pushButton_4->setMaximumSize(QSize(190, 16777215));
-        pushButton_4->setCheckable(false);
+        btn_Salir = new QPushButton(centralwidget);
+        btn_Salir->setObjectName("btn_Salir");
+        btn_Salir->setMinimumSize(QSize(190, 0));
+        btn_Salir->setMaximumSize(QSize(190, 16777215));
+        btn_Salir->setCheckable(false);
+        btn_Salir->setAutoDefault(true);
 
-        verticalLayout_3->addWidget(pushButton_4);
+        verticalLayout_3->addWidget(btn_Salir);
 
 
         horizontalLayout_16->addLayout(verticalLayout_3);
 
         tablaVentas = new QTableWidget(centralwidget);
-        if (tablaVentas->columnCount() < 4)
-            tablaVentas->setColumnCount(4);
+        if (tablaVentas->columnCount() < 5)
+            tablaVentas->setColumnCount(5);
         QTableWidgetItem *__qtablewidgetitem = new QTableWidgetItem();
         tablaVentas->setHorizontalHeaderItem(0, __qtablewidgetitem);
         QTableWidgetItem *__qtablewidgetitem1 = new QTableWidgetItem();
@@ -252,54 +256,56 @@ public:
         tablaVentas->setHorizontalHeaderItem(2, __qtablewidgetitem2);
         QTableWidgetItem *__qtablewidgetitem3 = new QTableWidgetItem();
         tablaVentas->setHorizontalHeaderItem(3, __qtablewidgetitem3);
+        QTableWidgetItem *__qtablewidgetitem4 = new QTableWidgetItem();
+        tablaVentas->setHorizontalHeaderItem(4, __qtablewidgetitem4);
         if (tablaVentas->rowCount() < 50)
             tablaVentas->setRowCount(50);
-        QTableWidgetItem *__qtablewidgetitem4 = new QTableWidgetItem();
-        tablaVentas->setVerticalHeaderItem(0, __qtablewidgetitem4);
         QTableWidgetItem *__qtablewidgetitem5 = new QTableWidgetItem();
-        tablaVentas->setVerticalHeaderItem(1, __qtablewidgetitem5);
+        tablaVentas->setVerticalHeaderItem(0, __qtablewidgetitem5);
         QTableWidgetItem *__qtablewidgetitem6 = new QTableWidgetItem();
-        tablaVentas->setVerticalHeaderItem(2, __qtablewidgetitem6);
+        tablaVentas->setVerticalHeaderItem(1, __qtablewidgetitem6);
         QTableWidgetItem *__qtablewidgetitem7 = new QTableWidgetItem();
-        tablaVentas->setVerticalHeaderItem(3, __qtablewidgetitem7);
+        tablaVentas->setVerticalHeaderItem(2, __qtablewidgetitem7);
         QTableWidgetItem *__qtablewidgetitem8 = new QTableWidgetItem();
-        tablaVentas->setVerticalHeaderItem(4, __qtablewidgetitem8);
+        tablaVentas->setVerticalHeaderItem(3, __qtablewidgetitem8);
         QTableWidgetItem *__qtablewidgetitem9 = new QTableWidgetItem();
-        tablaVentas->setVerticalHeaderItem(5, __qtablewidgetitem9);
+        tablaVentas->setVerticalHeaderItem(4, __qtablewidgetitem9);
         QTableWidgetItem *__qtablewidgetitem10 = new QTableWidgetItem();
-        tablaVentas->setVerticalHeaderItem(6, __qtablewidgetitem10);
+        tablaVentas->setVerticalHeaderItem(5, __qtablewidgetitem10);
         QTableWidgetItem *__qtablewidgetitem11 = new QTableWidgetItem();
-        tablaVentas->setVerticalHeaderItem(7, __qtablewidgetitem11);
+        tablaVentas->setVerticalHeaderItem(6, __qtablewidgetitem11);
         QTableWidgetItem *__qtablewidgetitem12 = new QTableWidgetItem();
-        tablaVentas->setVerticalHeaderItem(8, __qtablewidgetitem12);
+        tablaVentas->setVerticalHeaderItem(7, __qtablewidgetitem12);
         QTableWidgetItem *__qtablewidgetitem13 = new QTableWidgetItem();
-        tablaVentas->setVerticalHeaderItem(9, __qtablewidgetitem13);
+        tablaVentas->setVerticalHeaderItem(8, __qtablewidgetitem13);
         QTableWidgetItem *__qtablewidgetitem14 = new QTableWidgetItem();
-        tablaVentas->setVerticalHeaderItem(10, __qtablewidgetitem14);
+        tablaVentas->setVerticalHeaderItem(9, __qtablewidgetitem14);
         QTableWidgetItem *__qtablewidgetitem15 = new QTableWidgetItem();
-        tablaVentas->setVerticalHeaderItem(11, __qtablewidgetitem15);
+        tablaVentas->setVerticalHeaderItem(10, __qtablewidgetitem15);
         QTableWidgetItem *__qtablewidgetitem16 = new QTableWidgetItem();
-        tablaVentas->setVerticalHeaderItem(12, __qtablewidgetitem16);
+        tablaVentas->setVerticalHeaderItem(11, __qtablewidgetitem16);
         QTableWidgetItem *__qtablewidgetitem17 = new QTableWidgetItem();
-        tablaVentas->setVerticalHeaderItem(13, __qtablewidgetitem17);
+        tablaVentas->setVerticalHeaderItem(12, __qtablewidgetitem17);
         QTableWidgetItem *__qtablewidgetitem18 = new QTableWidgetItem();
-        tablaVentas->setVerticalHeaderItem(14, __qtablewidgetitem18);
+        tablaVentas->setVerticalHeaderItem(13, __qtablewidgetitem18);
         QTableWidgetItem *__qtablewidgetitem19 = new QTableWidgetItem();
-        tablaVentas->setVerticalHeaderItem(15, __qtablewidgetitem19);
+        tablaVentas->setVerticalHeaderItem(14, __qtablewidgetitem19);
         QTableWidgetItem *__qtablewidgetitem20 = new QTableWidgetItem();
-        tablaVentas->setVerticalHeaderItem(16, __qtablewidgetitem20);
+        tablaVentas->setVerticalHeaderItem(15, __qtablewidgetitem20);
         QTableWidgetItem *__qtablewidgetitem21 = new QTableWidgetItem();
-        tablaVentas->setVerticalHeaderItem(17, __qtablewidgetitem21);
+        tablaVentas->setVerticalHeaderItem(16, __qtablewidgetitem21);
         QTableWidgetItem *__qtablewidgetitem22 = new QTableWidgetItem();
-        tablaVentas->setVerticalHeaderItem(18, __qtablewidgetitem22);
+        tablaVentas->setVerticalHeaderItem(17, __qtablewidgetitem22);
         QTableWidgetItem *__qtablewidgetitem23 = new QTableWidgetItem();
-        tablaVentas->setItem(0, 0, __qtablewidgetitem23);
+        tablaVentas->setVerticalHeaderItem(18, __qtablewidgetitem23);
         QTableWidgetItem *__qtablewidgetitem24 = new QTableWidgetItem();
-        tablaVentas->setItem(0, 1, __qtablewidgetitem24);
+        tablaVentas->setItem(0, 0, __qtablewidgetitem24);
         QTableWidgetItem *__qtablewidgetitem25 = new QTableWidgetItem();
-        tablaVentas->setItem(0, 2, __qtablewidgetitem25);
+        tablaVentas->setItem(0, 1, __qtablewidgetitem25);
         QTableWidgetItem *__qtablewidgetitem26 = new QTableWidgetItem();
         tablaVentas->setItem(0, 3, __qtablewidgetitem26);
+        QTableWidgetItem *__qtablewidgetitem27 = new QTableWidgetItem();
+        tablaVentas->setItem(0, 4, __qtablewidgetitem27);
         tablaVentas->setObjectName("tablaVentas");
         tablaVentas->setEnabled(true);
         QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Expanding);
@@ -337,10 +343,10 @@ public:
 
         horizontalLayout->addWidget(label_4);
 
-        label_5 = new QLabel(groupBox_3);
-        label_5->setObjectName("label_5");
+        label_fechaDeHoy = new QLabel(groupBox_3);
+        label_fechaDeHoy->setObjectName("label_fechaDeHoy");
 
-        horizontalLayout->addWidget(label_5);
+        horizontalLayout->addWidget(label_fechaDeHoy);
 
 
         verticalLayout_4->addLayout(horizontalLayout);
@@ -359,10 +365,10 @@ public:
 
         horizontalLayout_2->addWidget(label_6);
 
-        label_20 = new QLabel(groupBox_3);
-        label_20->setObjectName("label_20");
+        label_Precio_BolsaHieloRolito4KG = new QLabel(groupBox_3);
+        label_Precio_BolsaHieloRolito4KG->setObjectName("label_Precio_BolsaHieloRolito4KG");
 
-        horizontalLayout_2->addWidget(label_20);
+        horizontalLayout_2->addWidget(label_Precio_BolsaHieloRolito4KG);
 
 
         verticalLayout_4->addLayout(horizontalLayout_2);
@@ -374,10 +380,10 @@ public:
 
         horizontalLayout_3->addWidget(label_7);
 
-        label_21 = new QLabel(groupBox_3);
-        label_21->setObjectName("label_21");
+        label_Precio_BolsaHieloRolito10KG = new QLabel(groupBox_3);
+        label_Precio_BolsaHieloRolito10KG->setObjectName("label_Precio_BolsaHieloRolito10KG");
 
-        horizontalLayout_3->addWidget(label_21);
+        horizontalLayout_3->addWidget(label_Precio_BolsaHieloRolito10KG);
 
 
         verticalLayout_4->addLayout(horizontalLayout_3);
@@ -389,10 +395,10 @@ public:
 
         horizontalLayout_4->addWidget(label_8);
 
-        label_22 = new QLabel(groupBox_3);
-        label_22->setObjectName("label_22");
+        label_Precio_BolsaHieloRolito14KG = new QLabel(groupBox_3);
+        label_Precio_BolsaHieloRolito14KG->setObjectName("label_Precio_BolsaHieloRolito14KG");
 
-        horizontalLayout_4->addWidget(label_22);
+        horizontalLayout_4->addWidget(label_Precio_BolsaHieloRolito14KG);
 
 
         verticalLayout_4->addLayout(horizontalLayout_4);
@@ -404,10 +410,10 @@ public:
 
         horizontalLayout_5->addWidget(label_9);
 
-        label_23 = new QLabel(groupBox_3);
-        label_23->setObjectName("label_23");
+        label_Precio_BolsaHieloMolido14KG = new QLabel(groupBox_3);
+        label_Precio_BolsaHieloMolido14KG->setObjectName("label_Precio_BolsaHieloMolido14KG");
 
-        horizontalLayout_5->addWidget(label_23);
+        horizontalLayout_5->addWidget(label_Precio_BolsaHieloMolido14KG);
 
 
         verticalLayout_4->addLayout(horizontalLayout_5);
@@ -426,10 +432,10 @@ public:
 
         horizontalLayout_6->addWidget(label_10);
 
-        label_24 = new QLabel(groupBox_3);
-        label_24->setObjectName("label_24");
+        label_Precio_AguaDestilada1L = new QLabel(groupBox_3);
+        label_Precio_AguaDestilada1L->setObjectName("label_Precio_AguaDestilada1L");
 
-        horizontalLayout_6->addWidget(label_24);
+        horizontalLayout_6->addWidget(label_Precio_AguaDestilada1L);
 
 
         verticalLayout_4->addLayout(horizontalLayout_6);
@@ -441,10 +447,10 @@ public:
 
         horizontalLayout_7->addWidget(label_11);
 
-        label_25 = new QLabel(groupBox_3);
-        label_25->setObjectName("label_25");
+        label_Precio_AguaDestilada5L = new QLabel(groupBox_3);
+        label_Precio_AguaDestilada5L->setObjectName("label_Precio_AguaDestilada5L");
 
-        horizontalLayout_7->addWidget(label_25);
+        horizontalLayout_7->addWidget(label_Precio_AguaDestilada5L);
 
 
         verticalLayout_4->addLayout(horizontalLayout_7);
@@ -456,10 +462,10 @@ public:
 
         horizontalLayout_8->addWidget(label_12);
 
-        label_26 = new QLabel(groupBox_3);
-        label_26->setObjectName("label_26");
+        label_Precio_Pack6AguaDestilada = new QLabel(groupBox_3);
+        label_Precio_Pack6AguaDestilada->setObjectName("label_Precio_Pack6AguaDestilada");
 
-        horizontalLayout_8->addWidget(label_26);
+        horizontalLayout_8->addWidget(label_Precio_Pack6AguaDestilada);
 
 
         verticalLayout_4->addLayout(horizontalLayout_8);
@@ -471,10 +477,10 @@ public:
 
         horizontalLayout_9->addWidget(label_13);
 
-        label_27 = new QLabel(groupBox_3);
-        label_27->setObjectName("label_27");
+        label_Precio_Pack8AguaDestilada = new QLabel(groupBox_3);
+        label_Precio_Pack8AguaDestilada->setObjectName("label_Precio_Pack8AguaDestilada");
 
-        horizontalLayout_9->addWidget(label_27);
+        horizontalLayout_9->addWidget(label_Precio_Pack8AguaDestilada);
 
 
         verticalLayout_4->addLayout(horizontalLayout_9);
@@ -493,10 +499,10 @@ public:
 
         horizontalLayout_10->addWidget(label_14);
 
-        label_28 = new QLabel(groupBox_3);
-        label_28->setObjectName("label_28");
+        label_Precio_LiquidoRefrigerante1L = new QLabel(groupBox_3);
+        label_Precio_LiquidoRefrigerante1L->setObjectName("label_Precio_LiquidoRefrigerante1L");
 
-        horizontalLayout_10->addWidget(label_28);
+        horizontalLayout_10->addWidget(label_Precio_LiquidoRefrigerante1L);
 
 
         verticalLayout_4->addLayout(horizontalLayout_10);
@@ -508,28 +514,13 @@ public:
 
         horizontalLayout_11->addWidget(label_15);
 
-        label_29 = new QLabel(groupBox_3);
-        label_29->setObjectName("label_29");
+        label_Precio_LiquidoRefrigerante5L = new QLabel(groupBox_3);
+        label_Precio_LiquidoRefrigerante5L->setObjectName("label_Precio_LiquidoRefrigerante5L");
 
-        horizontalLayout_11->addWidget(label_29);
+        horizontalLayout_11->addWidget(label_Precio_LiquidoRefrigerante5L);
 
 
         verticalLayout_4->addLayout(horizontalLayout_11);
-
-        horizontalLayout_12 = new QHBoxLayout();
-        horizontalLayout_12->setObjectName("horizontalLayout_12");
-        label_17 = new QLabel(groupBox_3);
-        label_17->setObjectName("label_17");
-
-        horizontalLayout_12->addWidget(label_17);
-
-        label_30 = new QLabel(groupBox_3);
-        label_30->setObjectName("label_30");
-
-        horizontalLayout_12->addWidget(label_30);
-
-
-        verticalLayout_4->addLayout(horizontalLayout_12);
 
         horizontalLayout_13 = new QHBoxLayout();
         horizontalLayout_13->setObjectName("horizontalLayout_13");
@@ -538,10 +529,10 @@ public:
 
         horizontalLayout_13->addWidget(label_16);
 
-        label_31 = new QLabel(groupBox_3);
-        label_31->setObjectName("label_31");
+        label_Precio_Pack6LiquidoRefrigerante = new QLabel(groupBox_3);
+        label_Precio_Pack6LiquidoRefrigerante->setObjectName("label_Precio_Pack6LiquidoRefrigerante");
 
-        horizontalLayout_13->addWidget(label_31);
+        horizontalLayout_13->addWidget(label_Precio_Pack6LiquidoRefrigerante);
 
 
         verticalLayout_4->addLayout(horizontalLayout_13);
@@ -560,10 +551,10 @@ public:
 
         horizontalLayout_14->addWidget(label_18);
 
-        label_32 = new QLabel(groupBox_3);
-        label_32->setObjectName("label_32");
+        label_Precio_AguaDestiladaGranel1L = new QLabel(groupBox_3);
+        label_Precio_AguaDestiladaGranel1L->setObjectName("label_Precio_AguaDestiladaGranel1L");
 
-        horizontalLayout_14->addWidget(label_32);
+        horizontalLayout_14->addWidget(label_Precio_AguaDestiladaGranel1L);
 
 
         verticalLayout_4->addLayout(horizontalLayout_14);
@@ -575,10 +566,10 @@ public:
 
         horizontalLayout_15->addWidget(label_19);
 
-        label_33 = new QLabel(groupBox_3);
-        label_33->setObjectName("label_33");
+        label_Precio_LiquidoRefrigeranteGranel1L = new QLabel(groupBox_3);
+        label_Precio_LiquidoRefrigeranteGranel1L->setObjectName("label_Precio_LiquidoRefrigeranteGranel1L");
 
-        horizontalLayout_15->addWidget(label_33);
+        horizontalLayout_15->addWidget(label_Precio_LiquidoRefrigeranteGranel1L);
 
 
         verticalLayout_4->addLayout(horizontalLayout_15);
@@ -589,7 +580,7 @@ public:
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 895, 21));
+        menubar->setGeometry(QRect(0, 0, 942, 21));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName("statusbar");
@@ -597,7 +588,14 @@ public:
 
         retranslateUi(MainWindow);
 
-        pushButton_2->setDefault(true);
+        btn_AgregarVenta->setDefault(false);
+        btn_EditarVentaDeTabla->setDefault(false);
+        btn_EliminarVentaDeTabla->setDefault(false);
+        btn_ImprimirTablaVentas->setDefault(false);
+        btn_GenerarPDF_TablaVentas->setDefault(false);
+        btn_RegistroStock->setDefault(false);
+        btn_RegistroClientes->setDefault(false);
+        btn_Salir->setDefault(false);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -610,103 +608,103 @@ public:
         label->setText(QCoreApplication::translate("MainWindow", "Cliente :", nullptr));
         label_2->setText(QCoreApplication::translate("MainWindow", "Producto :", nullptr));
         label_3->setText(QCoreApplication::translate("MainWindow", "Cantidad :", nullptr));
-        pushButton_9->setText(QCoreApplication::translate("MainWindow", "Agregar Venta", nullptr));
+        btn_AgregarVenta->setText(QCoreApplication::translate("MainWindow", "Agregar Venta", nullptr));
         groupBox_2->setTitle(QString());
-        pushButton_7->setText(QCoreApplication::translate("MainWindow", "Editar Venta de Tabla", nullptr));
-        pushButton_8->setText(QCoreApplication::translate("MainWindow", "Eliminar Venta de Tabla", nullptr));
-        pushButton_6->setText(QCoreApplication::translate("MainWindow", "Imprimir Tabla Ventas", nullptr));
-        pushButton_5->setText(QCoreApplication::translate("MainWindow", "Generar PDF Tabla Ventas", nullptr));
-        pushButton_2->setText(QCoreApplication::translate("MainWindow", "Gestionar Stock", nullptr));
-        pushButton_3->setText(QCoreApplication::translate("MainWindow", "Resgistro de Clientes", nullptr));
-        pushButton_4->setText(QCoreApplication::translate("MainWindow", "Salir", nullptr));
+        btn_EditarVentaDeTabla->setText(QCoreApplication::translate("MainWindow", "Editar Venta de Tabla", nullptr));
+        btn_EliminarVentaDeTabla->setText(QCoreApplication::translate("MainWindow", "Eliminar Venta de Tabla", nullptr));
+        btn_ImprimirTablaVentas->setText(QCoreApplication::translate("MainWindow", "Imprimir Tabla Ventas", nullptr));
+        btn_GenerarPDF_TablaVentas->setText(QCoreApplication::translate("MainWindow", "Generar PDF Tabla Ventas", nullptr));
+        btn_RegistroStock->setText(QCoreApplication::translate("MainWindow", "Registro Stock", nullptr));
+        btn_RegistroClientes->setText(QCoreApplication::translate("MainWindow", "Resgistro Clientes", nullptr));
+        btn_Salir->setText(QCoreApplication::translate("MainWindow", "Salir", nullptr));
         QTableWidgetItem *___qtablewidgetitem = tablaVentas->horizontalHeaderItem(0);
         ___qtablewidgetitem->setText(QCoreApplication::translate("MainWindow", "Cliente", nullptr));
         QTableWidgetItem *___qtablewidgetitem1 = tablaVentas->horizontalHeaderItem(1);
         ___qtablewidgetitem1->setText(QCoreApplication::translate("MainWindow", "Producto", nullptr));
         QTableWidgetItem *___qtablewidgetitem2 = tablaVentas->horizontalHeaderItem(2);
-        ___qtablewidgetitem2->setText(QCoreApplication::translate("MainWindow", "Precio Unidad", nullptr));
-        QTableWidgetItem *___qtablewidgetitem3 = tablaVentas->verticalHeaderItem(0);
-        ___qtablewidgetitem3->setText(QCoreApplication::translate("MainWindow", "1", nullptr));
-        QTableWidgetItem *___qtablewidgetitem4 = tablaVentas->verticalHeaderItem(1);
-        ___qtablewidgetitem4->setText(QCoreApplication::translate("MainWindow", "2", nullptr));
-        QTableWidgetItem *___qtablewidgetitem5 = tablaVentas->verticalHeaderItem(2);
-        ___qtablewidgetitem5->setText(QCoreApplication::translate("MainWindow", "3", nullptr));
-        QTableWidgetItem *___qtablewidgetitem6 = tablaVentas->verticalHeaderItem(3);
-        ___qtablewidgetitem6->setText(QCoreApplication::translate("MainWindow", "4", nullptr));
-        QTableWidgetItem *___qtablewidgetitem7 = tablaVentas->verticalHeaderItem(4);
-        ___qtablewidgetitem7->setText(QCoreApplication::translate("MainWindow", "5", nullptr));
-        QTableWidgetItem *___qtablewidgetitem8 = tablaVentas->verticalHeaderItem(5);
-        ___qtablewidgetitem8->setText(QCoreApplication::translate("MainWindow", "6", nullptr));
-        QTableWidgetItem *___qtablewidgetitem9 = tablaVentas->verticalHeaderItem(6);
-        ___qtablewidgetitem9->setText(QCoreApplication::translate("MainWindow", "7", nullptr));
-        QTableWidgetItem *___qtablewidgetitem10 = tablaVentas->verticalHeaderItem(7);
-        ___qtablewidgetitem10->setText(QCoreApplication::translate("MainWindow", "8", nullptr));
-        QTableWidgetItem *___qtablewidgetitem11 = tablaVentas->verticalHeaderItem(8);
-        ___qtablewidgetitem11->setText(QCoreApplication::translate("MainWindow", "9", nullptr));
-        QTableWidgetItem *___qtablewidgetitem12 = tablaVentas->verticalHeaderItem(9);
-        ___qtablewidgetitem12->setText(QCoreApplication::translate("MainWindow", "10", nullptr));
-        QTableWidgetItem *___qtablewidgetitem13 = tablaVentas->verticalHeaderItem(10);
-        ___qtablewidgetitem13->setText(QCoreApplication::translate("MainWindow", "11", nullptr));
-        QTableWidgetItem *___qtablewidgetitem14 = tablaVentas->verticalHeaderItem(11);
-        ___qtablewidgetitem14->setText(QCoreApplication::translate("MainWindow", "12", nullptr));
-        QTableWidgetItem *___qtablewidgetitem15 = tablaVentas->verticalHeaderItem(12);
-        ___qtablewidgetitem15->setText(QCoreApplication::translate("MainWindow", "13", nullptr));
-        QTableWidgetItem *___qtablewidgetitem16 = tablaVentas->verticalHeaderItem(13);
-        ___qtablewidgetitem16->setText(QCoreApplication::translate("MainWindow", "14", nullptr));
-        QTableWidgetItem *___qtablewidgetitem17 = tablaVentas->verticalHeaderItem(14);
-        ___qtablewidgetitem17->setText(QCoreApplication::translate("MainWindow", "15", nullptr));
-        QTableWidgetItem *___qtablewidgetitem18 = tablaVentas->verticalHeaderItem(15);
-        ___qtablewidgetitem18->setText(QCoreApplication::translate("MainWindow", "16", nullptr));
-        QTableWidgetItem *___qtablewidgetitem19 = tablaVentas->verticalHeaderItem(16);
-        ___qtablewidgetitem19->setText(QCoreApplication::translate("MainWindow", "17", nullptr));
-        QTableWidgetItem *___qtablewidgetitem20 = tablaVentas->verticalHeaderItem(17);
-        ___qtablewidgetitem20->setText(QCoreApplication::translate("MainWindow", "18", nullptr));
-        QTableWidgetItem *___qtablewidgetitem21 = tablaVentas->verticalHeaderItem(18);
-        ___qtablewidgetitem21->setText(QCoreApplication::translate("MainWindow", "19", nullptr));
+        ___qtablewidgetitem2->setText(QCoreApplication::translate("MainWindow", "Cantidad", nullptr));
+        QTableWidgetItem *___qtablewidgetitem3 = tablaVentas->horizontalHeaderItem(3);
+        ___qtablewidgetitem3->setText(QCoreApplication::translate("MainWindow", "Precio Unidad", nullptr));
+        QTableWidgetItem *___qtablewidgetitem4 = tablaVentas->verticalHeaderItem(0);
+        ___qtablewidgetitem4->setText(QCoreApplication::translate("MainWindow", "1", nullptr));
+        QTableWidgetItem *___qtablewidgetitem5 = tablaVentas->verticalHeaderItem(1);
+        ___qtablewidgetitem5->setText(QCoreApplication::translate("MainWindow", "2", nullptr));
+        QTableWidgetItem *___qtablewidgetitem6 = tablaVentas->verticalHeaderItem(2);
+        ___qtablewidgetitem6->setText(QCoreApplication::translate("MainWindow", "3", nullptr));
+        QTableWidgetItem *___qtablewidgetitem7 = tablaVentas->verticalHeaderItem(3);
+        ___qtablewidgetitem7->setText(QCoreApplication::translate("MainWindow", "4", nullptr));
+        QTableWidgetItem *___qtablewidgetitem8 = tablaVentas->verticalHeaderItem(4);
+        ___qtablewidgetitem8->setText(QCoreApplication::translate("MainWindow", "5", nullptr));
+        QTableWidgetItem *___qtablewidgetitem9 = tablaVentas->verticalHeaderItem(5);
+        ___qtablewidgetitem9->setText(QCoreApplication::translate("MainWindow", "6", nullptr));
+        QTableWidgetItem *___qtablewidgetitem10 = tablaVentas->verticalHeaderItem(6);
+        ___qtablewidgetitem10->setText(QCoreApplication::translate("MainWindow", "7", nullptr));
+        QTableWidgetItem *___qtablewidgetitem11 = tablaVentas->verticalHeaderItem(7);
+        ___qtablewidgetitem11->setText(QCoreApplication::translate("MainWindow", "8", nullptr));
+        QTableWidgetItem *___qtablewidgetitem12 = tablaVentas->verticalHeaderItem(8);
+        ___qtablewidgetitem12->setText(QCoreApplication::translate("MainWindow", "9", nullptr));
+        QTableWidgetItem *___qtablewidgetitem13 = tablaVentas->verticalHeaderItem(9);
+        ___qtablewidgetitem13->setText(QCoreApplication::translate("MainWindow", "10", nullptr));
+        QTableWidgetItem *___qtablewidgetitem14 = tablaVentas->verticalHeaderItem(10);
+        ___qtablewidgetitem14->setText(QCoreApplication::translate("MainWindow", "11", nullptr));
+        QTableWidgetItem *___qtablewidgetitem15 = tablaVentas->verticalHeaderItem(11);
+        ___qtablewidgetitem15->setText(QCoreApplication::translate("MainWindow", "12", nullptr));
+        QTableWidgetItem *___qtablewidgetitem16 = tablaVentas->verticalHeaderItem(12);
+        ___qtablewidgetitem16->setText(QCoreApplication::translate("MainWindow", "13", nullptr));
+        QTableWidgetItem *___qtablewidgetitem17 = tablaVentas->verticalHeaderItem(13);
+        ___qtablewidgetitem17->setText(QCoreApplication::translate("MainWindow", "14", nullptr));
+        QTableWidgetItem *___qtablewidgetitem18 = tablaVentas->verticalHeaderItem(14);
+        ___qtablewidgetitem18->setText(QCoreApplication::translate("MainWindow", "15", nullptr));
+        QTableWidgetItem *___qtablewidgetitem19 = tablaVentas->verticalHeaderItem(15);
+        ___qtablewidgetitem19->setText(QCoreApplication::translate("MainWindow", "16", nullptr));
+        QTableWidgetItem *___qtablewidgetitem20 = tablaVentas->verticalHeaderItem(16);
+        ___qtablewidgetitem20->setText(QCoreApplication::translate("MainWindow", "17", nullptr));
+        QTableWidgetItem *___qtablewidgetitem21 = tablaVentas->verticalHeaderItem(17);
+        ___qtablewidgetitem21->setText(QCoreApplication::translate("MainWindow", "18", nullptr));
+        QTableWidgetItem *___qtablewidgetitem22 = tablaVentas->verticalHeaderItem(18);
+        ___qtablewidgetitem22->setText(QCoreApplication::translate("MainWindow", "19", nullptr));
 
         const bool __sortingEnabled = tablaVentas->isSortingEnabled();
         tablaVentas->setSortingEnabled(false);
-        QTableWidgetItem *___qtablewidgetitem22 = tablaVentas->item(0, 0);
-        ___qtablewidgetitem22->setText(QCoreApplication::translate("MainWindow", "Gaspy Jullier Pepito", nullptr));
-        QTableWidgetItem *___qtablewidgetitem23 = tablaVentas->item(0, 1);
-        ___qtablewidgetitem23->setText(QCoreApplication::translate("MainWindow", "CARNE DE PIJA", nullptr));
-        QTableWidgetItem *___qtablewidgetitem24 = tablaVentas->item(0, 2);
-        ___qtablewidgetitem24->setText(QCoreApplication::translate("MainWindow", "83", nullptr));
+        QTableWidgetItem *___qtablewidgetitem23 = tablaVentas->item(0, 0);
+        ___qtablewidgetitem23->setText(QCoreApplication::translate("MainWindow", "Gaspy Jullier Pepito", nullptr));
+        QTableWidgetItem *___qtablewidgetitem24 = tablaVentas->item(0, 1);
+        ___qtablewidgetitem24->setText(QCoreApplication::translate("MainWindow", "CARNE DE PIJA", nullptr));
         QTableWidgetItem *___qtablewidgetitem25 = tablaVentas->item(0, 3);
-        ___qtablewidgetitem25->setText(QCoreApplication::translate("MainWindow", "0$", nullptr));
+        ___qtablewidgetitem25->setText(QCoreApplication::translate("MainWindow", "83", nullptr));
+        QTableWidgetItem *___qtablewidgetitem26 = tablaVentas->item(0, 4);
+        ___qtablewidgetitem26->setText(QCoreApplication::translate("MainWindow", "0$", nullptr));
         tablaVentas->setSortingEnabled(__sortingEnabled);
 
         groupBox_3->setTitle(QCoreApplication::translate("MainWindow", "Precio Productos", nullptr));
-        label_4->setText(QCoreApplication::translate("MainWindow", "Ultima Modificaion :", nullptr));
-        label_5->setText(QCoreApplication::translate("MainWindow", "DD/MM/AA", nullptr));
+        label_4->setText(QCoreApplication::translate("MainWindow", "Fecha de hoy", nullptr));
+        label_fechaDeHoy->setText(QCoreApplication::translate("MainWindow", "DD/MM/AA", nullptr));
         label_6->setText(QCoreApplication::translate("MainWindow", "Bolsa Hielo Rolito  4kg -->", nullptr));
-        label_20->setText(QCoreApplication::translate("MainWindow", "XXX", nullptr));
+        label_Precio_BolsaHieloRolito4KG->setText(QCoreApplication::translate("MainWindow", "XXX", nullptr));
         label_7->setText(QCoreApplication::translate("MainWindow", "Bolsa Hielo Rolito  10kg --> ", nullptr));
-        label_21->setText(QCoreApplication::translate("MainWindow", "XXX", nullptr));
+        label_Precio_BolsaHieloRolito10KG->setText(QCoreApplication::translate("MainWindow", "XXX", nullptr));
         label_8->setText(QCoreApplication::translate("MainWindow", "Bolsa Hielo Rolito  14kg --> ", nullptr));
-        label_22->setText(QCoreApplication::translate("MainWindow", "XXX", nullptr));
-        label_9->setText(QCoreApplication::translate("MainWindow", "Bolsa Hielo Molido  10kg -->", nullptr));
-        label_23->setText(QCoreApplication::translate("MainWindow", "XXX", nullptr));
-        label_10->setText(QCoreApplication::translate("MainWindow", "Agua desmineralizada 1L --> ", nullptr));
-        label_24->setText(QCoreApplication::translate("MainWindow", "XXX", nullptr));
-        label_11->setText(QCoreApplication::translate("MainWindow", "Agua desmineralizada 5L --> ", nullptr));
-        label_25->setText(QCoreApplication::translate("MainWindow", "XXX", nullptr));
-        label_12->setText(QCoreApplication::translate("MainWindow", "Agua desmineralizada Pack 6 de 5L -->", nullptr));
-        label_26->setText(QCoreApplication::translate("MainWindow", "XXX", nullptr));
-        label_13->setText(QCoreApplication::translate("MainWindow", "Agua desmineralizada Pack 8 de 1L --> ", nullptr));
-        label_27->setText(QCoreApplication::translate("MainWindow", "XXX", nullptr));
+        label_Precio_BolsaHieloRolito14KG->setText(QCoreApplication::translate("MainWindow", "XXX", nullptr));
+        label_9->setText(QCoreApplication::translate("MainWindow", "Bolsa Hielo Molido  14kg -->", nullptr));
+        label_Precio_BolsaHieloMolido14KG->setText(QCoreApplication::translate("MainWindow", "XXX", nullptr));
+        label_10->setText(QCoreApplication::translate("MainWindow", "Agua destilada 1L --> ", nullptr));
+        label_Precio_AguaDestilada1L->setText(QCoreApplication::translate("MainWindow", "XXX", nullptr));
+        label_11->setText(QCoreApplication::translate("MainWindow", "Agua destilada 5L --> ", nullptr));
+        label_Precio_AguaDestilada5L->setText(QCoreApplication::translate("MainWindow", "XXX", nullptr));
+        label_12->setText(QCoreApplication::translate("MainWindow", "Agua destilada Pack 6 de 5L -->", nullptr));
+        label_Precio_Pack6AguaDestilada->setText(QCoreApplication::translate("MainWindow", "XXX", nullptr));
+        label_13->setText(QCoreApplication::translate("MainWindow", "Agua destilada Pack 8 de 1L --> ", nullptr));
+        label_Precio_Pack8AguaDestilada->setText(QCoreApplication::translate("MainWindow", "XXX", nullptr));
         label_14->setText(QCoreApplication::translate("MainWindow", "Liquido Refrigerante 1L --> ", nullptr));
-        label_28->setText(QCoreApplication::translate("MainWindow", "XXX", nullptr));
+        label_Precio_LiquidoRefrigerante1L->setText(QCoreApplication::translate("MainWindow", "XXX", nullptr));
         label_15->setText(QCoreApplication::translate("MainWindow", "Liquido Refrigerante 5L --> ", nullptr));
-        label_29->setText(QCoreApplication::translate("MainWindow", "XXX", nullptr));
-        label_17->setText(QCoreApplication::translate("MainWindow", "Liquido Refrigerante Pack 8 de 1L --> ", nullptr));
-        label_30->setText(QCoreApplication::translate("MainWindow", "XXX", nullptr));
+        label_Precio_LiquidoRefrigerante5L->setText(QCoreApplication::translate("MainWindow", "XXX", nullptr));
         label_16->setText(QCoreApplication::translate("MainWindow", "Liquido Refrigerante Pack 6 de 5L --> ", nullptr));
-        label_31->setText(QCoreApplication::translate("MainWindow", "XXX", nullptr));
-        label_18->setText(QCoreApplication::translate("MainWindow", "Agua Desmineralizada Granel 1L --> ", nullptr));
-        label_32->setText(QCoreApplication::translate("MainWindow", "XXX", nullptr));
+        label_Precio_Pack6LiquidoRefrigerante->setText(QCoreApplication::translate("MainWindow", "XXX", nullptr));
+        label_18->setText(QCoreApplication::translate("MainWindow", "Agua destilada Granel 1L --> ", nullptr));
+        label_Precio_AguaDestiladaGranel1L->setText(QCoreApplication::translate("MainWindow", "XXX", nullptr));
         label_19->setText(QCoreApplication::translate("MainWindow", "Liquido Refrigerante Granel 1L --> ", nullptr));
-        label_33->setText(QCoreApplication::translate("MainWindow", "XXX", nullptr));
+        label_Precio_LiquidoRefrigeranteGranel1L->setText(QCoreApplication::translate("MainWindow", "XXX", nullptr));
     } // retranslateUi
 
 };

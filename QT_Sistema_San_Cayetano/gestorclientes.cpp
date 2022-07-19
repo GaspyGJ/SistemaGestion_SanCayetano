@@ -2,18 +2,64 @@
 #include <QVector>
 
 
-GestorClientes::GestorClientes(){}
+GestorClientes::GestorClientes(){
+
+    this->db= new BaseDeDatos();
+
+    this->inicializarConBaseDeDatos();
+
+}
+
+GestorClientes::~GestorClientes(){
+    delete this->db;
+}
 
 
-void GestorClientes::agregarCliente(QString nombre,QString telefono, QString direccion){
+void GestorClientes::inicializarConBaseDeDatos(){
 
-    this->ultimoID+=1;
+    this->db->Conectar();
 
-    Cliente *c= new Cliente(this->ultimoID,nombre,telefono,direccion);
+    this->db->abrir();
+
+    QSqlQuery *consulta= new QSqlQuery(this->db->getbaseDatos());
+
+    //@@ HACER LA CONSULTA CORRESPONDIENT
+    consulta->prepare("@@ hacer consulta");
+
+    if( ! consulta->exec() ){
+        qDebug()<<"Error al ejecutar la consulta SQL";
+    }
+
+    while( consulta->next() ){ // mientras la consulta tenga datos sigo leyendo (fila por fila)
+
+
+        // el mismo cliente pero tiene dos direcciones --> distintos objetos
+
+        unsigned int ID =consulta->value("id_Cliente").toUInt();
+        QString nombre =consulta->value("nombre").toString();
+        QString telefono = consulta->value("telefono").toString();
+        QString direccion =consulta->value("direccion").toString();
+
+        agregarCliente(ID,nombre,telefono,direccion);
+
+        qDebug()<<"Se agrego el cliente :"<<nombre<<"\n con la direccion de : "<<direccion<<Qt::endl;
+    }
+
+    delete consulta;
+
+    this->db->cerrar();
+}
+
+void GestorClientes::agregarCliente(unsigned int id,QString nombre,QString telefono, QString direccion){
+
+    // el mismo cliente pero tiene dos direcciones --> distintos objetos
+
+    Cliente *c= new Cliente(id,nombre,telefono,direccion);
 
     this->vecClientes.push_back(c);
 
 }
+
 
 short GestorClientes::buscarCliente(unsigned int ID){
 

@@ -1,8 +1,11 @@
-/* @@ Creo q la mayoria de las verificaciones de los inppues ya esta hecha
- * faltaria por ejemplo : cuando en cantidad se ingresa 0000... --> solo se coloque 0 y no 0000...
- * LA VALIDACION DE CANTIDAD (ENTERA) --> ACEPTA , (COMAS)  VERIFICAR ESO , PARA QUE NO LAS ACEPTE
+/* @@ Creo q la mayoria de las verificaciones de los inputs ya esta hecha
  *
- * EL ID DEL PRODUCTO DEBERIA ESTAR EN LA TABLA , Y SACAR LOS NUMEROS DE LA FILA DE LA TABLA
+ * el validatorINT hace cosas raras con las " , " a veces las elimina a veces no. VER ESO
+ *
+ * DEBERIA CENTRAR LOS ITEMS DE LAS COLUMNAS PERO NO ENCONTRE MANERA
+ *
+ *
+ * los new QTableWidget ... deberia aplicarles delete???
 */
 
 #include "registrostock.h"
@@ -17,7 +20,23 @@ RegistroStock::RegistroStock(Administrador *administrador,QWidget *parent) :
 {
     uiRegistroStock->setupUi(this);
 
+    setWindowTitle("Registro de Stock");
+
     this->administrador=administrador; // le asigno el administrador
+
+    this->setValidaciones();
+
+    this->inicializarTabla();
+}
+
+
+RegistroStock::~RegistroStock(){
+    this->administrador=NULL;
+    delete uiRegistroStock;
+}
+
+
+void RegistroStock::setValidaciones(){
 
     //##Inicializacion Validaciones Sobre los Inputs
 
@@ -31,12 +50,16 @@ RegistroStock::RegistroStock(Administrador *administrador,QWidget *parent) :
 
     uiRegistroStock->input_Cantidad->setValidator( validatorINT );
 
+    delete validatorINT;
+    delete validatorDOUBLE;
 
     //## Fin de la inicializacion Validaciones Sobre los Inputs
 
+}
+
+void RegistroStock::inicializarTabla(){
 
     //### Inicializacion sobre la tabla
-
     this->ultimaColumnaConDatos=-1;
 
     //agrego a la tabla los datos de los productos registrados en el gestor
@@ -44,18 +67,20 @@ RegistroStock::RegistroStock(Administrador *administrador,QWidget *parent) :
 
     //Para que las Columans de las tablas sea de vista dinamica
     uiRegistroStock->table_Stock->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+
+    uiRegistroStock->table_Stock->horizontalHeader()->setSectionResizeMode(ID,QHeaderView::Fixed);
+    uiRegistroStock->table_Stock->resizeColumnToContents(ID);
+
     uiRegistroStock->table_Stock->setEditTriggers(QAbstractItemView::NoEditTriggers);
 
     //para que la seleccion sea de la fila entera
     uiRegistroStock->table_Stock->setSelectionBehavior(QAbstractItemView::SelectRows);
 
+    //para que no aparezca el numero de la fila como una columna mas
+    uiRegistroStock->table_Stock->verticalHeader()->setVisible(false);
+
     //### Fin de la inicializacion sobre la tabla
 }
-
-RegistroStock::~RegistroStock(){
-    delete uiRegistroStock;
-}
-
 
 void RegistroStock::on_pushButton_5_clicked(){
     this->~RegistroStock();
@@ -64,6 +89,7 @@ void RegistroStock::on_pushButton_5_clicked(){
 
 void RegistroStock::rellenarTableProduct(){//agarra todos los productos del gestor y los coloca en la tabla
 
+    //@@debo eliminar estos punteros???
     GestorProductos *GP=this->administrador->getGestorProductos();
     auto IDs=GP->getAll_ID_Productos();
 
@@ -72,6 +98,7 @@ void RegistroStock::rellenarTableProduct(){//agarra todos los productos del gest
     foreach(unsigned int id ,IDs){
         Producto *p = GP->getProducto(id);
 
+        QString identificador  = QString::number(p->getID());
         QString nombreProducto =  p->getNombre();
         QString precioProducto = QString::number(p->getPrecio()) +" $";
         QString cantidadProducto = QString::number( p->getCantidad() );
@@ -81,6 +108,10 @@ void RegistroStock::rellenarTableProduct(){//agarra todos los productos del gest
         nroFila+=1;
 
         uiRegistroStock->table_Stock->insertRow(nroFila );
+
+        uiRegistroStock->table_Stock->setItem(nroFila ,
+                                              ID,
+                                              new QTableWidgetItem(identificador));
 
         uiRegistroStock->table_Stock->setItem(nroFila ,
                                               NOMBRE,
@@ -103,15 +134,20 @@ void RegistroStock::rellenarTableProduct(){//agarra todos los productos del gest
 void RegistroStock::on_btn_ActualizarStock_clicked(){
 
     int filaSeleccionada = uiRegistroStock->table_Stock->currentRow();
+    unsigned int id = uiRegistroStock->table_Stock->model()->index(filaSeleccionada,ID).data().toUInt();
     QString stockAnterior = uiRegistroStock->table_Stock->model()->index(filaSeleccionada,CANTIDAD).data().toString();
     QString nombreProducto = uiRegistroStock->table_Stock->model()->index(filaSeleccionada,NOMBRE).data().toString();
 
 
     if(filaSeleccionada !=-1){
 
-        QString nuevaCantidad = uiRegistroStock->input_Cantidad->text().replace(',','.');
+        QString nuevaCantidad = uiRegistroStock->input_Cantidad->text();
 
-        if(nuevaCantidad!=""){
+        if(nuevaCantidad!="" and !nuevaCantidad.contains(',')){
+
+                    //lo cambio de string a entero y de entero a strign para el caso de colocar --> 0000 , se convierte a entero 0 y luego a string 0
+                    // en los casos de 01,02,03 --> colocara 1,2,3 respectivamente
+            nuevaCantidad = QString::number(nuevaCantidad.toInt());
 
             QMessageBox::StandardButton vConfirmacion = QMessageBox::question( this,"Actualizar Stock",
                                                                                "Se modificara el stock de "+nombreProducto+"\n Stock Anterior : "
@@ -120,8 +156,7 @@ void RegistroStock::on_btn_ActualizarStock_clicked(){
 
             if (vConfirmacion == QMessageBox::Yes){
 
-                                                                            //+1 Porq las filas empiezan en 0 y el id en 1
-                this->administrador->getGestorProductos()->modificarCantidad(filaSeleccionada+1,nuevaCantidad);
+                this->administrador->getGestorProductos()->modificarCantidad(id,nuevaCantidad);
 
                 uiRegistroStock->table_Stock->setItem(filaSeleccionada ,
                                                       CANTIDAD,
@@ -139,7 +174,7 @@ void RegistroStock::on_btn_ActualizarStock_clicked(){
         }
         else{
             uiRegistroStock->label_Cantidad->setStyleSheet("#label_Cantidad{color: rgb(255, 0, 0);}");
-            QMessageBox::warning( this,"Error al actualizar Stock", "Coloque un valor en la casilla de 'Cantidad' ");
+            QMessageBox::warning( this,"Error al actualizar Stock", "Coloque un valor correcto en la casilla de 'Cantidad' ");
         }
 
 
@@ -156,6 +191,7 @@ void RegistroStock::on_btn_ActualizarStock_clicked(){
 void RegistroStock::on_btn_ActualizarPrecio_clicked(){
 
     int filaSeleccionada = uiRegistroStock->table_Stock->currentRow();
+    unsigned int id = uiRegistroStock->table_Stock->model()->index(filaSeleccionada,ID).data().toUInt();
     QString precioAnterior = uiRegistroStock->table_Stock->model()->index(filaSeleccionada,PRECIO).data().toString();
     QString nombreProducto = uiRegistroStock->table_Stock->model()->index(filaSeleccionada,NOMBRE).data().toString();
 
@@ -171,8 +207,8 @@ void RegistroStock::on_btn_ActualizarPrecio_clicked(){
                                                                                QMessageBox::Cancel|QMessageBox::Yes);
 
             if (vConfirmacion == QMessageBox::Yes){
-                                                                //+1 Porq las filas empiezan en 0 y el id en 1
-                this->administrador->getGestorProductos()->modificarPrecio(filaSeleccionada+1,nuevoPrecio);
+
+                this->administrador->getGestorProductos()->modificarPrecio(id,nuevoPrecio);
 
                 uiRegistroStock->table_Stock->setItem(filaSeleccionada ,
                                                       PRECIO,
@@ -198,18 +234,4 @@ void RegistroStock::on_btn_ActualizarPrecio_clicked(){
     }
 
 }
-
-
-//No creo necesaria esta implementacion
-/*void RegistroStock::on_btn_NuevoProducto_clicked(){
-
-    NuevoProducto *ventanaNP = new NuevoProducto(this->administrador,this);
-
-    connect( ventanaNP , SIGNAL(ProductoCreadoCorrectamente()) , this , SLOT(UpdateTableProduct()) ); // cuando se cierre
-
-    connect( ventanaNP , SIGNAL(ProductoCreadoCorrectamente()) , this , SLOT(UpdateComboProduct()) ); // cuando se cierre
-
-    ventanaNP->show();
-
-}*/
 

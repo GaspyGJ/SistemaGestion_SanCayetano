@@ -4,13 +4,10 @@
 
 #include <QDebug>
 #include <QMessageBox>
-
 #include <QApplication>
 
 int main(int argc, char *argv[])
 {
-
-
 
     QApplication a(argc, argv);
 
@@ -21,5 +18,9 @@ int main(int argc, char *argv[])
 
     w.show();
 
-    return a.exec();
+    auto retorno = a.exec();
+
+    delete administrador;// libero la memoria antes de terminar el programa
+
+    return retorno;
 }

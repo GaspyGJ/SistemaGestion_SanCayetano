@@ -1,6 +1,6 @@
 #include "producto.h"
 
-Producto::Producto(unsigned int ID,QString nombre,/*short peso,*/double precio){
+Producto::Producto(unsigned int ID,QString nombre,double precio){
     this->setID(ID);
     this->setNombre(nombre);
     //this->setPeso(peso);
@@ -8,55 +8,44 @@ Producto::Producto(unsigned int ID,QString nombre,/*short peso,*/double precio){
     this->setCantidad(0);
 }
 
-Producto::~Producto(){
-    delete this;
+
+unsigned int Producto::getID(){
+    return this->ID;
 }
 
 QString Producto::getNombre(){
     return this->nombre;
 }
-QString Producto::getProveedor(){
-    return this->nombre;
-}
-/*short Producto::getPeso(){
-    return this->peso;
-}*/
+
 double Producto::getPrecio(){
     return this->precio;
-}
-QString Producto::getFechaUltimaIncorporacion(){
-    return this->fechaUltimaIncorporacion;
 }
 
 int Producto::getCantidad(){
     return this->cantidad;
 }
 
-unsigned int Producto::getID(){
-    return this->ID;
+QString Producto::getFechaUltimaIncorporacion(){
+    return this->fechaUltimaIncorporacion;
 }
 
 
-
+void Producto::setID(unsigned int id){
+    this->ID=id;
+}
 
 void Producto::setNombre(QString nombre){
     this->nombre=nombre;
 }
-void Producto::setProveedor(QString proveedor){
-    this->proveedor=proveedor;
-}
-/*void Producto::setPeso(short peso){
-    this->peso=peso;
-}*/
+
 void Producto::setPrecio(double precio){
     this->precio=precio;
 }
+
 void Producto::setCantidad(int cantidad){
     this->cantidad=cantidad;
 }
+
 void Producto::setFechaUltimaIncorporacion(QString fecha){
     this->fechaUltimaIncorporacion=fecha;
-}
-void Producto::setID(unsigned int id){
-    this->ID=id;
 }

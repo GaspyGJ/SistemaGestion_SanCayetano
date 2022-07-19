@@ -23,6 +23,9 @@ private slots:
 
     //
 
+    void setValidaciones();
+    void inicializarTabla();
+
     void rellenarTableProduct();
 
     void on_btn_ActualizarStock_clicked();
@@ -37,7 +40,7 @@ private:
     int ultimaColumnaConDatos;
 
     enum Columna{
-        NOMBRE ,PRECIO,CANTIDAD , FECHA_INCORPORACION
+        ID,NOMBRE,PRECIO,CANTIDAD ,FECHA_INCORPORACION
     };
 };
 

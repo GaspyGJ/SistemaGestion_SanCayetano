@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>895</width>
-    <height>682</height>
+    <width>942</width>
+    <height>606</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -55,7 +55,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QComboBox" name="comboBox"/>
+          <widget class="QComboBox" name="comboBox_Clientes"/>
          </item>
          <item>
           <widget class="QLabel" name="label_2">
@@ -65,7 +65,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QComboBox" name="comboBox_2"/>
+          <widget class="QComboBox" name="comboBox_Producos"/>
          </item>
          <item>
           <widget class="QLabel" name="label_3">
@@ -75,7 +75,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QLineEdit" name="lineEdit_3"/>
+          <widget class="QLineEdit" name="input_Cantidad"/>
          </item>
          <item>
           <spacer name="verticalSpacer">
@@ -94,7 +94,7 @@
           </spacer>
          </item>
          <item>
-          <widget class="QPushButton" name="pushButton_9">
+          <widget class="QPushButton" name="btn_AgregarVenta">
            <property name="styleSheet">
             <string notr="true">margin-top:10px;
 padding-top : 2px;
@@ -105,6 +105,12 @@ margin-bottom: 5px;</string>
             <string>Agregar Venta</string>
            </property>
            <property name="checkable">
+            <bool>false</bool>
+           </property>
+           <property name="autoDefault">
+            <bool>true</bool>
+           </property>
+           <property name="default">
             <bool>false</bool>
            </property>
           </widget>
@@ -131,21 +137,33 @@ margin-bottom: 5px;</string>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_2">
          <item>
-          <widget class="QPushButton" name="pushButton_7">
+          <widget class="QPushButton" name="btn_EditarVentaDeTabla">
            <property name="text">
             <string>Editar Venta de Tabla</string>
            </property>
            <property name="checkable">
             <bool>false</bool>
            </property>
+           <property name="autoDefault">
+            <bool>true</bool>
+           </property>
+           <property name="default">
+            <bool>false</bool>
+           </property>
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="pushButton_8">
+          <widget class="QPushButton" name="btn_EliminarVentaDeTabla">
            <property name="text">
             <string>Eliminar Venta de Tabla</string>
            </property>
            <property name="checkable">
+            <bool>false</bool>
+           </property>
+           <property name="autoDefault">
+            <bool>true</bool>
+           </property>
+           <property name="default">
             <bool>false</bool>
            </property>
           </widget>
@@ -158,29 +176,9 @@ margin-bottom: 5px;</string>
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="pushButton_6">
+          <widget class="QPushButton" name="btn_ImprimirTablaVentas">
            <property name="text">
             <string>Imprimir Tabla Ventas</string>
-           </property>
-           <property name="checkable">
-            <bool>false</bool>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="pushButton_5">
-           <property name="text">
-            <string>Generar PDF Tabla Ventas</string>
-           </property>
-           <property name="checkable">
-            <bool>false</bool>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="pushButton_2">
-           <property name="text">
-            <string>Gestionar Stock</string>
            </property>
            <property name="checkable">
             <bool>false</bool>
@@ -189,16 +187,54 @@ margin-bottom: 5px;</string>
             <bool>true</bool>
            </property>
            <property name="default">
-            <bool>true</bool>
+            <bool>false</bool>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="pushButton_3">
+          <widget class="QPushButton" name="btn_GenerarPDF_TablaVentas">
            <property name="text">
-            <string>Resgistro de Clientes</string>
+            <string>Generar PDF Tabla Ventas</string>
            </property>
            <property name="checkable">
+            <bool>false</bool>
+           </property>
+           <property name="autoDefault">
+            <bool>true</bool>
+           </property>
+           <property name="default">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btn_RegistroStock">
+           <property name="text">
+            <string>Registro Stock</string>
+           </property>
+           <property name="checkable">
+            <bool>false</bool>
+           </property>
+           <property name="autoDefault">
+            <bool>true</bool>
+           </property>
+           <property name="default">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btn_RegistroClientes">
+           <property name="text">
+            <string>Resgistro Clientes</string>
+           </property>
+           <property name="checkable">
+            <bool>false</bool>
+           </property>
+           <property name="autoDefault">
+            <bool>true</bool>
+           </property>
+           <property name="default">
             <bool>false</bool>
            </property>
           </widget>
@@ -207,7 +243,7 @@ margin-bottom: 5px;</string>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton_4">
+       <widget class="QPushButton" name="btn_Salir">
         <property name="minimumSize">
          <size>
           <width>190</width>
@@ -224,6 +260,12 @@ margin-bottom: 5px;</string>
          <string>Salir</string>
         </property>
         <property name="checkable">
+         <bool>false</bool>
+        </property>
+        <property name="autoDefault">
+         <bool>true</bool>
+        </property>
+        <property name="default">
          <bool>false</bool>
         </property>
        </widget>
@@ -412,6 +454,11 @@ margin-bottom: 5px;</string>
       </column>
       <column>
        <property name="text">
+        <string>Cantidad</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
         <string>Precio Unidad</string>
        </property>
       </column>
@@ -430,12 +477,12 @@ margin-bottom: 5px;</string>
         <string>CARNE DE PIJA</string>
        </property>
       </item>
-      <item row="0" column="2">
+      <item row="0" column="3">
        <property name="text">
         <string>83</string>
        </property>
       </item>
-      <item row="0" column="3">
+      <item row="0" column="4">
        <property name="text">
         <string>0$</string>
        </property>
@@ -459,12 +506,12 @@ margin-bottom: 5px;</string>
          <item>
           <widget class="QLabel" name="label_4">
            <property name="text">
-            <string>Ultima Modificaion :</string>
+            <string>Fecha de hoy</string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QLabel" name="label_5">
+          <widget class="QLabel" name="label_fechaDeHoy">
            <property name="text">
             <string>DD/MM/AA</string>
            </property>
@@ -489,7 +536,7 @@ margin-bottom: 5px;</string>
           </widget>
          </item>
          <item>
-          <widget class="QLabel" name="label_20">
+          <widget class="QLabel" name="label_Precio_BolsaHieloRolito4KG">
            <property name="text">
             <string>XXX</string>
            </property>
@@ -507,7 +554,7 @@ margin-bottom: 5px;</string>
           </widget>
          </item>
          <item>
-          <widget class="QLabel" name="label_21">
+          <widget class="QLabel" name="label_Precio_BolsaHieloRolito10KG">
            <property name="text">
             <string>XXX</string>
            </property>
@@ -525,7 +572,7 @@ margin-bottom: 5px;</string>
           </widget>
          </item>
          <item>
-          <widget class="QLabel" name="label_22">
+          <widget class="QLabel" name="label_Precio_BolsaHieloRolito14KG">
            <property name="text">
             <string>XXX</string>
            </property>
@@ -538,12 +585,12 @@ margin-bottom: 5px;</string>
          <item>
           <widget class="QLabel" name="label_9">
            <property name="text">
-            <string>Bolsa Hielo Molido  10kg --&gt;</string>
+            <string>Bolsa Hielo Molido  14kg --&gt;</string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QLabel" name="label_23">
+          <widget class="QLabel" name="label_Precio_BolsaHieloMolido14KG">
            <property name="text">
             <string>XXX</string>
            </property>
@@ -563,12 +610,12 @@ margin-bottom: 5px;</string>
          <item>
           <widget class="QLabel" name="label_10">
            <property name="text">
-            <string>Agua desmineralizada 1L --&gt; </string>
+            <string>Agua destilada 1L --&gt; </string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QLabel" name="label_24">
+          <widget class="QLabel" name="label_Precio_AguaDestilada1L">
            <property name="text">
             <string>XXX</string>
            </property>
@@ -581,12 +628,12 @@ margin-bottom: 5px;</string>
          <item>
           <widget class="QLabel" name="label_11">
            <property name="text">
-            <string>Agua desmineralizada 5L --&gt; </string>
+            <string>Agua destilada 5L --&gt; </string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QLabel" name="label_25">
+          <widget class="QLabel" name="label_Precio_AguaDestilada5L">
            <property name="text">
             <string>XXX</string>
            </property>
@@ -599,12 +646,12 @@ margin-bottom: 5px;</string>
          <item>
           <widget class="QLabel" name="label_12">
            <property name="text">
-            <string>Agua desmineralizada Pack 6 de 5L --&gt;</string>
+            <string>Agua destilada Pack 6 de 5L --&gt;</string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QLabel" name="label_26">
+          <widget class="QLabel" name="label_Precio_Pack6AguaDestilada">
            <property name="text">
             <string>XXX</string>
            </property>
@@ -617,12 +664,12 @@ margin-bottom: 5px;</string>
          <item>
           <widget class="QLabel" name="label_13">
            <property name="text">
-            <string>Agua desmineralizada Pack 8 de 1L --&gt; </string>
+            <string>Agua destilada Pack 8 de 1L --&gt; </string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QLabel" name="label_27">
+          <widget class="QLabel" name="label_Precio_Pack8AguaDestilada">
            <property name="text">
             <string>XXX</string>
            </property>
@@ -647,7 +694,7 @@ margin-bottom: 5px;</string>
           </widget>
          </item>
          <item>
-          <widget class="QLabel" name="label_28">
+          <widget class="QLabel" name="label_Precio_LiquidoRefrigerante1L">
            <property name="text">
             <string>XXX</string>
            </property>
@@ -665,25 +712,7 @@ margin-bottom: 5px;</string>
           </widget>
          </item>
          <item>
-          <widget class="QLabel" name="label_29">
-           <property name="text">
-            <string>XXX</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-       <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_12">
-         <item>
-          <widget class="QLabel" name="label_17">
-           <property name="text">
-            <string>Liquido Refrigerante Pack 8 de 1L --&gt; </string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLabel" name="label_30">
+          <widget class="QLabel" name="label_Precio_LiquidoRefrigerante5L">
            <property name="text">
             <string>XXX</string>
            </property>
@@ -701,7 +730,7 @@ margin-bottom: 5px;</string>
           </widget>
          </item>
          <item>
-          <widget class="QLabel" name="label_31">
+          <widget class="QLabel" name="label_Precio_Pack6LiquidoRefrigerante">
            <property name="text">
             <string>XXX</string>
            </property>
@@ -721,12 +750,12 @@ margin-bottom: 5px;</string>
          <item>
           <widget class="QLabel" name="label_18">
            <property name="text">
-            <string>Agua Desmineralizada Granel 1L --&gt; </string>
+            <string>Agua destilada Granel 1L --&gt; </string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QLabel" name="label_32">
+          <widget class="QLabel" name="label_Precio_AguaDestiladaGranel1L">
            <property name="text">
             <string>XXX</string>
            </property>
@@ -744,7 +773,7 @@ margin-bottom: 5px;</string>
           </widget>
          </item>
          <item>
-          <widget class="QLabel" name="label_33">
+          <widget class="QLabel" name="label_Precio_LiquidoRefrigeranteGranel1L">
            <property name="text">
             <string>XXX</string>
            </property>
@@ -762,7 +791,7 @@ margin-bottom: 5px;</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>895</width>
+     <width>942</width>
      <height>21</height>
     </rect>
    </property>
