@@ -7,7 +7,6 @@ class Cliente
 {
 public:
     Cliente(unsigned int id,QString nombre,QString telefono, QString direccion);
-    ~Cliente();
 
     QString getNombre();
     QString getTelefono();

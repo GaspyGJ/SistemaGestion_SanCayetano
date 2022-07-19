@@ -40,7 +40,9 @@ short BaseDeDatos::abrir(){
 
 void BaseDeDatos::cerrar(){
 
-    this->baseDatos.close();
+    {this->baseDatos.close();}
+
+    this->baseDatos.removeDatabase("QSQLITE");
 }
 
 

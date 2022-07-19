@@ -23,27 +23,27 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_RegistroStock_t {
     const uint offsetsAndSize[16];
-    char stringdata0[156];
+    char stringdata0[154];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(offsetof(qt_meta_stringdata_RegistroStock_t, stringdata0) + ofs), len 
 static const qt_meta_stringdata_RegistroStock_t qt_meta_stringdata_RegistroStock = {
     {
 QT_MOC_LITERAL(0, 13), // "RegistroStock"
-QT_MOC_LITERAL(14, 23), // "on_pushButton_5_clicked"
-QT_MOC_LITERAL(38, 0), // ""
-QT_MOC_LITERAL(39, 15), // "setValidaciones"
-QT_MOC_LITERAL(55, 16), // "inicializarTabla"
-QT_MOC_LITERAL(72, 20), // "rellenarTableProduct"
-QT_MOC_LITERAL(93, 30), // "on_btn_ActualizarStock_clicked"
-QT_MOC_LITERAL(124, 31) // "on_btn_ActualizarPrecio_clicked"
+QT_MOC_LITERAL(14, 15), // "setValidaciones"
+QT_MOC_LITERAL(30, 0), // ""
+QT_MOC_LITERAL(31, 16), // "inicializarTabla"
+QT_MOC_LITERAL(48, 20), // "rellenarTableProduct"
+QT_MOC_LITERAL(69, 30), // "on_btn_ActualizarStock_clicked"
+QT_MOC_LITERAL(100, 31), // "on_btn_ActualizarPrecio_clicked"
+QT_MOC_LITERAL(132, 21) // "on_btn_Volver_clicked"
 
     },
-    "RegistroStock\0on_pushButton_5_clicked\0"
-    "\0setValidaciones\0inicializarTabla\0"
-    "rellenarTableProduct\0"
+    "RegistroStock\0setValidaciones\0\0"
+    "inicializarTabla\0rellenarTableProduct\0"
     "on_btn_ActualizarStock_clicked\0"
-    "on_btn_ActualizarPrecio_clicked"
+    "on_btn_ActualizarPrecio_clicked\0"
+    "on_btn_Volver_clicked"
 };
 #undef QT_MOC_LITERAL
 
@@ -85,12 +85,12 @@ void RegistroStock::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _i
         auto *_t = static_cast<RegistroStock *>(_o);
         (void)_t;
         switch (_id) {
-        case 0: _t->on_pushButton_5_clicked(); break;
-        case 1: _t->setValidaciones(); break;
-        case 2: _t->inicializarTabla(); break;
-        case 3: _t->rellenarTableProduct(); break;
-        case 4: _t->on_btn_ActualizarStock_clicked(); break;
-        case 5: _t->on_btn_ActualizarPrecio_clicked(); break;
+        case 0: _t->setValidaciones(); break;
+        case 1: _t->inicializarTabla(); break;
+        case 2: _t->rellenarTableProduct(); break;
+        case 3: _t->on_btn_ActualizarStock_clicked(); break;
+        case 4: _t->on_btn_ActualizarPrecio_clicked(); break;
+        case 5: _t->on_btn_Volver_clicked(); break;
         default: ;
         }
     }

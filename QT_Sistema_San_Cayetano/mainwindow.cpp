@@ -62,17 +62,12 @@ void MainWindow::inicializarComboBoxes(){
        uiVentanaPrincipal->comboBox_Producos->addItem( this->administrador->getGestorProductos()->getProducto(id)->getNombre() );
    }
 
-
-   //PARA CUANDO HAGA LOS CLIENTES
-   /*
-
-    auto IDs = this->administrador->getGestorClientes()->getAll_ID_Clientes();
+   IDs = this->administrador->getGestorClientes()->getAll_ID_Clientes();
 
    foreach(unsigned id, IDs){
        uiVentanaPrincipal->comboBox_Clientes->addItem( this->administrador->getGestorClientes()->getCliente(id)->getNombre() );
    }
 
-   */
 }
 
 

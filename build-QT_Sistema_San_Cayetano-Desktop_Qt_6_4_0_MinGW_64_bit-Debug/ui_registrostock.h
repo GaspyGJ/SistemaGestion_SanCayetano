@@ -47,7 +47,7 @@ public:
     QVBoxLayout *verticalLayout;
     QPushButton *btn_GenerarPDF_Stock;
     QPushButton *btn_imprimirStock;
-    QPushButton *pushButton_5;
+    QPushButton *btn_Volver;
     QTableWidget *table_Stock;
     QMenuBar *menubar;
     QStatusBar *statusbar;
@@ -133,12 +133,12 @@ public:
 
         verticalLayout_2->addWidget(groupBox_2);
 
-        pushButton_5 = new QPushButton(centralwidget);
-        pushButton_5->setObjectName("pushButton_5");
-        pushButton_5->setMaximumSize(QSize(190, 16777215));
-        pushButton_5->setAutoDefault(true);
+        btn_Volver = new QPushButton(centralwidget);
+        btn_Volver->setObjectName("btn_Volver");
+        btn_Volver->setMaximumSize(QSize(190, 16777215));
+        btn_Volver->setAutoDefault(true);
 
-        verticalLayout_2->addWidget(pushButton_5);
+        verticalLayout_2->addWidget(btn_Volver);
 
 
         horizontalLayout->addLayout(verticalLayout_2);
@@ -180,7 +180,7 @@ public:
         btn_ActualizarStock->setDefault(false);
         btn_GenerarPDF_Stock->setDefault(false);
         btn_imprimirStock->setDefault(false);
-        pushButton_5->setDefault(false);
+        btn_Volver->setDefault(false);
 
 
         QMetaObject::connectSlotsByName(RegistroStock);
@@ -197,7 +197,7 @@ public:
         groupBox_2->setTitle(QCoreApplication::translate("RegistroStock", "Gestionar Stock", nullptr));
         btn_GenerarPDF_Stock->setText(QCoreApplication::translate("RegistroStock", "Generar PDF Stock", nullptr));
         btn_imprimirStock->setText(QCoreApplication::translate("RegistroStock", "Imprimir Stock", nullptr));
-        pushButton_5->setText(QCoreApplication::translate("RegistroStock", "Volver", nullptr));
+        btn_Volver->setText(QCoreApplication::translate("RegistroStock", "Volver", nullptr));
         QTableWidgetItem *___qtablewidgetitem = table_Stock->horizontalHeaderItem(0);
         ___qtablewidgetitem->setText(QCoreApplication::translate("RegistroStock", "Id", nullptr));
         QTableWidgetItem *___qtablewidgetitem1 = table_Stock->horizontalHeaderItem(1);

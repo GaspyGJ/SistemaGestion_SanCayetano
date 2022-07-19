@@ -18,12 +18,8 @@ public:
 
 private slots:
 
-    //Funciones con los Widgets
-    void on_pushButton_5_clicked();
-
-    //
-
     void setValidaciones();
+
     void inicializarTabla();
 
     void rellenarTableProduct();
@@ -32,12 +28,14 @@ private slots:
 
     void on_btn_ActualizarPrecio_clicked();
 
+    void on_btn_Volver_clicked();
+
 private:
     Ui::RegistroStock *uiRegistroStock;
 
     Administrador *administrador;
 
-    int ultimaColumnaConDatos;
+    int ultimaFilaConDatos;
 
     enum Columna{
         ID,NOMBRE,PRECIO,CANTIDAD ,FECHA_INCORPORACION

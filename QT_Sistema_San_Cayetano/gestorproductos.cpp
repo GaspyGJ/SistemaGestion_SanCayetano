@@ -7,51 +7,55 @@
 
 GestorProductos::GestorProductos(){
 
-    this->db= new BaseDeDatos();
-
     this->inicializarConBaseDeDatos();
 }
 
 GestorProductos::~GestorProductos(){
 
-    delete this->db;
-
     for(int i=0; i<this->vecProductos.length(); i++ ){
-       delete this->vecProductos[i];
+        delete this->vecProductos[i];
     }
 
 }
 
 void GestorProductos::inicializarConBaseDeDatos(){
 
-    this->db->Conectar();
+    { this->db= new BaseDeDatos();
 
-    this->db->abrir();
+        this->db->Conectar();
 
-    QSqlQuery *consulta= new QSqlQuery(this->db->getbaseDatos());
+        this->db->abrir();
 
-    consulta->prepare("select * from Productos order by id_Producto");
+        QSqlQuery *consulta= new QSqlQuery(this->db->getbaseDatos());
 
-    if( ! consulta->exec() ){
-        qDebug()<<"Error al ejecutar la consulta SQL";
+        consulta->prepare("select * from Productos order by id_Producto");
+
+        if( ! consulta->exec() ){
+            qDebug()<<"Error al ejecutar la consulta SQL GESTOR PRODUCTO";
+        }
+
+        while( consulta->next() ){ // mientras la consulta tenga datos sigo leyendo (fila por fila)
+
+            unsigned int ID =consulta->value("id_Producto").toUInt();
+            QString nombre =consulta->value("nombre").toString();
+            double precio = consulta->value("precio").toDouble();
+            int stock = consulta->value("cant_Stock").toInt();
+            QString fecha_ultima_incorporacion =consulta->value("fecha_Ultima_Incorporacion").toString();
+
+            agregarProducto(ID,nombre,precio,stock,fecha_ultima_incorporacion);
+
+            //qDebug()<<"Se agrego el producto :"<<nombre<<"\n con el precio de : "<<precio<<Qt::endl;
+        }
+
+        delete consulta;
+
     }
-
-    while( consulta->next() ){ // mientras la consulta tenga datos sigo leyendo (fila por fila)
-
-        unsigned int ID =consulta->value("id_Producto").toUInt();
-        QString nombre =consulta->value("nombre").toString();
-        double precio = consulta->value("precio").toDouble();
-        int stock = consulta->value("cant_Stock").toInt();
-        QString fecha_ultima_incorporacion =consulta->value("fecha_Ultima_Incorporacion").toString();
-
-        agregarProducto(ID,nombre,precio,stock,fecha_ultima_incorporacion);
-
-        qDebug()<<"Se agrego el producto :"<<nombre<<"\n con el precio de : "<<precio<<Qt::endl;
-    }
-
-    delete consulta;
 
     this->db->cerrar();
+
+    delete this->db;
+
+    this->db = nullptr;
 }
 
 
@@ -143,7 +147,7 @@ void GestorProductos::modificarPrecio(unsigned int ID,QString precio){
     }
     else{
         qDebug("El ID del Producto no se encontro en el vector de Productos 1");
-         QMessageBox::critical(0,"Error" , "El ID del Producto no fue enconontrado");
+        QMessageBox::critical(0,"Error" , "El ID del Producto no fue enconontrado");
     }
 
 }
@@ -183,40 +187,40 @@ void GestorProductos::modificarCantidad(unsigned int ID,QString cantidad){
 
             consulta->prepare(query2);
 
-             if( ! consulta->exec() ){
+            if( ! consulta->exec() ){
 
-                 qDebug()<<"Error al ejecutar la consulta SQL";
-                 qDebug()<<"El error de la  consulta 2 es = "<<this->db->getbaseDatos().lastError();
-                 QMessageBox::critical(0,"Error de Base de Datos","Error al ejecutar la consulta SQL Update Fecha incorporacion");
-                 this->db->cerrar();
+                qDebug()<<"Error al ejecutar la consulta SQL";
+                qDebug()<<"El error de la  consulta 2 es = "<<this->db->getbaseDatos().lastError();
+                QMessageBox::critical(0,"Error de Base de Datos","Error al ejecutar la consulta SQL Update Fecha incorporacion");
+                this->db->cerrar();
 
-                 delete fecha;
-                 delete consulta;
+                delete fecha;
+                delete consulta;
 
-             }
-             else{
+            }
+            else{
 
-                 this->db->getbaseDatos().commit(); // confirmo la transaccion
-                 this->db->cerrar();
+                this->db->getbaseDatos().commit(); // confirmo la transaccion
+                this->db->cerrar();
 
-                 delete fecha;
-                 delete consulta;
+                delete fecha;
+                delete consulta;
 
-                 //Fin de la actualizacion con la BBBDD
+                //Fin de la actualizacion con la BBBDD
 
-                 //Cambio el valor en el vector actual de productos
-                 this->vecProductos[posProducto]->setCantidad(cantidad.toInt());
-                 this->vecProductos[posProducto]->setFechaUltimaIncorporacion(fecha->currentDate().toString("dd-MM-yyyy"));
+                //Cambio el valor en el vector actual de productos
+                this->vecProductos[posProducto]->setCantidad(cantidad.toInt());
+                this->vecProductos[posProducto]->setFechaUltimaIncorporacion(fecha->currentDate().toString("dd-MM-yyyy"));
 
 
-                 QMessageBox::information(0,"OK" , "Se actualizo correctamente la cantidad de stock del producto");
-             }
+                QMessageBox::information(0,"OK" , "Se actualizo correctamente la cantidad de stock del producto");
+            }
 
         }
     }
     else{
         qDebug("El ID del Producto no se encontro en el vector de Productos");
-         QMessageBox::critical(0,"Error" , "El ID del Producto no fue enconontrado");
+        QMessageBox::critical(0,"Error" , "El ID del Producto no fue enconontrado");
     }
 
 }

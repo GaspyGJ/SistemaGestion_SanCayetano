@@ -10,11 +10,10 @@ Cliente::Cliente(unsigned int id,QString nombre,QString telefono, QString direcc
 
 }
 
-Cliente::~Cliente(){
-    delete this;
-}
-
 //setters
+void Cliente::setID(unsigned int id){
+    this->ID=id;
+}
 void Cliente::setNombre(QString nombre){
     this->nombre=nombre;
 }
@@ -24,12 +23,11 @@ void Cliente::setTelefono(QString telefono){
 void Cliente::setDireccion(QString direccion){
     this->direccion=direccion;
 }
-void Cliente::setID(unsigned int id){
-    this->ID=id;
-}
-
 
 //getters
+unsigned int Cliente::getID(){
+    return this->ID;
+}
 QString Cliente::getNombre(){
     return this->nombre;
 }
@@ -38,7 +36,4 @@ QString Cliente::getTelefono(){
 }
 QString Cliente::getDireccion(){
     return this->direccion;
-}
-unsigned int Cliente::getID(){
-    return this->ID;
 }

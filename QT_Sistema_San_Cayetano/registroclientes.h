@@ -16,9 +16,11 @@ public:
     explicit RegistroClientes(Administrador *administrador,QWidget *parent = nullptr);
     ~RegistroClientes();
 
+    void setValidaciones();
+
     void inicializarTabla();
 
-    void rellenarTableProduct();
+    void rellenarTableClientes();
 
 private slots:
     void on_pushButton_4_clicked();
@@ -27,6 +29,13 @@ private:
     Ui::RegistroClientes *uiRegistroClientes;
 
     Administrador *administrador;
+
+    int ultimaFilaConDatos;
+
+    enum Columna{
+       ID,NOMBRE,DIRECCION,TELEFONO
+    };
+
 };
 
 #endif // REGISTROCLIENTES_H

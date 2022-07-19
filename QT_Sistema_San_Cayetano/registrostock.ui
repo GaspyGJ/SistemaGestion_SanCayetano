@@ -128,7 +128,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton_5">
+       <widget class="QPushButton" name="btn_Volver">
         <property name="maximumSize">
          <size>
           <width>190</width>

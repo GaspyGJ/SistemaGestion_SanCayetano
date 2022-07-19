@@ -43,7 +43,7 @@ private:
     unsigned ultimaFilaConDatos;
 
     enum Columna{
-       NOMBRE,PRODUCTO,CANTIDAD,PRECIO_UNIDAD
+       NOMBRE,PRODUCTO,CANTIDAD,PRECIO_UNIDAD,HORA
     };
 
 

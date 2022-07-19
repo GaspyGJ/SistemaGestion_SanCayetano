@@ -60,7 +60,7 @@ void RegistroStock::setValidaciones(){
 void RegistroStock::inicializarTabla(){
 
     //### Inicializacion sobre la tabla
-    this->ultimaColumnaConDatos=-1;
+    this->ultimaFilaConDatos=-1;
 
     //agrego a la tabla los datos de los productos registrados en el gestor
     this->rellenarTableProduct();
@@ -82,9 +82,6 @@ void RegistroStock::inicializarTabla(){
     //### Fin de la inicializacion sobre la tabla
 }
 
-void RegistroStock::on_pushButton_5_clicked(){
-    this->~RegistroStock();
-}
 
 
 void RegistroStock::rellenarTableProduct(){//agarra todos los productos del gestor y los coloca en la tabla
@@ -93,7 +90,7 @@ void RegistroStock::rellenarTableProduct(){//agarra todos los productos del gest
     GestorProductos *GP=this->administrador->getGestorProductos();
     auto IDs=GP->getAll_ID_Productos();
 
-    unsigned nroFila = this->ultimaColumnaConDatos;
+    unsigned nroFila = this->ultimaFilaConDatos;
 
     foreach(unsigned int id ,IDs){
         Producto *p = GP->getProducto(id);
@@ -104,10 +101,10 @@ void RegistroStock::rellenarTableProduct(){//agarra todos los productos del gest
         QString cantidadProducto = QString::number( p->getCantidad() );
         QString fechaProducto = p->getFechaUltimaIncorporacion();
 
-        qDebug()<<"La fecha del producto es"<<fechaProducto;
         nroFila+=1;
 
         uiRegistroStock->table_Stock->insertRow(nroFila );
+
 
         uiRegistroStock->table_Stock->setItem(nroFila ,
                                               ID,
@@ -187,7 +184,6 @@ void RegistroStock::on_btn_ActualizarStock_clicked(){
 
 }
 
-
 void RegistroStock::on_btn_ActualizarPrecio_clicked(){
 
     int filaSeleccionada = uiRegistroStock->table_Stock->currentRow();
@@ -233,5 +229,10 @@ void RegistroStock::on_btn_ActualizarPrecio_clicked(){
         QMessageBox::warning( this,"Error al actualizar Stock", "Seleccione una fila a actualizar y rellene la casilla 'Precio'");
     }
 
+}
+
+
+void RegistroStock::on_btn_Volver_clicked(){
+    this->~RegistroStock();
 }
 

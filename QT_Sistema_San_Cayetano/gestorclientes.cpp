@@ -1,53 +1,66 @@
+//@@  El telefono o direccion , debe tener algun formato (???
+
 #include "gestorclientes.h"
 #include <QVector>
 
 
 GestorClientes::GestorClientes(){
 
-    this->db= new BaseDeDatos();
-
     this->inicializarConBaseDeDatos();
 
 }
 
 GestorClientes::~GestorClientes(){
-    delete this->db;
+    //@@ esto es necesario ??? igual no estoy eliminando el vector del todo, nose
+    for(int i=0; i<this->vecClientes.length(); i++ ){
+        delete this->vecClientes[i];
+    }
+
 }
 
 
 void GestorClientes::inicializarConBaseDeDatos(){
 
-    this->db->Conectar();
+    {
+        this->db= new BaseDeDatos();
 
-    this->db->abrir();
+        this->db->Conectar();
 
-    QSqlQuery *consulta= new QSqlQuery(this->db->getbaseDatos());
+        this->db->abrir();
 
-    //@@ HACER LA CONSULTA CORRESPONDIENT
-    consulta->prepare("@@ hacer consulta");
+        QSqlQuery *consulta= new QSqlQuery(this->db->getbaseDatos());
 
-    if( ! consulta->exec() ){
-        qDebug()<<"Error al ejecutar la consulta SQL";
+        //@@ HACER LA CONSULTA CORRESPONDIENT
+        consulta->prepare("SELECT C.id_Cliente,C.nombre,T.telefono,D.direccion FROM (Clientes C LEFT JOIN TelefonosC T ON  C.id_Cliente=T.id_Cliente) LEFT JOIN DireccionC D ON T.direccion=D.direccion;");
+
+        if( ! consulta->exec() ){
+            qDebug()<<"Error al ejecutar la consulta SQL GESTOR CLIENTE";
+        }
+
+        while( consulta->next() ){ // mientras la consulta tenga datos sigo leyendo (fila por fila)
+
+
+            // el mismo cliente pero tiene dos direcciones --> distintos objetos
+
+            unsigned int ID =consulta->value("id_Cliente").toUInt();
+            QString nombre =consulta->value("nombre").toString();
+            QString telefono = consulta->value("telefono").toString();
+            QString direccion =consulta->value("direccion").toString();
+
+            agregarCliente(ID,nombre,telefono,direccion);
+
+           qDebug()<<"Se agrego a la lista cliente :"<<nombre<<"\n con ID:"<<ID<<"\n con la direccion de : "<<direccion<<"\n con el telefono: "<<telefono<<Qt::endl;
+        }
+
+        delete consulta;
+
     }
-
-    while( consulta->next() ){ // mientras la consulta tenga datos sigo leyendo (fila por fila)
-
-
-        // el mismo cliente pero tiene dos direcciones --> distintos objetos
-
-        unsigned int ID =consulta->value("id_Cliente").toUInt();
-        QString nombre =consulta->value("nombre").toString();
-        QString telefono = consulta->value("telefono").toString();
-        QString direccion =consulta->value("direccion").toString();
-
-        agregarCliente(ID,nombre,telefono,direccion);
-
-        qDebug()<<"Se agrego el cliente :"<<nombre<<"\n con la direccion de : "<<direccion<<Qt::endl;
-    }
-
-    delete consulta;
 
     this->db->cerrar();
+
+    delete this->db;
+
+    this->db = nullptr;
 }
 
 void GestorClientes::agregarCliente(unsigned int id,QString nombre,QString telefono, QString direccion){
@@ -80,6 +93,7 @@ Cliente* GestorClientes::getCliente(unsigned int ID){
     }
 
     return NULL;
+
 }
 
 QVector<unsigned int> GestorClientes::getAll_ID_Clientes(){
@@ -142,21 +156,6 @@ void GestorClientes::modificarDireccion(unsigned int ID, QString direccion){
 
 }
 
-void GestorClientes::eliminarCliente(unsigned int ID){
-
-    short posCliente = this->buscarCliente(ID);
-
-    if ( posCliente != -1){
-
-        //lo elimino del vector
-        this->vecClientes.erase(this->vecClientes.begin()+posCliente);
-
-        //Elimino el Objeto especifico
-        Cliente *c = this->getCliente(ID);
-        c->~Cliente();
-    }
-    else{
-        qDebug("El ID del cliente no se encontro en el registro de clientes");
-        // TIRAR UN ERROR
-    }
-}
+//void GestorClientes::eliminarCliente(unsigned int ID){
+//
+//}
