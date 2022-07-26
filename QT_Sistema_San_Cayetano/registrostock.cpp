@@ -1,23 +1,16 @@
-/* @@ Creo q la mayoria de las verificaciones de los inputs ya esta hecha
- *
- * el validatorINT hace cosas raras con las " , " a veces las elimina a veces no. VER ESO
- *
- * DEBERIA CENTRAR LOS ITEMS DE LAS COLUMNAS PERO NO ENCONTRE MANERA
- *
- *
- * los new QTableWidget ... deberia aplicarles delete???
-*/
+//@@ DEBERIA CENTRAR LOS ITEMS DE LAS COLUMNAS PERO NO ENCONTRE MANERA
+//los new QTableWidget ... deberia aplicarles delete???
+
+//@@ EL ANCHO DE LAS COLUMNAS , cambiarlo para q entre bien el nombre del productisimo
+
+//@@las verificaciones de los inputs hay que revisarlas mejor --> el tema de las , y los .
 
 #include "registrostock.h"
 #include "ui_registrostock.h"
 
-#include "nuevoproducto.h"
 #include <QMessageBox>
 
-RegistroStock::RegistroStock(Administrador *administrador,QWidget *parent) :
-    QMainWindow(parent),
-    uiRegistroStock( new Ui::RegistroStock)
-{
+RegistroStock::RegistroStock(Administrador *administrador,QWidget *parent) :QMainWindow(parent),uiRegistroStock( new Ui::RegistroStock){
     uiRegistroStock->setupUi(this);
 
     setWindowTitle("Registro de Stock");
@@ -44,14 +37,16 @@ void RegistroStock::setValidaciones(){
     QDoubleValidator *validatorDOUBLE = new QDoubleValidator(0.00,5000.00,2,this);
     validatorDOUBLE->setNotation(QDoubleValidator::StandardNotation); // esto porq daba problemas con las notaciones con comas
 
+
+
     QIntValidator *validatorINT = new QIntValidator(0,5000,this);
 
     uiRegistroStock->input_Precio->setValidator( validatorDOUBLE );
 
     uiRegistroStock->input_Cantidad->setValidator( validatorINT );
 
-    delete validatorINT;
-    delete validatorDOUBLE;
+   // delete validatorINT;
+   // delete validatorDOUBLE;
 
     //## Fin de la inicializacion Validaciones Sobre los Inputs
 
@@ -79,10 +74,9 @@ void RegistroStock::inicializarTabla(){
     //para que no aparezca el numero de la fila como una columna mas
     uiRegistroStock->table_Stock->verticalHeader()->setVisible(false);
 
+
     //### Fin de la inicializacion sobre la tabla
 }
-
-
 
 void RegistroStock::rellenarTableProduct(){//agarra todos los productos del gestor y los coloca en la tabla
 
@@ -142,32 +136,35 @@ void RegistroStock::on_btn_ActualizarStock_clicked(){
 
         if(nuevaCantidad!="" and !nuevaCantidad.contains(',')){
 
-                    //lo cambio de string a entero y de entero a strign para el caso de colocar --> 0000 , se convierte a entero 0 y luego a string 0
-                    // en los casos de 01,02,03 --> colocara 1,2,3 respectivamente
-            nuevaCantidad = QString::number(nuevaCantidad.toInt());
+
 
             QMessageBox::StandardButton vConfirmacion = QMessageBox::question( this,"Actualizar Stock",
-                                                                               "Se modificara el stock de "+nombreProducto+"\n Stock Anterior : "
-                                                                               + stockAnterior + "\n Stock Actualizado : "+ nuevaCantidad,
+                                                                               "Se modificara el stock de "+nombreProducto+"\n Sumando "+nuevaCantidad+" al stock total",
                                                                                QMessageBox::Cancel|QMessageBox::Yes);
 
             if (vConfirmacion == QMessageBox::Yes){
 
-                this->administrador->getGestorProductos()->modificarCantidad(id,nuevaCantidad);
 
-                uiRegistroStock->table_Stock->setItem(filaSeleccionada ,
-                                                      CANTIDAD,
-                                                      new QTableWidgetItem(nuevaCantidad));
+              short stockActualizado = nuevaCantidad.toShort()+stockAnterior.toShort();
 
-                QDate *fecha = new QDate();
-                uiRegistroStock->table_Stock->setItem(filaSeleccionada ,
-                                                      FECHA_INCORPORACION,
-                                                      new QTableWidgetItem( fecha->currentDate().toString("dd-MM-yyyy") ));
-                delete fecha;
+              if( this->administrador->getGestorProductos()->modificarCantidad(id,nuevaCantidad) == 1 ){
+                  uiRegistroStock->table_Stock->setItem(filaSeleccionada ,
+                                                        CANTIDAD,
+                                                        new QTableWidgetItem( QString::number(stockActualizado) ));
 
-                //por si se habia puesto rojo antes
-                uiRegistroStock->label_Cantidad->setStyleSheet("#label_Cantidad{color: rgb(0, 0, 0);}");
+                  QDate *fecha = new QDate();
+                  uiRegistroStock->table_Stock->setItem(filaSeleccionada ,
+                                                        FECHA_INCORPORACION,
+                                                        new QTableWidgetItem( fecha->currentDate().toString("dd-MM-yyyy") ));
+                  delete fecha;
+
+                  //por si se habia puesto rojo antes
+                  uiRegistroStock->label_Cantidad->setStyleSheet("#label_Cantidad{color: rgb(0, 0, 0);}");
+              }
+
+
             }
+
         }
         else{
             uiRegistroStock->label_Cantidad->setStyleSheet("#label_Cantidad{color: rgb(255, 0, 0);}");
@@ -204,14 +201,19 @@ void RegistroStock::on_btn_ActualizarPrecio_clicked(){
 
             if (vConfirmacion == QMessageBox::Yes){
 
-                this->administrador->getGestorProductos()->modificarPrecio(id,nuevoPrecio);
+                if( this->administrador->getGestorProductos()->modificarPrecio(id,nuevoPrecio) == 1 ){
 
-                uiRegistroStock->table_Stock->setItem(filaSeleccionada ,
-                                                      PRECIO,
-                                                      new QTableWidgetItem(nuevoPrecio + " $"));
 
-                //por si se habia puesto rojo antes
-                uiRegistroStock->label_Precio->setStyleSheet("#label_Precio{color: rgb(0, 0, 0);}");
+                    uiRegistroStock->table_Stock->setItem(filaSeleccionada ,
+                                                          PRECIO,
+                                                          new QTableWidgetItem(nuevoPrecio + " $"));
+
+                    //por si se habia puesto rojo antes
+                    uiRegistroStock->label_Precio->setStyleSheet("#label_Precio{color: rgb(0, 0, 0);}");
+
+                    emit this->precioActualizado();
+
+                }
 
             }
         }
@@ -231,8 +233,17 @@ void RegistroStock::on_btn_ActualizarPrecio_clicked(){
 
 }
 
+void RegistroStock::on_btn_GenerarPDF_Stock_clicked(){
+    QMessageBox::information(0,"No implementado" , "Esta opcion no fue implementada todavia.");
+
+}
+
 
 void RegistroStock::on_btn_Volver_clicked(){
+
     this->~RegistroStock();
 }
+
+
+
 

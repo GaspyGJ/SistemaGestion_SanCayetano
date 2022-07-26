@@ -12,25 +12,27 @@ public:
 
     ~GestorVentas();
 
-    void agregarVentaToday(unsigned int IDcliente,unsigned int IDproducto,short cantidad);
+    void inicializarTodayConBaseDeDatos(); // ejecuta consulta sql , crea las Ventas DE HOY  y los guarda en el vector
+
+    void agregarVentaToVec(unsigned int ID,short cantidad_Producto,double precio_Producto,QString fecha_Venta,QString hora_Venta,QString nombre_Producto,QString nombre_Cliente);
+
+    short crearVentaToday(short cantidad_Producto,double precio_Producto,QString fecha_Venta,QString hora_Venta,QString nombre_Producto,QString nombre_Cliente);
 
     short buscarVentaToday(unsigned int ID); // devuelve la posicion de vecVentas donde esta el de ID, si no esta retorna -1
 
     Venta* getVentaToday(unsigned int ID); //devuelve un puntero a la venta
 
-    void eliminarVenta_Today(unsigned int ID);
+    short eliminarVenta_Today(unsigned int ID);
 
-    QVector<unsigned int> getAll_ID_Ventas_Today(); //retorna todos los Ids de las ventas del dia de hoy
+    QVector <Venta *> getAll_Ventas_Today(); //retorna todos los Ids de las ventas del dia de hoy
 
-    void push_VentasToday_To_Ventas(unsigned int ID);// ver FUNDIONAMIENTO DE ESTA FUNCION
+    //void push_VentasToday_To_Ventas(unsigned int ID);// ver FUNCIONAMIENTO DE ESTA FUNCION
 
 private:
 
-    QVector <Venta *> vecVentas; // registro de todas las ventas
+   // QVector <Venta *> vecVentasTotales; // registro de todas las ventas
 
     QVector <Venta *> vecVentasToday; // registro de las ventas de HOY
-
-    unsigned int ultimoID;
 
     BaseDeDatos *db;
 };

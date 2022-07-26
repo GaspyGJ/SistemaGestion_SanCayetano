@@ -10,12 +10,14 @@ public:
 
     Producto(unsigned int ID,QString nombre,double precio);
 
+    //getters
     unsigned int getID();
-    QString getNombre();
+    QString getNombre(); 
     double getPrecio();
     int getCantidad();
     QString getFechaUltimaIncorporacion();
 
+    //setters
     void setID(unsigned int ID);
     void setNombre(QString nombre);
     void setPrecio(double precio);
@@ -28,7 +30,7 @@ private:
     QString nombre;
     double precio;
     int cantidad;
-    QString fechaUltimaIncorporacion;
+    QString fechaUltimaIncorporacion; // registra la fecha de la ultima vez que se actualizo el Stock
 
 };
 

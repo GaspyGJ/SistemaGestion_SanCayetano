@@ -1,4 +1,4 @@
-QT       += core gui sql
+QT       += core gui sql printsupport webenginewidgets
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -12,6 +12,7 @@ SOURCES += \
     administrador.cpp \
     basededatos.cpp \
     cliente.cpp \
+    establecimiento.cpp \
     gestorclientes.cpp \
     gestorproductos.cpp \
     gestorventas.cpp \
@@ -20,12 +21,15 @@ SOURCES += \
     producto.cpp \
     registroclientes.cpp \
     registrostock.cpp \
+    styleitem.cpp \
+    tableprinter.cpp \
     venta.cpp
 
 HEADERS += \
     administrador.h \
     basededatos.h \
     cliente.h \
+    establecimiento.h \
     gestorclientes.h \
     gestorproductos.h \
     gestorventas.h \
@@ -33,6 +37,8 @@ HEADERS += \
     producto.h \
     registroclientes.h \
     registrostock.h \
+    styleitem.h \
+    tableprinter.h \
     venta.h
 
 FORMS += \
@@ -44,3 +50,6 @@ FORMS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    imagenes.qrc

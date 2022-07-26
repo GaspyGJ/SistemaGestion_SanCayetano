@@ -1,13 +1,10 @@
 #include "cliente.h"
 
 
-Cliente::Cliente(unsigned int id,QString nombre,QString telefono, QString direccion)
-{
+Cliente::Cliente(unsigned int id,QString nombre,Establecimiento *establecimiento){
     this->setID(id);
     this->setNombre(nombre);
-    this->setTelefono(telefono);
-    this->setDireccion(direccion);
-
+    this->vecEstablecimientos.push_back(establecimiento);
 }
 
 //setters
@@ -17,11 +14,11 @@ void Cliente::setID(unsigned int id){
 void Cliente::setNombre(QString nombre){
     this->nombre=nombre;
 }
-void Cliente::setTelefono(QString telefono){
-    this->telefono=telefono;
-}
-void Cliente::setDireccion(QString direccion){
-    this->direccion=direccion;
+void Cliente::setEstablecimiento(QString direccion,QString telefono){
+
+    Establecimiento *e = new Establecimiento(direccion,telefono);
+    this->vecEstablecimientos.push_back(e);
+
 }
 
 //getters
@@ -31,9 +28,25 @@ unsigned int Cliente::getID(){
 QString Cliente::getNombre(){
     return this->nombre;
 }
-QString Cliente::getTelefono(){
-    return this->telefono;
+
+Establecimiento* Cliente::getEstablecimiento(QString direccion){
+
+    foreach(Establecimiento *e , this->getAll_Establecimientos() ){
+
+        if(e->getDireccion()==direccion){
+            return e;
+        }
+
+    }
+
+    return NULL;
+
+
+
 }
-QString Cliente::getDireccion(){
-    return this->direccion;
+
+QVector <Establecimiento *> Cliente::getAll_Establecimientos(){
+    return this->vecEstablecimientos;
 }
+
+

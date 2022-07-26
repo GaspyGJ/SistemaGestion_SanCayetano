@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1000</width>
-    <height>465</height>
+    <height>455</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -83,38 +83,17 @@
            </item>
           </layout>
          </item>
-        </layout>
-       </widget>
-      </item>
-      <item>
-       <widget class="QGroupBox" name="groupBox_2">
-        <property name="maximumSize">
-         <size>
-          <width>190</width>
-          <height>16777215</height>
-         </size>
-        </property>
-        <property name="title">
-         <string>Gestionar Stock</string>
-        </property>
-        <layout class="QVBoxLayout" name="verticalLayout">
          <item>
-          <widget class="QPushButton" name="btn_GenerarPDF_Stock">
-           <property name="text">
-            <string>Generar PDF Stock</string>
-           </property>
-           <property name="autoDefault">
-            <bool>true</bool>
-           </property>
-           <property name="default">
-            <bool>false</bool>
+          <widget class="Line" name="line">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="btn_imprimirStock">
+          <widget class="QPushButton" name="btn_GenerarPDF_Stock">
            <property name="text">
-            <string>Imprimir Stock</string>
+            <string>Exportar Tabla Stock</string>
            </property>
            <property name="autoDefault">
             <bool>true</bool>
@@ -197,8 +176,10 @@
  <tabstops>
   <tabstop>input_Precio</tabstop>
   <tabstop>btn_ActualizarPrecio</tabstop>
+  <tabstop>input_Cantidad</tabstop>
+  <tabstop>btn_ActualizarStock</tabstop>
   <tabstop>btn_GenerarPDF_Stock</tabstop>
-  <tabstop>btn_imprimirStock</tabstop>
+  <tabstop>btn_Volver</tabstop>
   <tabstop>table_Stock</tabstop>
  </tabstops>
  <resources/>

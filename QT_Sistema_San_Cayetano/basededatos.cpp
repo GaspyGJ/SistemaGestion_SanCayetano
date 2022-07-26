@@ -18,7 +18,6 @@ short BaseDeDatos::Conectar(){
         this->baseDatos=QSqlDatabase::addDatabase("QSQLITE");
 
         this->baseDatos.setDatabaseName("../BBDD/SanCayetano_BBDD.db");
-
     }
 
     return retorno;

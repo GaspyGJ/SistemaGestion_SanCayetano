@@ -2,30 +2,35 @@
 #define CLIENTE_H
 
 #include <QString>
+#include <QVector>
+
+#include "establecimiento.h"
 
 class Cliente
 {
 public:
-    Cliente(unsigned int id,QString nombre,QString telefono, QString direccion);
 
-    QString getNombre();
-    QString getTelefono();
-    QString getDireccion();
+    Cliente(unsigned int id,QString nombre,Establecimiento *establecimiento);
+
+    //getters
     unsigned int getID();
+    QString getNombre();
+    Establecimiento* getEstablecimiento(QString direccion);
 
+    QVector <Establecimiento *> getAll_Establecimientos();
 
-    void setNombre(QString nombre);
+    //setters
     void setID(unsigned int id);
-    void setTelefono(QString telefono);
-    void setDireccion(QString direccion);
+    void setNombre(QString nombre);
+    void setEstablecimiento(QString direccion,QString telefono);
 
 private:
 
     unsigned int  ID;
-    QString nombre;
-    QString telefono;
-    QString direccion;
 
+    QString nombre;
+
+    QVector <Establecimiento *> vecEstablecimientos;
 };
 
 #endif // CLIENTE_H

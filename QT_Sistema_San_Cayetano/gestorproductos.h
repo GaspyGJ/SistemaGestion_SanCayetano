@@ -13,23 +13,40 @@ public:
 
     ~GestorProductos();
 
-    void inicializarConBaseDeDatos();
-
-    void agregarProducto(unsigned int id,QString nombre,double precio,int stock,QString fecha_ultima_incorporacion);
-
-    short buscarProducto(unsigned int ID); // devuelve la posicion de vecProductos donde esta el de ID, si no esta retorna -1
+    //getters
 
     Producto* getProducto(unsigned int ID); //devuelve un puntero al producto
 
-    void modificarCantidad(unsigned int ID,QString cantidad);
+    Producto* getProducto(QString nombre);
 
-    void modificarPrecio(unsigned int ID,QString precio);
+    QVector<unsigned int> getAll_ID_Productos(); //retorna todos los Ids de los productos
+
+    //buscadores
+
+    short buscarProducto(unsigned int ID); // devuelve la posicion de vecProductos donde esta el de ID, si no esta retorna -1
+
+    short buscarProductoPorNombre(QString nombre); // devuelve la posicion de vecProductos donde esta el de ID, si no esta retorna -1
+
+
+    //BBDD
+
+    void inicializarConBaseDeDatos(); // ejecuta consulta sql , crea los Productos y los guarda en el vector de productos
+
+
+    //Creacion / Eliminacion de Productos
+    void agregarProducto(unsigned int id,QString nombre,double precio,int stock,QString fecha_ultima_incorporacion);
+
+    /*void eliminarProducto(unsigned int ID); --> no implementada , no resulto necesaria.*/
+
+
+    //modificacion Productos
+
+    short modificarCantidad(unsigned int ID,QString cantidad);
+
+    short modificarPrecio(unsigned int ID,QString precio);
 
     void modificarFechaUltimaIncorporacion(unsigned int ID,QDate fecha);
 
-    //void eliminarProducto(unsigned int ID);
-
-    QVector<unsigned int> getAll_ID_Productos(); //retorna todos los Ids de los productos
 
 private:
 

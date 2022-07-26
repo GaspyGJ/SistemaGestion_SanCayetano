@@ -8,28 +8,42 @@
 class Venta
 {
 public:
-    Venta(unsigned int ID,unsigned int IDcliente,unsigned int IDproducto,short cantidad);
+
+    Venta(unsigned int ID,QString Producto,QString Cliente,double precio_Producto,short cantidad_Producto,QString fecha_Venta,QString hora_Venta);
     ~Venta();
 
-    unsigned int getIDCliente();
-    unsigned int getIDproducto();
-    short getCantidad();
-    double getPrecioTotal();
+    //getters
     unsigned int getID();
+    QString  getCliente();
+    QString  getProducto();
+    short getCantidad();
+    double getPrecio_Producto();
+    double getPrecioTotal();
+    QString getFecha_Venta();
+    QString getHora_Venta();
 
-    void setIDCliente(unsigned int cliente);
-    void setIDProducto(unsigned int producto);
-    void setCantidad(short cantidad);
-    void setPrecioTotal(double precioTotal);
+    //setters
     void setID(unsigned int ID);
+    void setCliente(QString cliente);
+    void setProducto(QString producto);
+    void setCantidad(short cantidad);
+    void setPrecio_Prodcuto(double precio_Producto);
+    void setPrecioTotal(double precioTotal);
+    void setFecha_Venta(QString fecha_Venta);
+    void setHora_Venta(QString hora_Venta);
+
+
 
 private:
-
     unsigned int ID;
-    unsigned int IDcliente;
-    unsigned int IDproducto;
-    short cantidad;
-    double precioTotal;
+
+    QString nombre_Cliente,nombre_Producto;
+
+    short cantidad_Producto;
+
+    double precio_Producto , precioTotal;
+
+    QString fecha_Venta , hora_Venta;
 
 };
 

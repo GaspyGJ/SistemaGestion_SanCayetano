@@ -1,3 +1,5 @@
+PRAGMA foreign_keys = ON;
+
 CREATE TABLE "Clientes" (
 	"id_Cliente"	INTEGER,
 	"nombre"	TEXT NOT NULL UNIQUE,
@@ -5,19 +7,21 @@ CREATE TABLE "Clientes" (
 );
 
 CREATE TABLE "DireccionC" (
-	"direccion"	TEXT,
 	"id_Cliente"	INTEGER,
-	FOREIGN KEY("id_Cliente") REFERENCES "Clientes"("id_Cliente"),
-	PRIMARY KEY("direccion","id_Cliente")
-);
-
-CREATE TABLE "TelefonosC" (
-	"telefono"	TEXT,
-	"id_Cliente"	INTEGER,
-	"direccion"	TEXT,
-	PRIMARY KEY("telefono","id_Cliente"),
+	"direccion"		TEXT,
+	PRIMARY KEY("direccion","id_Cliente"),
 	FOREIGN KEY("id_Cliente") REFERENCES "Clientes"("id_Cliente")
 );
+
+CREATE TABLE "TelefonosD" (
+	"id_Cliente"	INTEGER,
+	"direccion"		TEXT,
+	"telefono"		TEXT,
+	PRIMARY KEY("id_Cliente","direccion","telefono"),
+	FOREIGN KEY("id_Cliente","direccion") REFERENCES "DireccionC"("id_Cliente","direccion") ON UPDATE CASCADE
+); 
+
+
 
 CREATE TABLE "Productos" (
 	"id_Producto"	INTEGER,
@@ -31,12 +35,13 @@ CREATE TABLE "Productos" (
 
 CREATE TABLE "Ventas" (
 	"id_Venta"	INTEGER,
-	"cantidad_Producto"	REAL NOT NULL CHECK(cantidad_Producto>0),
-	"precio_Producto"	REAL NOT NULL CHECK(precio_Producto>0),
+	"cantidad_Producto"	INTEGER NOT NULL CHECK("cantidad_Producto" > 0),
+	"precio_Producto"	REAL NOT NULL CHECK("precio_Producto" > 0),
 	"fecha_Venta"	TEXT NOT NULL,
-	"id_Producto"	INTEGER,
-	"id_Cliente"	INTEGER,
+	"id_Producto"	INTEGER NOT NULL,
+	"id_Cliente"	INTEGER NOT NULL,
+	"total_Venta"	AS (cantidad_Producto*precio_Producto ),
 	PRIMARY KEY("id_Venta" AUTOINCREMENT),
-	FOREIGN KEY("id_Producto") REFERENCES "Productos"("id_Producto"),
-	FOREIGN KEY("id_Cliente") REFERENCES "Clientes"("id_Cliente")
-);
+	FOREIGN KEY("id_Cliente") REFERENCES "Clientes"("id_Cliente"),
+	FOREIGN KEY("id_Producto") REFERENCES "Productos"("id_Producto")
+)

@@ -16,13 +16,20 @@ public:
     explicit RegistroStock(Administrador *administrador,QWidget *parent = nullptr);
     ~RegistroStock();
 
-private slots:
-
+    //setters
     void setValidaciones();
 
     void inicializarTabla();
-
     void rellenarTableProduct();
+
+signals:
+
+    void precioActualizado();
+
+
+private slots:
+
+    //eventos clicked
 
     void on_btn_ActualizarStock_clicked();
 
@@ -30,15 +37,18 @@ private slots:
 
     void on_btn_Volver_clicked();
 
+    void on_btn_GenerarPDF_Stock_clicked();
+
 private:
-    Ui::RegistroStock *uiRegistroStock;
+
+    Ui::RegistroStock *uiRegistroStock; // puntero a la interfaz grafica
 
     Administrador *administrador;
 
-    int ultimaFilaConDatos;
+    int ultimaFilaConDatos; //contiene la ultima fila de la tabla con datos cargados , sirve para ir cargando los datos en secuencia.
 
     enum Columna{
-        ID,NOMBRE,PRECIO,CANTIDAD ,FECHA_INCORPORACION
+        ID,NOMBRE,PRECIO,CANTIDAD ,FECHA_INCORPORACION //enum para mejor legibilidad del ingreso de datos en la tabla
     };
 };
 

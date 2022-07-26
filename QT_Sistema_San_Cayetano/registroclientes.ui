@@ -6,9 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>755</width>
-    <height>584</height>
+    <width>1037</width>
+    <height>619</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>1000</width>
+    <height>400</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
@@ -26,45 +32,62 @@
          </size>
         </property>
         <property name="title">
-         <string>Agregar Cliente</string>
+         <string>Nuevo Cliente</string>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout">
          <item>
-          <layout class="QFormLayout" name="formLayout_3">
-           <item row="0" column="0">
-            <widget class="QLabel" name="label">
-             <property name="text">
-              <string>Nombre Cliente :</string>
-             </property>
-            </widget>
-           </item>
-           <item row="2" column="0">
-            <widget class="QLabel" name="label_2">
-             <property name="text">
-              <string>Telefono : </string>
-             </property>
-             <property name="margin">
-              <number>0</number>
-             </property>
-            </widget>
-           </item>
-           <item row="3" column="0" colspan="2">
-            <widget class="QLineEdit" name="lineEdit_2"/>
-           </item>
-           <item row="1" column="0" colspan="2">
-            <widget class="QLineEdit" name="lineEdit"/>
+          <layout class="QFormLayout" name="formLayout_2">
+           <item row="0" column="0" colspan="2">
+            <layout class="QFormLayout" name="formLayout">
+             <item row="0" column="0">
+              <widget class="QLabel" name="label_Nombre">
+               <property name="text">
+                <string>Nombre :</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0" colspan="2">
+              <widget class="QLineEdit" name="input_Nombre"/>
+             </item>
+             <item row="2" column="0">
+              <widget class="QLabel" name="label_Telefono">
+               <property name="text">
+                <string>Telefono : </string>
+               </property>
+               <property name="margin">
+                <number>0</number>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="0" colspan="2">
+              <widget class="QLineEdit" name="input_Telefono"/>
+             </item>
+             <item row="4" column="0">
+              <widget class="QLabel" name="label_Direccion">
+               <property name="text">
+                <string>Direccion:</string>
+               </property>
+               <property name="margin">
+                <number>0</number>
+               </property>
+              </widget>
+             </item>
+             <item row="5" column="0" colspan="2">
+              <widget class="QLineEdit" name="input_Direccion"/>
+             </item>
+             <item row="6" column="0" colspan="2">
+              <widget class="QPushButton" name="btn_CrearCliente">
+               <property name="text">
+                <string>Crear Cliente</string>
+               </property>
+               <property name="autoDefault">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+            </layout>
            </item>
           </layout>
-         </item>
-         <item>
-          <widget class="QPushButton" name="pushButton">
-           <property name="text">
-            <string>Agregar Cliente</string>
-           </property>
-           <property name="autoDefault">
-            <bool>true</bool>
-           </property>
-          </widget>
          </item>
         </layout>
        </widget>
@@ -78,46 +101,58 @@
          </size>
         </property>
         <property name="title">
-         <string>Modificar Cliente</string>
+         <string>Gestionar Cliente</string>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_3">
          <item>
-          <layout class="QFormLayout" name="formLayout">
-           <item row="4" column="0">
-            <widget class="QLabel" name="label_3">
-             <property name="text">
-              <string>Direccion :</string>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="0">
-            <widget class="QLabel" name="label_4">
-             <property name="text">
-              <string>Telefono : </string>
-             </property>
-            </widget>
-           </item>
-           <item row="3" column="0" colspan="2">
-            <widget class="QPushButton" name="pushButton_2">
-             <property name="text">
-              <string>Actualizar Telefono</string>
-             </property>
-            </widget>
-           </item>
-           <item row="5" column="0" colspan="2">
-            <widget class="QLineEdit" name="lineEdit_3"/>
-           </item>
-           <item row="2" column="0" colspan="2">
-            <widget class="QLineEdit" name="lineEdit_4"/>
-           </item>
-           <item row="6" column="0" colspan="2">
-            <widget class="QPushButton" name="pushButton_3">
-             <property name="text">
-              <string>Actualizar Direccion</string>
-             </property>
-            </widget>
-           </item>
-          </layout>
+          <widget class="QComboBox" name="comboBox_seleccionarCliente"/>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_AgregarDireccion">
+           <property name="text">
+            <string>Direccion :</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="input_AgregarDireccion"/>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btn_AgregarDireccion">
+           <property name="text">
+            <string>Agregarle Direccion</string>
+           </property>
+           <property name="autoDefault">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btn_EliminarDireccion">
+           <property name="text">
+            <string>Eliminarle Direccion</string>
+           </property>
+           <property name="autoDefault">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="Line" name="line_2">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btn_EliminarCliente">
+           <property name="text">
+            <string>Eliminar Cliente</string>
+           </property>
+           <property name="autoDefault">
+            <bool>true</bool>
+           </property>
+          </widget>
          </item>
         </layout>
        </widget>
@@ -131,23 +166,13 @@
          </size>
         </property>
         <property name="title">
-         <string>Gestionar Cliente</string>
+         <string>Exportar</string>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_2">
          <item>
-          <widget class="QPushButton" name="pushButton_7">
+          <widget class="QPushButton" name="btn_GenerarPDF_Clientes">
            <property name="text">
-            <string>Generar PDF Clientes</string>
-           </property>
-           <property name="autoDefault">
-            <bool>true</bool>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="pushButton_8">
-           <property name="text">
-            <string>Imprimir PDF Clientes</string>
+            <string>Exportar Tabla Clientes</string>
            </property>
            <property name="autoDefault">
             <bool>true</bool>
@@ -158,7 +183,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton_4">
+       <widget class="QPushButton" name="btn_Volver">
         <property name="maximumSize">
          <size>
           <width>190</width>
@@ -202,22 +227,7 @@
        </widget>
       </item>
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout">
-        <item>
-         <widget class="QPushButton" name="pushButton_6">
-          <property name="text">
-           <string>Generar PDF Ventas Cliente Seleccionado</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QPushButton" name="pushButton_5">
-          <property name="text">
-           <string>Imprimir Ventas Cliente Seleccionado</string>
-          </property>
-         </widget>
-        </item>
-       </layout>
+       <layout class="QHBoxLayout" name="horizontalLayout"/>
       </item>
      </layout>
     </item>
@@ -228,13 +238,27 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>755</width>
+     <width>1037</width>
      <height>21</height>
     </rect>
    </property>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
+ <tabstops>
+  <tabstop>input_Nombre</tabstop>
+  <tabstop>input_Telefono</tabstop>
+  <tabstop>input_Direccion</tabstop>
+  <tabstop>btn_CrearCliente</tabstop>
+  <tabstop>comboBox_seleccionarCliente</tabstop>
+  <tabstop>input_AgregarDireccion</tabstop>
+  <tabstop>btn_AgregarDireccion</tabstop>
+  <tabstop>btn_EliminarDireccion</tabstop>
+  <tabstop>btn_EliminarCliente</tabstop>
+  <tabstop>btn_GenerarPDF_Clientes</tabstop>
+  <tabstop>btn_Volver</tabstop>
+  <tabstop>table_Clientes</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>
